@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.devMode" value="false" />
+
+	<package name="uuhouse" extends="struts-default" namespace="/">
+		
+		<!-- 配置首页访问的Action
+		<action name="index" class="indexAction">
+			<result name="index">/WEB-INF/jsp/index.jsp</result>
+		</action>
+		
+		<global-results>
+			<result name="msg">/WEB-INF/jsp/msg.jsp</result>
+			<result name="login">/admin/index.jsp</result>
+		</global-results>-->
+		
+		<!-- 配置首页访问的Action-->
+		<action name="index" class="com.house.user.action.UserAction" method="index">
+			<result name="index">/jsp/index.jsp</result>
+		</action>
+		
+		<!-- 配置用户模块的Action -->
+		<action name="user_*" class="com.house.user.action.UserAction" method="{1}">
+			<result name="to_regist">/jsp/regist.jsp</result>
+			<result name="to_login">/jsp/login.jsp</result>
+			<result name="login_error">/jsp/login.jsp</result>
+			<result name="login_success" type="redirectAction">index</result>
+			<result name="quit" type="redirectAction">index</result>
+			<result name="checkcodeFail">/jsp/regist.jsp</result>
+			<result name="error">jsp/error.jsp</result>
+			
+			<result name="input">jsp/regist.jsp</result>
+		</action>
+		
+		<!-- 验证码Action -->
+		<action name="checkImg" class="com.house.user.action.CheckImgAction"></action>
+		
+	</package>
+</struts>    
