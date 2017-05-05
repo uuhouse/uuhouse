@@ -16,6 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <script language="JavaScript" src="./js/storage.js"></script>
 <script language="JavaScript" src="./js/storage_v2.js"></script>
+<script language="JavaScript" src="./js/city.js"></script>
 </head>
 <body>
 <!-- *********************顶部********************** -->	
@@ -61,33 +62,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  </form>
 		  </div>
 		  
-<!-- 
-		  
-		  <div class="f-h-search f-clear f-fl" data-widget="app/ms_v2/widget/key_search_with_local_storage_v2.js" id="listSearch" data-is-list="1" data-focus-class="small-focus" data-url-template="http://bj.ganji.com/%s/_{{keyword}}/" data-autocomplete-url="/ajax.php?_pdt=fang&amp;module=suggestion&amp;domain=xa&amp;keyword={{keyword}}">
-		        <form action="" method="post" onsubmit="return false;">
-		            <div class="category f-fl" style="position:relative" data-default-url="http://xa.ganji.com/fang5/_{{keyword}}/" data-cate="fang5" data-role="selected">
-					    <p class="title js-text">出租房</p>
-					    <i class="triangle"></i>
-					    <ul class="list" data-role="options">
-				            <li rel="nofollow" data-role="option" data-default-url="http://xa.ganji.com/fang1/_{{keyword}}/" data-cate="fang1" data-target="_blank" data-is-sub-cate="true" class="item" style="display: none;"><a rel="nofollow" href="#" title="出租房">出租房</a></li>
-				            <li rel="nofollow" data-role="option" data-default-url="http://xa.ganji.com/fang3/_{{keyword}}/" data-cate="fang3" data-target="_blank" data-is-sub-cate="true" class="item" style="display: list-item;"><a rel="nofollow" href="#" title="合租房">合租房</a></li>
-				            <li rel="nofollow" data-role="option" data-default-url="http://xa.ganji.com/fang12/_{{keyword}}/" data-cate="fang12" data-target="_blank" data-is-sub-cate="true" class="item" style="display: list-item;"><a rel="nofollow" href="#" title="新房">新房</a></li>
-				            <li rel="nofollow" data-role="option" data-default-url="http://xa.ganji.com/fang10/_{{keyword}}/" data-cate="fang10" data-target="_blank" data-is-sub-cate="true" class="item"><a rel="nofollow" href="#" title="短租">短租</a></li>
-				            <li rel="nofollow" data-role="option" data-default-url="http://xa.ganji.com/fang6/_{{keyword}}/" data-cate="fang6" data-target="_blank" data-is-sub-cate="true" class="item"><a rel="nofollow" href="#" title="商铺">商铺</a></li>
-				            <li rel="nofollow" data-role="option" data-default-url="http://xa.ganji.com/fang8/_{{keyword}}/" data-cate="fang8" data-target="_blank" data-is-sub-cate="true" class="item"><a rel="nofollow" href="#" title="写字楼">写字楼</a></li>
-				            <li rel="nofollow" data-role="option" data-default-url="http://xa.ganji.com/fang11/_{{keyword}}/" data-cate="fang11" data-target="_blank" data-is-sub-cate="true" class="item"><a rel="nofollow" href="#" title="厂房">厂房</a></li>
-				            <li rel="nofollow" data-role="option" data-default-url="http://xa.ganji.com/xiaoqu/_{{keyword}}/" data-cate="xiaoqu" data-target="_blank" data-is-sub-cate="true" class="item"><a rel="nofollow" href="#" title="小区">小区</a></li>
-			            </ul>
-					</div>
-		
-		            <div class="search f-fl">
-		                <input class="search-input-fang" name="search_keyword" value="" autocomplete="off" id="search_keyword" data-role="input" type="text" placeholder="开始找房">
-		            </div>
-		            <input gjalog="100000002117000100000010" data-role="btn" name="search" id="search_button" type="submit" class="search-button f-fl" value="搜索">
-		        </form>
-		    <div class="gj_sys_autoc_rs" style="display: none;"></div>
-		  </div>
- -->
 		   <div class="edit-eara">
 		        <a rel="nofollow" class="btn-post" href="" title="免费发布信息" target="_blank"><span><em class="edit-ico"></em>免费发布信息</span></a>
 		        <a rel="nofollow" class="btn-del" href="" title="修改/删除信息" target="_blank"><span class="del-ico">修改/删除信息</span></a>
@@ -127,6 +101,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <dl class="all-city clearfix">
                 <dt>全国城市：</dt>
                 <dd>
+                    <!-- 
                     <div id="id_prov_box" class="select-box width height ">
                        <input id="text_prov" name="" type="text" value="请选择省份" class="icon-up" readonly="">
                        <div class="xialabox hc" id="id_prov" style="display: hidden;">
@@ -145,6 +120,58 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="btn-box fl">
                     	<input class="btn-confirm" type="button" id="submit_btn" value="确定">
                     </div>
+                     -->
+                    <form id="cityform" name="cityform" action = "" >
+	                    <div id="id_prov_box" class="select-box width height ">
+	                    	
+	                         <select style="WIDTH: 120px"  name="sheng" id="sheng" onchange="ProvinceChange(this, cityform.city);">
+						        <option selected="selected" value="">-请选择省份</option>
+						        <option value="北京">北京</option>
+						        <option value="天津">天津</option>
+						        <option value="辽宁">辽宁</option>
+						        <option value="吉林">吉林</option>
+						        <option value="黑龙江">黑龙江</option>
+						        <option value="河北">河北</option>
+						        <option value="山西">山西</option>
+						        <option value="内蒙古">内蒙古</option>
+						        <option value="上海">上海</option>
+						        <option value="江苏">江苏</option>
+						        <option value="浙江">浙江</option>
+						        <option value="安徽">安徽</option>
+						        <option value="福建">福建</option>
+						        <option value="江西">江西</option>
+						        <option value="山东">山东</option>
+						        <option value="河南">河南</option>
+						        <option value="湖北">湖北</option>
+						        <option value="湖南">湖南</option>
+						        <option value="广东">广东</option>
+						        <option value="广西">广西</option>
+						        <option value="海南">海南</option>
+						        <option value="重庆">重庆</option>
+						        <option value="四川">四川</option>
+						        <option value="贵州">贵州</option>
+						        <option value="云南">云南</option>
+						        <option value="西藏">西藏</option>
+						        <option value="陕西">陕西</option>
+						        <option value="甘肃">甘肃</option>
+						        <option value="青海">青海</option>
+						        <option value="宁夏">宁夏</option>
+						        <option value="新疆">新疆</option>
+						        <option value="台湾">台湾</option>
+						        <option value="香港">香港</option>
+						        <option value="澳门">澳门</option>
+						      </select>
+						  </div>
+						  <div id="id_city_box" class="select-box width">
+						      <select style="WIDTH: 120px" name="city" id="city" >
+						      <option selected="selected" value="">-请选择城市</option>
+						      </select> 
+						 </div> 
+						 
+						 <div class="btn-box fl">
+			              	<input class="btn-confirm" type="button" id="submit_btn" value="确定">
+			              </div>
+					 </form>
                 </dd>
             </dl>
         </div>
