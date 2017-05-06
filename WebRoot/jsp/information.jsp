@@ -17,7 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="./css/info2.css" rel="stylesheet" type="text/css"/>
 	<link href="./css/info3.css" rel="stylesheet" type="text/css"/>
 	<link href="./css/cart.css" rel="stylesheet" type="text/css"/>
-
+	<script src="./js/jquery-1.8.3.js" />
   </head>
   
   <body>
@@ -57,92 +57,86 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
 
 	<div class="house-basic-pic fl" id="houseBasicPic">
-            <div id="bigImg" class="basic-top-bigpic pr " onclick="clickLog('from=fcpc_detail_esf_xa_bigpicture')">
-                <!-- 视频加1 start -->
-                                <!-- 视频加1 end -->
-                <img id="smainPic" src="http://pic5.58cdn.com.cn/anjuke_58/af1ea57f7aa29f966468aa1dd0b65285?w=700&amp;h=480&amp;crop=1" alt="1/8" style="display: inline; margin-top: 0px;"><!--左上角房源大图一张-->
-                <span id="sImgNu" class="leftNum pa f12" style="display: block;">1/8</span>
-
-                <div class="basic-pic-load" id="loadingSmall" style="display: none;">
-                    <div class="top icon"></div>
-                    <div class="bottom icon"></div>
-                </div>
-
-                <!-- 视频加2 start -->
-                                <!-- 视频加2 end -->
-
-            </div>
-            <div class="on picDescLayer pa"></div>
-            <div class="on picDescMask on pa f12 c_fff">
-                <i class="icon"></i>
-                <span class="f1" id="smallPicDescType">房源描述</span>
-                <p class="f2" id="smallPicDescShow">1.价位：62万，黄金地段，2室2厅，明厨明卫，小区仅此一套，比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大</p>
-            </div>
-            <div class="basic-pic-list pr">
-                <ul id="leftImg" class="pic-list-wrap pa" onclick="clickLog('from=fcpc_detail_esf_xa_tupian_click')" style="left: 0px;">
-
-                    <!--基本信息小图-->
-                                                <li id="xtu_3" class="actives" data-value="http://pic5.58cdn.com.cn/anjuke_58/af1ea57f7aa29f966468aa1dd0b65285?w=700&amp;h=480&amp;crop=1"><!--轮播图点击之后的大图-->
-                                <img data-value="http://pic5.58cdn.com.cn/anjuke_58/af1ea57f7aa29f966468aa1dd0b65285?w=242&amp;h=150&amp;crop=1" src="http://pic5.58cdn.com.cn/anjuke_58/af1ea57f7aa29f966468aa1dd0b65285?w=242&amp;h=150&amp;crop=1">
-                                <!--data-value和src值相同  小图的尺寸-->
-                                                            </li>
-                                                    <li id="xtu_4" data-value="http://pic1.58cdn.com.cn/anjuke_58/652c00a91b81be424888dd0ab9598337?w=700&amp;h=480&amp;crop=1" class=""><!--轮播图点击之后的大图-->
-                                <img data-value="http://pic1.58cdn.com.cn/anjuke_58/652c00a91b81be424888dd0ab9598337?w=242&amp;h=150&amp;crop=1" src="http://pic1.58cdn.com.cn/anjuke_58/652c00a91b81be424888dd0ab9598337?w=242&amp;h=150&amp;crop=1">
-                                <!--data-value和src值相同  小图的尺寸-->
-                                                            </li>
-                                                    <li id="xtu_5" data-value="http://pic3.58cdn.com.cn/anjuke_58/d4713226067c0f6561c8c4f6545bbcf0?w=700&amp;h=480&amp;crop=1" class=""><!--轮播图点击之后的大图-->
-                                <img data-value="http://pic3.58cdn.com.cn/anjuke_58/d4713226067c0f6561c8c4f6545bbcf0?w=242&amp;h=150&amp;crop=1" src="http://pic3.58cdn.com.cn/anjuke_58/d4713226067c0f6561c8c4f6545bbcf0?w=242&amp;h=150&amp;crop=1">
-                                <!--data-value和src值相同  小图的尺寸-->
-                                                            </li>
-                                                    <li id="xtu_6" data-value="http://pic6.58cdn.com.cn/anjuke_58/15b48d5056bd679943f38a30d61544d8?w=700&amp;h=480&amp;crop=1" class=""><!--轮播图点击之后的大图-->
-                                <img data-value="http://pic6.58cdn.com.cn/anjuke_58/15b48d5056bd679943f38a30d61544d8?w=242&amp;h=150&amp;crop=1" src="http://pic6.58cdn.com.cn/anjuke_58/15b48d5056bd679943f38a30d61544d8?w=242&amp;h=150&amp;crop=1">
-                                <!--data-value和src值相同  小图的尺寸-->
-                                                            </li>
-                                                    <li id="xtu_7" data-value="http://pic2.58cdn.com.cn/anjuke_58/72e828db286aa9114d3bb423370c10aa?w=700&amp;h=480&amp;crop=1"><!--轮播图点击之后的大图-->
-                                <img data-value="http://pic2.58cdn.com.cn/anjuke_58/72e828db286aa9114d3bb423370c10aa?w=242&amp;h=150&amp;crop=1" src="http://pic2.58cdn.com.cn/anjuke_58/72e828db286aa9114d3bb423370c10aa?w=242&amp;h=150&amp;crop=1">
-                                <!--data-value和src值相同  小图的尺寸-->
-                                                            </li>
-                                                    <li id="xtu_8" data-value="http://pic3.58cdn.com.cn/anjuke_58/a2af732e2417512d5cfed01cb0576c89?w=700&amp;h=480&amp;crop=1"><!--轮播图点击之后的大图-->
-                                <img data-value="http://pic3.58cdn.com.cn/anjuke_58/a2af732e2417512d5cfed01cb0576c89?w=242&amp;h=150&amp;crop=1" src="http://pic3.58cdn.com.cn/anjuke_58/a2af732e2417512d5cfed01cb0576c89?w=242&amp;h=150&amp;crop=1">
-                                <!--data-value和src值相同  小图的尺寸-->
-                                                            </li>
-                                                    <li id="xtu_9" data-value="http://pic3.58cdn.com.cn/anjuke_58/2f8b83da8e25c53e9c8a2edcfcbe372c?w=700&amp;h=480&amp;crop=1"><!--轮播图点击之后的大图-->
-                                <img data-value="http://pic3.58cdn.com.cn/anjuke_58/2f8b83da8e25c53e9c8a2edcfcbe372c?w=242&amp;h=150&amp;crop=1" src="http://pic3.58cdn.com.cn/anjuke_58/2f8b83da8e25c53e9c8a2edcfcbe372c?w=242&amp;h=150&amp;crop=1">
-                                <!--data-value和src值相同  小图的尺寸-->
-                                                            </li>
-                                                    <li id="xtu_10" data-value="http://pic6.58cdn.com.cn/anjuke_58/8e798db15f07a7656b00b5a190a25303?w=700&amp;h=480&amp;crop=1"><!--轮播图点击之后的大图-->
-                                <img data-value="http://pic6.58cdn.com.cn/anjuke_58/8e798db15f07a7656b00b5a190a25303?w=242&amp;h=150&amp;crop=1" src="http://pic6.58cdn.com.cn/anjuke_58/8e798db15f07a7656b00b5a190a25303?w=242&amp;h=150&amp;crop=1">
-                                <!--data-value和src值相同  小图的尺寸-->
-                                                            </li>
-                                            
-                </ul>
-                <div id="smallPicDesc" style="display:none">
-                    <!--点击图片相册 的描述-->
-                                                <p><span>房源描述</span><span>1.价位：62万，黄金地段，2室2厅，明厨明卫，小区仅此一套，比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大</span>
-                            </p>
-                                                    <p><span>房源描述</span><span>1.价位：62万，黄金地段，2室2厅，明厨明卫，小区仅此一套，比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大</span>
-                            </p>
-                                                    <p><span>房源描述</span><span>1.价位：62万，黄金地段，2室2厅，明厨明卫，小区仅此一套，比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大</span>
-                            </p>
-                                                    <p><span>房源描述</span><span>1.价位：62万，黄金地段，2室2厅，明厨明卫，小区仅此一套，比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大</span>
-                            </p>
-                                                    <p><span>房源描述</span><span>1.价位：62万，黄金地段，2室2厅，明厨明卫，小区仅此一套，比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大</span>
-                            </p>
-                                                    <p><span>房源描述</span><span>1.价位：62万，黄金地段，2室2厅，明厨明卫，小区仅此一套，比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大</span>
-                            </p>
-                                                    <p><span>房源描述</span><span>1.价位：62万，黄金地段，2室2厅，明厨明卫，小区仅此一套，比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大</span>
-                            </p>
-                                                    <p><span>房源描述</span><span>1.价位：62万，黄金地段，2室2厅，明厨明卫，小区仅此一套，比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大</span>
-                            </p>
-                                        </div>
-                <a id="slbt" class="basic-pic-left pa" href="javascript:void(0);" onclick="clickLog('from=fcpc_detail_esf_xa_tupian_last')">
-                    <i class="icon"></i>
-                </a>
-                <a id="srbt" class="basic-pic-right pa" href="javascript:void(0);" onclick="clickLog('from=fcpc_detail_esf_xa_tupian_next')">
-                    <i class="icon"></i>
-                </a>
-            </div>
-        </div>
+		<div id="bigImg" class="basic-top-bigpic pr " onclick="clickLog('from=fcpc_detail_esf_xa_bigpicture')">
+			<img id="smainPic" src="./images/lunbotu/datu1.jpg" alt="1/8" style="display: inline; margin-top: 0px;"><!--左上角房源大图一张-->
+			<span id="sImgNu" class="leftNum pa f12" style="display: block;">1/8</span>
+			<div class="basic-pic-load" id="loadingSmall" style="display: none;">
+				<div class="top icon"></div>
+				<div class="bottom icon"></div>
+			</div>
+		</div>
+		<div class="off picDescLayer pa" id="sub" style="display:none">
+			<img src="./images/lunbotu/666.png">
+		</div>
+		<div class="on picDescLayer pa"></div>
+		<div class="on picDescMask on pa f12 c_fff">
+			<i class="icon"></i>
+			<span class="f1" id="smallPicDescType">房源描述</span>
+			<p class="f2" id="smallPicDescShow">1.11111小区仅此一套，比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大</p>
+		</div>
+		<div class="basic-pic-list pr">
+			<ul id="leftImg" class="pic-list-wrap pa" onclick="" style="left: 0px;">
+					<!--基本信息小图-->
+				<li id="xtu_3" class="actives" data-value="./images/lunbotu/datu1.jpg"><!--轮播图点击之后的大图-->
+					<img data-value="./images/lunbotu/xiaotu1.jpg" src="./images/lunbotu/xiaotu1.jpg">
+				</li>
+				<li id="xtu_4" data-value="./images/lunbotu/datu2.jpg" class=""><!--轮播图点击之后的大图-->
+					<img data-value="./images/lunbotu/xiaotu2.jpg" src="./images/lunbotu/xiaotu2.jpg">
+				</li>
+				<li id="xtu_5" data-value="./images/lunbotu/datu3.jpg" class=""><!--轮播图点击之后的大图-->
+					<img data-value="./images/lunbotu/xiaotu3.jpg" src="./images/lunbotu/xiaotu3.jpg">
+				</li>
+				<li id="xtu_6" data-value="./images/lunbotu/datu4.jpg" class=""><!--轮播图点击之后的大图-->
+					<img data-value="./images/lunbotu/xiaotu4.jpg" src="./images/lunbotu/xiaotu4.jpg">
+				</li>
+				<li id="xtu_7" data-value="./images/lunbotu/datu5.jpg"><!--轮播图点击之后的大图-->
+					<img data-value="./images/lunbotu/xiaotu5.jpg" src="./images/lunbotu/xiaotu5.jpg">
+				</li>
+				<li id="xtu_8" data-value="./images/lunbotu/datu6.jpg"><!--轮播图点击之后的大图-->
+					<img data-value="./images/lunbotu/xiaotu6.jpg" src="./images/lunbotu/xiaotu6.jpg">
+				</li>
+				<li id="xtu_9" data-value="./images/lunbotu/datu7.jpg"><!--轮播图点击之后的大图-->
+					<img data-value="./images/lunbotu/xiaotu7.jpg" src="./images/lunbotu/xiaotu7.jpg">
+				</li>
+				<li id="xtu_10" data-value="./images/lunbotu/datu8.jpg"><!--轮播图点击之后的大图-->
+					<img data-value="./images/lunbotu/xiaotu8.jpg" src="./images/lunbotu/xiaotu8.jpg">
+				</li>
+			</ul>
+			<div id="smallPicDesc" style="display:none">
+				<!--点击图片相册 的描述-->
+				<p>
+					<span>房源描述</span><span>1.价位：62万，黄金地段，2室2厅，明厨明卫，小区仅此一套，比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大</span>
+				</p>
+				<p>
+					<span>房源描述</span><span>1.价位：62万，黄金地段，2室2厅，明厨明卫，小区仅此一套，比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大</span>
+				</p>
+				<p>
+					<span>房源描述</span><span>1.价位：62万，黄金地段，2室2厅，明厨明卫，小区仅此一套，比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大</span>
+				</p>
+				<p>
+					<span>房源描述</span><span>1.价位：62万，黄金地段，2室2厅，明厨明卫，小区仅此一套，比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大</span>
+				</p>
+				<p>
+					<span>房源描述</span><span>1.价位：62万，黄金地段，2室2厅，明厨明卫，小区仅此一套，比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大</span>
+				</p>
+				<p>
+					<span>房源描述</span><span>1.价位：62万，黄金地段，2室2厅，明厨明卫，小区仅此一套，比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大</span>
+				</p>
+				<p>
+					<span>房源描述</span><span>1.价位：62万，黄金地段，2室2厅，明厨明卫，小区仅此一套，比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大</span>
+				</p>
+				<p>
+					<span>房源描述</span><span>1.价位：62万，黄金地段，2室2厅，明厨明卫，小区仅此一套，比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大</span>
+				</p>
+			</div>
+				<a id="sbt" class="basic-pic-left pa" href="javascript:void(0);" onclick="">
+					<i class="icon"></i>
+				</a>
+				<a id="sbt" class="basic-pic-right pa" href="javascript:void(0);" onclick="">
+					<i class="icon"></i>
+				</a>
+		</div>
+	</div>
 
 	<div class="house-basic-right fr">
           <p class="house-basic-item1">
@@ -813,4 +807,92 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- *********************底部********************** -->       
 	<%@ include file="bottom.jsp" %>
   </body>
+  <script>
+	var imgInfo = [
+		{
+			"src":"./images/lunbotu/datu1.jpg",
+			"index": "1/8",
+			"scroll": "",
+			"info": "1.11111小区仅此一套，比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大",
+		},
+		{
+			"src":"./images/lunbotu/datu2.jpg",
+			"index": "2/8",
+			"info": "2.22222比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大",
+		},
+		{
+			"src":"./images/lunbotu/datu3.jpg",
+			"index": "3/8",
+			"info": "3.33333比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大",
+		},
+		{
+			"src":"./images/lunbotu/datu4.jpg",
+			"index": "4/8",
+			"info": "4.44444比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大",
+		},
+		{
+			"src":"./images/lunbotu/datu5.jpg",
+			"index": "5/8",
+			"info": "5.55555比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大",
+		},
+		{
+			"src":"./images/lunbotu/datu6.jpg",
+			"index": "6/8",
+			"info": "6.66666比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大",
+		},
+		{
+			"src":"./images/lunbotu/datu7.jpg",
+			"index": "7/8",
+			"info": "7.777777比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大",
+		},
+		{
+			"src":"./images/lunbotu/datu8.jpg",
+			"index": "8/8",
+			"info": "8.888888比目前市场价低10万左右。2.户型：纯南，明厨明卫，户型方正，宽敞大气，无浪费面积，中间楼层，超大",
+		},
+	]
+	var picDescription = document.getElementById('smallPicDescShow')
+	var bigpic = document.getElementById('bigImg')
+	var bigpicImg = document.getElementById('smainPic')
+	var spicBar = document.getElementById('leftImg')
+	var spicBarImg = document.getElementById('leftImg').getElementsByTagName('img')
+	for(var i = 0; i < spicBarImg.length; i++){
+		spicBarImg[i].index = i
+	}
+	spicBar.addEventListener('click', (e) => {
+		if(e.target.nodeName.toLowerCase() == 'img'){
+			bigpicImg.src = imgInfo[e.target.index].src
+			picDescription.innerHTML = imgInfo[e.target.index].info
+		}
+	})
+	
+	var i = 0
+	$(".basic-pic-right").click(function(){
+		++i
+		if(i >= 6){
+			i = 0
+		}
+		$("#leftImg").animate({left: - i*130 + 'px'});
+
+	});
+	$(".basic-pic-left").click(function(){
+		if(i == 0){
+			return
+		}
+		--i
+		$("#leftImg").animate({left: -i*130 + 'px'});
+
+	});
+
+	$(".picDescMask").click(function(){	
+		$(".picDescLayer").fadeOut();
+		$(".picDescMask").fadeOut();
+		$("#sub").fadeIn();
+	})
+	$("#sub").click(function(){
+		$(".picDescLayer").fadeIn();
+		$(".picDescMask").fadeIn();
+		$("#sub").fadeOut()
+	})
+</script>
 </html>
