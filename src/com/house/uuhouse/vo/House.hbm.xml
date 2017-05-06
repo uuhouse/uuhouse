@@ -70,7 +70,9 @@
         <property name="phone" type="string">
             <column name="phone" length="20" />
         </property>
+        <property name="cid" type="integer">
+            <column name="cid" />
+        </property>
         
-        <many-to-one name="category" lazy="false" class="com.house.category.vo.Category" column="cid"/>
     </class>
 </hibernate-mapping>

@@ -16,7 +16,7 @@
 		</global-results>
 		
 		<!-- 配置首页访问的Action-->
-		<action name="index" class="com.house.index.action.IndexAction">
+		<action name="index" class="com.house.user.action.UserAction" method="index">
 			<result name="index">/jsp/index.jsp</result>
 		</action>
 		
@@ -31,6 +31,7 @@
 			<result name="error">jsp/error.jsp</result>
 			<result name="usercenter">jsp/membercenter.jsp</result>
 			<result name="publish">jsp/publish.jsp</result>
+			<result name="publishfinish">jsp/publishfinish.jsp</result>
 			
 			<result name="input">jsp/regist.jsp</result>
 		</action>
@@ -44,7 +45,7 @@
 			<result name="findByCid">/jsp/informationList.jsp</result>
 		</action>
 		
-		<!-- 收藏车的Action -->
+		<!-- 我的收藏的Action -->
 		<action name="colletion_*" class="com.house.collection.action.CollectionAction" method="{1}">
 			<result name="addCollections">/jsp/collections.jsp</result>
 			<result name="clearCollections">/jsp/collections.jsp</result>
@@ -54,23 +55,11 @@
 		
 		<!-- 后台登录Action -->
 		<action name="adminUser_*" class="com.house.adminuser.action.AdminUserAction" method="{1}">
-			<result name="loginFail">/admin/index.jsp</result>
-			<result name="loginSuccess" type="redirect">/admin/home.jsp</result>
+			<result name="login_error">/admin/index.jsp</result>
+			<result name="login_success" type="redirect">/admin/home.jsp</result>
 			<interceptor-ref name="privilegeInterceptor">
 				<param name="excludeMethods">login</param>
 			</interceptor-ref>
-			<interceptor-ref name="defaultStack"/>
-		</action>
-		
-		<!-- 后台一级分类管理Action -->
-		<action name="adminCategory_*" class="com.house.category.adminaction.AdminCategoryAction" method="{1}">
-			<result name="findAll">/admin/category/list.jsp</result>
-			<result name="saveSuccess" type="redirectAction">adminCategory_findAll</result>
-			<result name="deleteSuccess" type="redirectAction">adminCategory_findAll</result>
-			<result name="editSuccess">/admin/category/edit.jsp</result>
-			<result name="updateSuccess" type="redirectAction">adminCategory_findAll</result>
-			
-			<interceptor-ref name="privilegeInterceptor"/>
 			<interceptor-ref name="defaultStack"/>
 		</action>
 		

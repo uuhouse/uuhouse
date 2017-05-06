@@ -201,6 +201,12 @@ public class UserAction extends ActionSupport{
 		return "quit";
 	}
 	
+	/**
+	 * 登录首页方法
+	 */
+	public String index() {
+		return "index";
+	}
 	
 /*****************************************个人中心部分***************************************/
 	public String userCenter() {
@@ -209,5 +215,8 @@ public class UserAction extends ActionSupport{
 /*****************************************发布信息部分***************************************/
 	public String publish() {
 		return "publish";	
+	}
+	public String publishfinish() {
+		return "publishfinish";	
 	}
 }

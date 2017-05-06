@@ -58,9 +58,6 @@
 							|
 						</li>
 						
-						<s:iterator var="c" value="#session.cList">
-							<li><a href="${pageContext.request.contextPath}/house_findByCid.action?cid=<s:property value="#c.cid"/>&page=1"><s:property value="#c.cname"/></a> |</li>
-						</s:iterator>
 						<li>
 							<a >房源</a>
 							|

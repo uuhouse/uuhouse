@@ -151,7 +151,7 @@ public class AdminUserDAO extends BaseHibernateDAO  {
             throw re;
         }
     }
-
+/*
 	// Dao完成登录的代码
 	public AdminUser login(AdminUser adminUser) {
 		String hql = "from AdminUser where username = ? and password = ?";
@@ -160,5 +160,18 @@ public class AdminUserDAO extends BaseHibernateDAO  {
 			return  (AdminUser) query.list().get(0);
 		}
 		return null;
+	}
+*/
+	public String getPassword(String username) {
+		String hql = "select password from AdminUser u where u.username='" +  username + "'";
+		System.out.println(hql);
+		Query query = getSession().createQuery(hql);	
+		if(query.list().size()!=0) {
+			return (String) query.list().get(0);
+		}
+		else {
+			return "";
+		}
+
 	}
 }

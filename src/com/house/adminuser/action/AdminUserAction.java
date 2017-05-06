@@ -1,7 +1,10 @@
 package com.house.adminuser.action;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.struts2.ServletActionContext;
 
+import com.house.adminuser.dao.AdminUserDAO;
 import com.house.adminuser.service.AdminUserService;
 import com.house.adminuser.vo.AdminUser;
 import com.opensymphony.xwork2.ActionSupport;
@@ -11,6 +14,8 @@ public class AdminUserAction extends ActionSupport implements
 		ModelDriven<AdminUser> {
 	// 模型驱动使用的对象
 	private AdminUser adminUser = new AdminUser();
+	AdminUserDAO dao = new AdminUserDAO();
+	HttpServletRequest request = ServletActionContext.getRequest();
 
 	public AdminUser getModel() {
 		return adminUser;
@@ -25,18 +30,16 @@ public class AdminUserAction extends ActionSupport implements
 
 	// 后台登录的执行的方法
 	public String login() {
-		// 调用service方法完成登录
-		AdminUser existAdminUser = adminUserService.login(adminUser);
-		// 判断
-		if (existAdminUser == null) {
-			// 用户名或密码错误
-			this.addActionError("用户名或密码错误!");
-			return "loginFail";
+		String username = request.getParameter("username").trim();
+		String password = request.getParameter("password").trim();
+		
+		String password2 = dao.getPassword(username);
+		if (password.equals(password2)) {
+			request.getSession().setAttribute("username", username);
+			return "login_success";
 		} else {
-			// 登录成功:
-			ServletActionContext.getRequest().getSession()
-					.setAttribute("existAdminUser", existAdminUser);
-			return "loginSuccess";
+			request.setAttribute("msg", "用户名或密码错误!");
+			return "login_error";
 		}
 	}
 }

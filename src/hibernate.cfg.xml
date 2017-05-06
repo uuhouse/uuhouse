@@ -14,7 +14,6 @@
     
     	<mapping resource="com/house/user/vo/User.hbm.xml" />
     	<mapping resource="com/house/uuhouse/vo/House.hbm.xml" />
-    	<mapping resource="com/house/category/vo/Category.hbm.xml" />
     	<mapping resource="com/house/adminuser/vo/AdminUser.hbm.xml" />
     	
     </session-factory>

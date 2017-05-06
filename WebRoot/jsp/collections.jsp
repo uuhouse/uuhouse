@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib uri="/struts-tags"  prefix="s"%>  
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -22,9 +22,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <%@ include file="top.jsp" %>
 	
 <!-- ********************中间内容********************* -->
-<div class="container cart">
-	<div class="span24">
-			<div class="step step1"></div>
+</div>	<div class="container cart">
+		<div class="span24">
+			<div class="step step1">
+				
+			</div>
 				<table>
 					<tbody><tr>
 						<th>U房快照</th>
@@ -37,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<tr>
 							<td width="60">
 								<input type="hidden" name="id" value="22">
-								<img src="./house/house001.jsp">
+								<img src="./house/house001.jpg">
 							</td>
 							<td>
 								<a target="_blank">经开区 地铁口 花园社区 精装2室 明厨明卫 婚房出售,常青二路5号</a>

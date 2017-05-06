@@ -2,8 +2,6 @@ package com.house.uuhouse.vo;
 
 import java.util.Date;
 
-import com.house.category.vo.Category;
-
 /**
  * 房屋的实体对象
  */
@@ -33,10 +31,8 @@ public class House implements java.io.Serializable {
 	private Integer uid;
 	private String uname;
 	private String phone;
+	private Integer cid;
 	
-	// 一级分类的外键:使用一级分类的对象.
-	private Category category;
-
 	// Constructors
 
 	/** default constructor */
@@ -46,7 +42,7 @@ public class House implements java.io.Serializable {
 	/** full constructor */
 	public House(String htype, String layout, String title, String untiprice, String area, String countprice,
 			String province, String city, String village, String address, String floor, String htime, String hphoto,
-			String description, Integer isHot, Date hdate, String hstate, Integer uid, String uname, String phone) {
+			String description, Integer isHot, Date hdate, String hstate, Integer uid, String uname, String phone,Integer cid) {
 		this.htype = htype;
 		this.layout = layout;
 		this.title = title;
@@ -67,6 +63,7 @@ public class House implements java.io.Serializable {
 		this.uid = uid;
 		this.uname = uname;
 		this.phone = phone;
+		this.cid = cid;
 	}
 
 	// Property accessors
@@ -239,11 +236,12 @@ public class House implements java.io.Serializable {
 		this.phone = phone;
 	}
 
-	public Category getCategory() {
-		return category;
+	public Integer getCid() {
+		return cid;
 	}
 
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setCid(Integer cid) {
+		this.cid = cid;
 	}
+	
 }

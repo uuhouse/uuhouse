@@ -1,6 +1,5 @@
 package com.house.uuhouse.action;
 
-import com.house.category.service.CategoryService;
 import com.house.user.utils.PageBean;
 import com.house.uuhouse.service.HouseService;
 import com.house.uuhouse.vo.House;
@@ -22,9 +21,6 @@ ModelDriven<House>{
 		// 接收当前页数:
 		private int page;
 		
-		// 注入一级分类的Service
-		private CategoryService categoryService;
-
 		public void setPage(int page) {
 			this.page = page;
 		}
@@ -37,10 +33,6 @@ ModelDriven<House>{
 			return cid;
 		}
 		
-		public void setCategoryService(CategoryService categoryService) {
-			this.categoryService = categoryService;
-		}
-
 		public void setHouseService(HouseService houseService) {
 			this.houseService = houseService;
 		}

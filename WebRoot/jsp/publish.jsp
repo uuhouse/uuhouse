@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib uri="/struts-tags"  prefix="s"%>  
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -61,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</li>
 		</ul>
-		<form action="" name="postForm" id="postForm">
+		<form action="${pageContext.request.contextPath}/uesr_publishfinish.action" name="postForm" id="postForm">
 			
 		<div class="block_wrap">
 	    	<div class="block_title">
@@ -259,7 +259,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 
-<div class="submit_wrap" ><div class="mdzz" ><span >发布</span></div></div></div><div class="rows_title"><span></span></div></div></div></div></form>
+<div class="submit_wrap" ><div class="mdzz" ><span >发布</span></div></div></div><div class="rows_title"><span></span></div></div></div></div>
+</form>
 	</div>
 
 	<script type="text/javascript" charset="utf-8" src="http://j1.58cdn.com.cn/ui7/post/pc/libs/editor_config_v20150908101548.js"></script>
