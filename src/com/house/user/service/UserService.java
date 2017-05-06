@@ -49,7 +49,7 @@ public class UserService {
 		userDao.update(existUser);
 	}
 
-	/*
+	
 	// 业务层用户查询所有
 	public PageBean<User> findByPage(Integer page) {
 		PageBean<User> pageBean = new PageBean<User>();
@@ -76,7 +76,7 @@ public class UserService {
 		List<User> list = userDao.findByPage(begin,limit);
 		pageBean.setList(list);
 		return pageBean;
-	}*/
+	}
 
 	public void delete(User existUser) {
 		userDao.delete(existUser);

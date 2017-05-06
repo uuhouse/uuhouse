@@ -198,26 +198,6 @@ public class UserDAO extends BaseHibernateDAO {
 			throw re;
 		}
 	}
-	/*
-	// 按用户名查询是否有该用户:
-	public User findByUsername(String username) {
-		String hql = "from User where username = ?";
-		Query query = getSession().createQuery(hql);
-		if(query.list() != null && query.list().size() != 0) {
-			return (User)query.list().get(0);
-		}
-		return null;
-	}
-	
-	// 根据激活码查询用户
-	public User findByCode(String code) {
-		String hql = "from User where code = ?";
-		Query query = getSession().createQuery(hql);
-		if(query.list() != null && query.list().size() != 0) {
-			return  (User)query.list().get(0);
-		}
-		return null;
-	}
 	
 	public int findCount() {
 		String hql = "select count(*) from User";
@@ -228,21 +208,9 @@ public class UserDAO extends BaseHibernateDAO {
 		return 0;
 	}
 	
-	// 用户登录的方法
-	public User login(User user) {
-		String hql = "from User where username = ? and password = ? and state = ?";
-		Query query = getSession().createQuery(hql);
-		
-		if(query.list() != null && query.list().size() != 0) {
-			return  (User)query.list().get(0);
-		}
-		return null;
-	}
-	
 	public List<User> findByPage(int begin, int limit) {
 		return null;
 	}
-	*/
 
 	public String getPassword(String username) {
 		String hql = "select password from User u where u.username='" +  username + "'";
@@ -303,4 +271,5 @@ public class UserDAO extends BaseHibernateDAO {
 			return null;
 		}
 	}
+
 }

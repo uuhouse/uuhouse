@@ -14,8 +14,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="./css/common.css" rel="stylesheet" type="text/css"/>
 <link href="./css/home.css" rel="stylesheet" type="text/css"/>
 
-<script language="JavaScript" src="./js/storage.js"></script>
-<script language="JavaScript" src="./js/storage_v2.js"></script>
 <script language="JavaScript" src="./js/city.js"></script>
 </head>
 <body>
@@ -63,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  </div>
 		  
 		   <div class="edit-eara">
-		        <a rel="nofollow" class="btn-post" href="" title="免费发布信息" target="_blank"><span><em class="edit-ico"></em>免费发布信息</span></a>
+		        <a rel="nofollow" class="btn-post" href="${pageContext.request.contextPath}/user_publish.action" title="免费发布信息" target="_blank"><span><em class="edit-ico"></em>免费发布信息</span></a>
 		        <a rel="nofollow" class="btn-del" href="" title="修改/删除信息" target="_blank"><span class="del-ico">修改/删除信息</span></a>
 		   </div>    
 		</div>
@@ -101,26 +99,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <dl class="all-city clearfix">
                 <dt>全国城市：</dt>
                 <dd>
-                    <!-- 
-                    <div id="id_prov_box" class="select-box width height ">
-                       <input id="text_prov" name="" type="text" value="请选择省份" class="icon-up" readonly="">
-                       <div class="xialabox hc" id="id_prov" style="display: hidden;">
-                       </div>
-                   </div>
-
-                   <div id="id_city_box" class="select-box width">
-                       <input id="text_city" name="" type="text" value="请选择城市" class="icon-up" readonly="">
-                       <div class="xialabox hc" id="id_city"></div>
-                   </div>
-                   
-                   <div id="id_county_box" class="select-box width">
-                       <input id="text_city" name="" type="text" value="请选择县城" class="icon-up" readonly="">
-                       <div class="xialabox hc" id="id_city"></div>
-                   </div>
-                    <div class="btn-box fl">
-                    	<input class="btn-confirm" type="button" id="submit_btn" value="确定">
-                    </div>
-                     -->
                     <form id="cityform" name="cityform" action = "" >
 	                    <div id="id_prov_box" class="select-box width height ">
 	                    	

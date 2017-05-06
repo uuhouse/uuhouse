@@ -191,22 +191,6 @@ public class UserAction extends ActionSupport{
 			request.setAttribute("msg", "密码错误，登录失败！");
 			return "login_error";
 		}
-		/*String sql = "select password from User u where u.username='" +  username + "'";
-		String sql2 = "select name from User u where u.username = '" + username + "'";
-		String sql3 = "select power from User u where u.username = '" + username + "'";
-		Query query = HibernateSessionFactory.getSession().createQuery(sql);
-		if(query.list().size() != 0) {
-			String password2 = (String)query.list().get(0);
-			if(password.equals(password2)) {
-				request.getSession().setAttribute("username", HibernateSessionFactory.getSession().createQuery(sql2)
-						.list().get(0));
-				request.getSession().setAttribute("power", HibernateSessionFactory.getSession().createQuery(sql3)
-						.list().get(0));
-				return "login_success";
-			}			
-		}
-		request.setAttribute("msg", "密码错误，登录失败！");
-		return LOGIN;*/
 	}
 
 	/**
@@ -217,11 +201,13 @@ public class UserAction extends ActionSupport{
 		return "quit";
 	}
 	
-	/**
-	 * 跳转到首部页面
-	 */
-	public String index() {
-		return "index";
-	}
 	
+/*****************************************个人中心部分***************************************/
+	public String userCenter() {
+		return "usercenter";
+	}
+/*****************************************发布信息部分***************************************/
+	public String publish() {
+		return "publish";	
+	}
 }

@@ -88,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<dl>
 										<dt>还没有注册账号？</dt>
 										<dd>
-											立即注册即可体验在线购物！
+											立即注册即可体验在线买房！
 											<a href="${pageContext.request.contextPath}/user_registPage.action">立即注册</a>
 										</dd>
 									</dl>

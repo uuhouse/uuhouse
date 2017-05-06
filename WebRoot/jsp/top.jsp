@@ -30,7 +30,7 @@
 							</li>
 							</s:else>
 							<li>
-								<a href="${pageContext.request.contextPath}/user_center.action">个人中心</a>
+								<a href="${pageContext.request.contextPath}/user_userCenter.action">个人中心</a>
 								|
 							</li>
 							<li>
@@ -44,7 +44,7 @@
 				</ul>
 			</div>
 			<div class="cart">
-				<a href="${pageContext.request.contextPath}/user_collection.action">我的收藏</a>
+				<a href="${pageContext.request.contextPath}/colletion_myCollections.action">我的收藏</a>
 			</div>
 				<div class="phone">
 					客服热线:
@@ -61,9 +61,8 @@
 						<s:iterator var="c" value="#session.cList">
 							<li><a href="${pageContext.request.contextPath}/house_findByCid.action?cid=<s:property value="#c.cid"/>&page=1"><s:property value="#c.cname"/></a> |</li>
 						</s:iterator>
-						
 						<li>
-							<a href="${pageContext.request.contextPath}/house.action">房源</a>
+							<a >房源</a>
 							|
 						</li>
 						<li>

@@ -4,19 +4,19 @@
 <constant name="struts.devMode" value="false" />
 
 	<package name="uuhouse" extends="struts-default" namespace="/">
-		
-		<!-- 配置首页访问的Action
-		<action name="index" class="indexAction">
-			<result name="index">/WEB-INF/jsp/index.jsp</result>
-		</action>
+	
+		<!-- 配置自定义拦截器 -->
+		<interceptors>
+			<interceptor name="privilegeInterceptor" class="com.house.privilegeInterceptor.PrivilegeInterceptor"/>
+		</interceptors>
 		
 		<global-results>
-			<result name="msg">/WEB-INF/jsp/msg.jsp</result>
+			<result name="msg">/jsp/message.jsp</result>
 			<result name="login">/admin/index.jsp</result>
-		</global-results>-->
+		</global-results>
 		
 		<!-- 配置首页访问的Action-->
-		<action name="index" class="com.house.user.action.UserAction" method="index">
+		<action name="index" class="com.house.index.action.IndexAction">
 			<result name="index">/jsp/index.jsp</result>
 		</action>
 		
@@ -29,6 +29,8 @@
 			<result name="quit" type="redirectAction">index</result>
 			<result name="checkcodeFail">/jsp/regist.jsp</result>
 			<result name="error">jsp/error.jsp</result>
+			<result name="usercenter">jsp/membercenter.jsp</result>
+			<result name="publish">jsp/publish.jsp</result>
 			
 			<result name="input">jsp/regist.jsp</result>
 		</action>
@@ -36,5 +38,62 @@
 		<!-- 验证码Action -->
 		<action name="checkImg" class="com.house.user.action.CheckImgAction"></action>
 		
+		<!-- 房屋模块的Action ,ByHid为房屋详细信息页，ByCid为分类下房屋信息分类页面-->
+		<action name="house_*" class="com.house.uuhouse.action.HouseAction" method="{1}">
+			<result name="findByHid">/jsp/information.jsp</result>
+			<result name="findByCid">/jsp/informationList.jsp</result>
+		</action>
+		
+		<!-- 收藏车的Action -->
+		<action name="colletion_*" class="com.house.collection.action.CollectionAction" method="{1}">
+			<result name="addCollections">/jsp/collections.jsp</result>
+			<result name="clearCollections">/jsp/collections.jsp</result>
+			<result name="removeCollections">/jsp/collections.jsp</result>
+			<result name="myCollections">/jsp/collections.jsp</result>
+		</action>
+		
+		<!-- 后台登录Action -->
+		<action name="adminUser_*" class="com.house.adminuser.action.AdminUserAction" method="{1}">
+			<result name="loginFail">/admin/index.jsp</result>
+			<result name="loginSuccess" type="redirect">/admin/home.jsp</result>
+			<interceptor-ref name="privilegeInterceptor">
+				<param name="excludeMethods">login</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		
+		<!-- 后台一级分类管理Action -->
+		<action name="adminCategory_*" class="com.house.category.adminaction.AdminCategoryAction" method="{1}">
+			<result name="findAll">/admin/category/list.jsp</result>
+			<result name="saveSuccess" type="redirectAction">adminCategory_findAll</result>
+			<result name="deleteSuccess" type="redirectAction">adminCategory_findAll</result>
+			<result name="editSuccess">/admin/category/edit.jsp</result>
+			<result name="updateSuccess" type="redirectAction">adminCategory_findAll</result>
+			
+			<interceptor-ref name="privilegeInterceptor"/>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		
+		<!-- 后台房屋信息管理的Action -->
+		<action name="adminHouse_*" class="com.house.uuhouse.adminaction.AdminHouseAction" method="{1}">
+			<result name="findAll">/admin/product/list.jsp</result>
+			<result name="addPageSuccess">/admin/product/add.jsp</result>
+			<result name="saveSuccess" type="redirectAction">adminHouse_findAll.action?page=1</result>
+			<result name="deleteSuccess" type="redirectAction">adminHouse_findAll.action?page=1</result>
+			<result name="editSuccess">/admin/product/edit.jsp</result>
+			<result name="updateSuccess" type="redirectAction">adminHouse_findAll.action?page=1</result>
+			<interceptor-ref name="privilegeInterceptor"/>
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		
+		<!-- 后台用户管理Action -->
+		<action name="userAdmin_*" class="com.house.user.adminaction.UserAdminAction" method="{1}">
+			<result name="findAll">/admin/user/list.jsp</result>
+			<result name="deleteSuccess" type="redirectAction">userAdmin_findAll.action?page=1</result>
+			<result name="editSuccess">/admin/user/edit.jsp</result>
+			<result name="updateSuccess" type="redirectAction">userAdmin_findAll.action?page=1</result>
+			<interceptor-ref name="privilegeInterceptor"/>
+			<interceptor-ref name="defaultStack"/>
+		</action>
 	</package>
 </struts>    
