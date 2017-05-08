@@ -13,6 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <link href="./css/common.css" rel="stylesheet" type="text/css"/>
 <link href="./css/login.css" rel="stylesheet" type="text/css"/>
+
 <script language="JavaScript" src="./js/head.js"></script>
 
 </head>
@@ -41,9 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										用户名/E-mail:
 								</th>
 								<td>
-									<input type="text" id="username" value="yst" name="username" class="text" maxlength="20">
-									
-									
+									<input type="text" id="username" name="username1" class="text" maxlength="20">
 								</td>
 							</tr>
 							<tr>
@@ -51,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									密&nbsp;&nbsp;码:
 								</th>
 								<td>
-									<input type="password" id="password" name="password" value="123" class="text" maxlength="20" autocomplete="off">
+									<input type="password" id="password" name="password1" value="123" class="text" maxlength="20" autocomplete="off">
 									<br />
 									<% if(request.getAttribute("msg") != null) {
 										out.print(request.getAttribute("msg"));

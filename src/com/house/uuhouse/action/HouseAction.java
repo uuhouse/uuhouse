@@ -1,6 +1,6 @@
 package com.house.uuhouse.action;
 
-import com.house.user.utils.PageBean;
+import com.house.utils.PageBean;
 import com.house.uuhouse.service.HouseService;
 import com.house.uuhouse.vo.House;
 

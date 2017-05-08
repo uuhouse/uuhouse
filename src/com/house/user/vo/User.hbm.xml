@@ -26,7 +26,7 @@
             <column name="nicname" length="50" />
         </property>
         <property name="gender" type="string">
-            <column name="gender" length="4" />
+            <column name="gender" length="10" />
         </property>
         <property name="photo" type="string">
             <column name="photo" length="50" />
@@ -41,16 +41,16 @@
             <column name="address" length="100" />
         </property>
         <property name="birthday" type="string">
-            <column name="birthday" length="8" />
+            <column name="birthday" length="20" />
         </property>
         <property name="code" type="string">
-            <column name="code" length="64" />
+            <column name="code" length="100" />
         </property>
         <property name="state" type="integer">
             <column name="state" />
         </property>
         <property name="power" type="integer">
-            <column name="Power" />
+            <column name="power" />
         </property>
     </class>
 </hibernate-mapping>

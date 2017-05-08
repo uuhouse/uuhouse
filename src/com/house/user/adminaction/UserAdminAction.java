@@ -2,7 +2,7 @@ package com.house.user.adminaction;
 
 import com.house.user.dao.UserDAO;
 import com.house.user.service.UserService;
-import com.house.user.utils.PageBean;
+import com.house.utils.PageBean;
 import com.house.user.vo.User;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;

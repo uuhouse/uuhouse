@@ -13,7 +13,7 @@
 	<div class="span10 last">
 			<div class="topNav clearfix">
 				<ul>
-							<s:if test='#session.getAttribute("name") == null'>
+							<s:if test='#session.existUser == null'>
 							<li id="headerLogin" class="headerLogin" style="display: list-item;">
 								<a href="${pageContext.request.contextPath}/user_loginPage.action">登录</a>|</li>
 							<li id="headerRegister" class="headerRegister"
@@ -22,7 +22,6 @@
 							</s:if>
 							<s:else>
 							<li id="headerLogin" class="headerLogin" style="display: list-item;">
-								<% out.print(session.getAttribute("name")); %>
 								<s:property value="#session.existUser.name"/>
 								|</li>
 							<li id="headerRegister" class="headerRegister"

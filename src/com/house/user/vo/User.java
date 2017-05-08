@@ -182,4 +182,14 @@ public class User implements java.io.Serializable {
 		this.power = power;
 	}
 
+	@Override
+	public String toString() {
+		return "User [uid=" + uid + ", username=" + username + ", password=" + password + ", mail=" + mail + ", name="
+				+ name + ", nicname=" + nicname + ", gender=" + gender + ", photo=" + photo + ", phone=" + phone
+				+ ", qq=" + qq + ", address=" + address + ", birthday=" + birthday + ", code=" + code + ", state="
+				+ state + ", power=" + power + "]";
+	}
+	
+	
+
 }

@@ -3,7 +3,7 @@ package com.house.uuhouse.service;
 import java.util.List;
 
 import com.house.uuhouse.vo.House;
-import com.house.user.utils.PageBean;
+import com.house.utils.PageBean;
 import com.house.uuhouse.dao.HouseDAO;
 
 

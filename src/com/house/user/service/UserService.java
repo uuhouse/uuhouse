@@ -4,11 +4,12 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import com.house.user.dao.UserDAO;
-import com.house.user.utils.MailUitls;
-import com.house.user.utils.PageBean;
-import com.house.user.utils.UUIDUtils;
 import com.house.user.vo.User;
+import com.house.user.dao.UserDAO;
+
+import com.house.utils.MailUitls;
+import com.house.utils.PageBean;
+import com.house.utils.UUIDUtils;
 
 /**
  * 用户名模块业务层代码
@@ -22,33 +23,40 @@ public class UserService {
 		this.userDao = userDao;
 	}
 	
-	
-	// 按用户名查询用户
-	public User findByUsername(String username){
-		return (User)userDao.findByUsername(username);
+	// 删除用户的方法
+	public void delete(User existUser) {
+		userDao.delete(existUser);
 	}
-
+	
+	// 修改用户的状态的方法
+	public void update(User existUser) {
+		userDao.update(existUser);
+	}
+	
 	// 业务层完成用户注册代码:
 	public void save(User user) {
-		// 将数据存入到数据库
 		user.setState(0); // 0:代表用户未激活.  1:代表用户已经激活.
-		String code = UUIDUtils.getUUID()+UUIDUtils.getUUID();  //生成64位随机码
+		String code = UUIDUtils.getUUID()+UUIDUtils.getUUID();
 		user.setCode(code);
 		userDao.save(user);
 		// 发送激活邮件;
 		MailUitls.sendMail(user.getMail(), code);
 	}
 
-	// 业务层根据激活码查询用户
+
+	// 按用户ID查询用户
+	public User findByUid(Integer uid) {
+		return userDao.findByUid(uid);
+	}
+	// 按用户名查询用户
+	public User findByUsername(String username){
+		return userDao.findByUsername(username);
+	}
+		
+	// 根据激活码查询用户
 	public User findByCode(String code) {
-		return (User)userDao.findByCode(code);
+		return userDao.findByCode(code);
 	}
-
-	// 修改用户的状态的方法
-	public void update(User existUser) {
-		userDao.update(existUser);
-	}
-
 	
 	// 业务层用户查询所有
 	public PageBean<User> findByPage(Integer page) {
@@ -73,16 +81,8 @@ public class UserService {
 		pageBean.setTotalPage(totalPage);
 		// 设置每页显示数据集合:
 		int begin = (page - 1)*limit;
-		List<User> list = userDao.findByPage(begin,limit);
+		List<User> list = userDao.findByPage(begin,limit);   //findByPage(begin,limit)方法未实现
 		pageBean.setList(list);
 		return pageBean;
-	}
-
-	public void delete(User existUser) {
-		userDao.delete(existUser);
-	}
-
-	public User findByUid(Integer uid) {
-		return (User)userDao.findByUid(uid);
 	}
 }

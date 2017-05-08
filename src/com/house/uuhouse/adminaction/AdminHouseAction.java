@@ -8,7 +8,7 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
-import com.house.user.utils.PageBean;
+import com.house.utils.PageBean;
 import com.house.uuhouse.service.HouseService;
 import com.house.uuhouse.vo.House;
 

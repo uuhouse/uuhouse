@@ -31,7 +31,7 @@ TH {
 		<table width="100%" height="70%"  border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td>
-					<img width="100%" src="${pageContext.request.contextPath}/images/top_01.jpg">
+					<img width="100%" src="${pageContext.request.contextPath}/image/logo.jpg">
 				</td>
 
 				<td width="100%" background="${pageContext.request.contextPath}/images/top_100.jpg">
@@ -75,7 +75,8 @@ else
 {document.write(myArray[weekday])
 };
 // -->
-									</script> </font>
+</script> 
+</font>
 							</td>
 							<td width="15%">
 								<table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -89,7 +90,7 @@ else
 										<td width="155" valign="bottom"
 											background="${pageContext.request.contextPath}/images/mis_05b.jpg">
 											用户名：
-											<font color="blue"><s:property value="#session.existAdminUser.username"/></font>
+											<font color="blue"><s:property value="#session.username"/></font>
 										</td>
 										<td width="10" align="right"
 											background="${pageContext.request.contextPath}/images/mis_05b.jpg">
