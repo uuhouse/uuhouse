@@ -3,7 +3,6 @@ package com.house.uuhouse.adminaction;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
-import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
@@ -18,7 +17,7 @@ import com.opensymphony.xwork2.ModelDriven;
 
 @SuppressWarnings("serial")
 public class AdminHouseAction extends ActionSupport implements
-ModelDriven<House> {
+	ModelDriven<House> {
 	// 模型驱动使用的对象
 	private House house = new House();
 
@@ -81,39 +80,36 @@ ModelDriven<House> {
 			// 文件上传:
 			FileUtils.copyFile(upload, diskFile);
 	
-			house.setHphoto("houses/" + uploadFileName);
+			house.setHimage("houses/" + uploadFileName);
 		}
 		houseService.save(house);
 		return "saveSuccess";
 	}
 
-	// 删除商品的方法:
+	// 删除房屋信息的方法:
 	public String delete() {
-		// 根据id查询商品信息
+		// 根据id查询房屋信息
 		house = houseService.findByHid(house.getHid());
-		// 删除商品的图片:
+		// 删除房屋信息的图片:
 		String path = ServletActionContext.getServletContext().getRealPath(
-				"/" + house.getHphoto());
+				"/" + house.getHimage());
 		File file = new File(path);
 		file.delete();
-		// 删除数据库中商品记录:
+		// 删除数据库中房屋信息记录:
 		houseService.delete(house);
 		// 页面跳转
 		return "deleteSuccess";
 	}
 
 	// 编辑商品的方法
-/*	public String edit() {
-		// 根据商品id查询商品信息
-		house = houseService.findByPid(house.getPid());
-		// 查询所有二级分类
-		List<CategorySecond> csList = categorySecondService.findAll();
-		ActionContext.getContext().getValueStack().set("csList", csList);
+	public String edit() {
+		// 根据房屋id查询房屋信息
+		house = houseService.findByHid(house.getHid());
 		// 页面跳转到编辑页面:
 		return "editSuccess";
 	}
-*/
-	// 修改商品的方法
+
+	// 修改房屋信息的方法
 	public String update() throws IOException {
 		// 将信息修改到数据库
 		house.setHdate(new Date());
@@ -121,7 +117,7 @@ ModelDriven<House> {
 		// 上传:
 		if(upload != null ){
 			String delPath = ServletActionContext.getServletContext().getRealPath(
-					"/" + house.getHphoto());
+					"/" + house.getHimage());
 			File file = new File(delPath);
 			file.delete();
 			// 获得上传图片的服务器端路径.
@@ -132,7 +128,7 @@ ModelDriven<House> {
 			// 文件上传:
 			FileUtils.copyFile(upload, diskFile);
 
-			house.setHphoto("houses/" + uploadFileName);
+			house.setHimage("houses/" + uploadFileName);
 		}
 		houseService.update(house);
 		// 页面跳转

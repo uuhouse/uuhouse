@@ -32,6 +32,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div id="passportLayer">
 	</div>
 	<form id="postForm" name="publish_form" action="${pageContext.request.contextPath}/house_publish.action" method="post" onsubmit="return checkForm();" novalidate="novalidate" >
+	<input type="text" id="identity" name="identity" style="display:none"/>
+		<input type="text" id="village" name="village" style="display:none"/>
+		<input type="text" id="streets" name="streets" style="display:none"/>
+		<input type="text" id="htype" name="htype" style="display:none"/>
+		<input type="text" id="htime" name="htime" style="display:none"/>
 	<div class="progcontrl clearfix">
 		<div class="active" id="propbartwo">
 			<span>1.填写信息</span>
@@ -214,16 +219,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								厅</span>
 							</div>
 							
-							<div class="input_text_wrap clearfix" name="huxingwei" style="position: relative;">
-								<input type="inputText" tabindex="20" id="huxingwei" maxlength="1" style="width: 95px;">
+							<div class="input_text_wrap clearfix" style="position: relative;">
+								<input type="inputText" tabindex="20" name="huxingwei" id="huxingwei" maxlength="1" style="width: 95px;">
 								<span>
 								卫</span>
 							</div>
 							
-							<div class="input_text_wrap clearfix" name="area2" style="position: relative;">
+							<div class="input_text_wrap clearfix" style="position: relative;">
 								<span>
 								共</span>
-								<input type="inputText" tabindex="21" id="area2" placeholder="建筑面积" style="width: 95px;">
+								<input type="inputText" tabindex="21" id="area2" name="area2" placeholder="建筑面积" style="width: 95px;">
 								<span>
 								㎡</span>
 							</div>
@@ -241,8 +246,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="rows_content">
 							<div class="tip validate_error" id = "zongjia_error" style="left: 0px;display:none"><i></i>请输入售价</div>
 							
-							<div class="input_text_wrap clearfix" name="MinPrice1" style="position: relative;">
-								<input type="inputText" tabindex="22" id="MinPrice1" style="width: 95px;">
+							<div class="input_text_wrap clearfix" style="position: relative;">
+								<input type="inputText" tabindex="22" name="MinPrice1" id="MinPrice1" style="width: 95px;">
 								<span>
 								万</span>
 							</div>
@@ -262,8 +267,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="rows_content">
 						<div class="tip">
 					</div>
-					<div class="input_text_wrap" name="Title1" style="position: relative;">
-						<input type="inputText" tabindex="23" id="Title1" maxlength="50" style="width: 395px;">
+					<div class="input_text_wrap" style="position: relative;">
+						<input type="inputText" tabindex="23" name="Title1" id="Title1" maxlength="50" style="width: 395px;">
 						
 					</div>
 					<div class="tip validate_error" id = "biaoti_error" style="left: 0px;display:none"><i></i>标题不能为空</div>
@@ -364,18 +369,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="tip">
 							</div>
 							
-							<div class="input_text_wrap clearfix" name="Floor" style="position: relative;">
+							<div class="input_text_wrap clearfix" style="position: relative;">
 								<span>
 								第</span>
-								<input type="inputText" tabindex="30" id="Floor" maxlength="2" style="width: 95px;">
+								<input type="inputText" tabindex="30" id="Floor" name="Floor" maxlength="2" style="width: 95px;">
 								<span>
 								层</span>
 							</div>
 		
-							<div class="input_text_wrap clearfix" name="zonglouceng" style="position: relative;">
+							<div class="input_text_wrap clearfix" style="position: relative;">
 								<span>
 								共</span>
-								<input type="inputText" tabindex="31" id="zonglouceng" maxlength="2" style="width: 95px;">
+								<input type="inputText" tabindex="31" id="zonglouceng" name="zonglouceng" maxlength="2" style="width: 95px;">
 								<span>
 								层</span>
 							</div>
@@ -394,7 +399,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="block_title" id="fangyuangexingmiaoshu">
 						<h2>*房源个性描述</h2>
 						
-						<textarea type="text" id="miaoshu111" name="miaoshu111" style="width:515px;height:215px;position: absolute;margin:0 0 0 160px">
+						<textarea type="text" id="miaoshu1" value="" name="miaoshu" style="width:515px;height:215px;position: absolute;margin:0 0 0 160px">
 						</textarea>
 					
 					</div>
@@ -454,8 +459,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="rows_content">
 								<div class="tip validate_error" id="phone_error" style="left: 0px;display:none"><i></i>请填写完整手机号码</div>
 								
-								<div class="input_text_wrap" name="Phone" style="position: relative;">
-									<input type="inputText" tabindex="35" id="Phone" maxlength="11" style="width: 240px;">
+								<div class="input_text_wrap" style="position: relative;">
+									<input type="inputText" tabindex="35" name="Phone" id="Phone" maxlength="11" style="width: 240px;">
 								</div>
 							</div>
 							<div class="rows_title">
@@ -478,8 +483,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="rows_wrap clearfix custom_name">
 							<div class="rows_content">
 								<div class="tip validate_error" id="lianxiren_error" style="left: 0px;display:none"><i></i>请填写联系人</div>
-								<div class="input_text_wrap" name="goblianxiren" style="position: relative;">
-									<input type="inputText" tabindex="37" id="goblianxiren" maxlength="6" style="width: 240px;">
+								<div class="input_text_wrap" style="position: relative;">
+									<input type="inputText" tabindex="37" name="goblianxiren" id="goblianxiren" maxlength="6" style="width: 240px;">
 								</div>
 							</div>
 		
@@ -518,11 +523,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 		</div>
 	
-		<input type="text" id="identity" name="identity" style="display:none"/>
-		<input type="text" id="village" name="village" style="display:none"/>
-		<input type="text" id="streets" name="streets" style="display:none"/>
-		<input type="text" id="htype" name="htype" style="display:none"/>
-		<input type="text" id="htime" name="htime" style="display:none"/>
+		
 		
 	</form>
 	

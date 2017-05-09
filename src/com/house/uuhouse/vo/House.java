@@ -3,36 +3,43 @@ package com.house.uuhouse.vo;
 import java.util.Date;
 
 /**
- * 房屋的实体对象
+ * House entity. @author MyEclipse Persistence Tools
  */
 
 public class House implements java.io.Serializable {
 
 	// Fields
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer hid;
-	private String htype;
-	private String layout;
+	private String identify;
+	private String areas;
+	private String village;
 	private String title;
-	private String untiprice;
+	private String htype;
+	private String htime;
+	private String floor;
+	private String description;
+	private String himage;
+	private Integer uid;
+	private String phone;
+	private String uname;
+	private String hstate;
+	private String stretch;
+	private String address;
+	private String layout;
 	private String area;
 	private String countprice;
+	private Integer is_hot;
+	private Date hdate;
 	private String province;
 	private String city;
-	private String village;
-	private String address;
-	private String floor;
-	private String htime;
-	private String hphoto;
-	private String description;
-	private Integer isHot;
-	private Date hdate;
-	private String hstate;
-	private Integer uid;
-	private String uname;
-	private String phone;
+	private String untiprice;
 	private Integer cid;
-	
+
 	// Constructors
 
 	/** default constructor */
@@ -40,29 +47,33 @@ public class House implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public House(String htype, String layout, String title, String untiprice, String area, String countprice,
-			String province, String city, String village, String address, String floor, String htime, String hphoto,
-			String description, Integer isHot, Date hdate, String hstate, Integer uid, String uname, String phone,Integer cid) {
-		this.htype = htype;
-		this.layout = layout;
+	public House(String identify, String areas, String village, String title, String htype, String htime, String floor,
+			String description, String himage, Integer uid, String phone, String uname, String hstate, String stretch,
+			String address, String layout, String area, String countprice, Integer is_hot, Date hdate, String province,
+			String city, String untiprice, Integer cid) {
+		this.identify = identify;
+		this.areas = areas;
+		this.village = village;
 		this.title = title;
-		this.untiprice = untiprice;
+		this.htype = htype;
+		this.htime = htime;
+		this.floor = floor;
+		this.description = description;
+		this.himage = himage;
+		this.uid = uid;
+		this.phone = phone;
+		this.uname = uname;
+		this.hstate = hstate;
+		this.stretch = stretch;
+		this.address = address;
+		this.layout = layout;
 		this.area = area;
 		this.countprice = countprice;
+		this.is_hot = is_hot;
+		this.hdate = hdate;
 		this.province = province;
 		this.city = city;
-		this.village = village;
-		this.address = address;
-		this.floor = floor;
-		this.htime = htime;
-		this.hphoto = hphoto;
-		this.description = description;
-		this.isHot = isHot;
-		this.hdate = hdate;
-		this.hstate = hstate;
-		this.uid = uid;
-		this.uname = uname;
-		this.phone = phone;
+		this.untiprice = untiprice;
 		this.cid = cid;
 	}
 
@@ -76,20 +87,28 @@ public class House implements java.io.Serializable {
 		this.hid = hid;
 	}
 
-	public String getHtype() {
-		return this.htype;
+	public String getIdentify() {
+		return this.identify;
 	}
 
-	public void setHtype(String htype) {
-		this.htype = htype;
+	public void setIdentify(String identify) {
+		this.identify = identify;
 	}
 
-	public String getLayout() {
-		return this.layout;
+	public String getAreas() {
+		return this.areas;
 	}
 
-	public void setLayout(String layout) {
-		this.layout = layout;
+	public void setAreas(String areas) {
+		this.areas = areas;
+	}
+
+	public String getVillage() {
+		return this.village;
+	}
+
+	public void setVillage(String village) {
+		this.village = village;
 	}
 
 	public String getTitle() {
@@ -100,12 +119,100 @@ public class House implements java.io.Serializable {
 		this.title = title;
 	}
 
-	public String getUntiprice() {
-		return this.untiprice;
+	public String getHtype() {
+		return this.htype;
 	}
 
-	public void setUntiprice(String untiprice) {
-		this.untiprice = untiprice;
+	public void setHtype(String htype) {
+		this.htype = htype;
+	}
+
+	public String getHtime() {
+		return this.htime;
+	}
+
+	public void setHtime(String htime) {
+		this.htime = htime;
+	}
+
+	public String getFloor() {
+		return this.floor;
+	}
+
+	public void setFloor(String floor) {
+		this.floor = floor;
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getHimage() {
+		return this.himage;
+	}
+
+	public void setHimage(String himage) {
+		this.himage = himage;
+	}
+
+	public Integer getUid() {
+		return this.uid;
+	}
+
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
+
+	public String getPhone() {
+		return this.phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getUname() {
+		return this.uname;
+	}
+
+	public void setUname(String uname) {
+		this.uname = uname;
+	}
+
+	public String getHstate() {
+		return this.hstate;
+	}
+
+	public void setHstate(String hstate) {
+		this.hstate = hstate;
+	}
+
+	public String getStretch() {
+		return this.stretch;
+	}
+
+	public void setStretch(String stretch) {
+		this.stretch = stretch;
+	}
+
+	public String getAddress() {
+		return this.address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getLayout() {
+		return this.layout;
+	}
+
+	public void setLayout(String layout) {
+		this.layout = layout;
 	}
 
 	public String getArea() {
@@ -124,6 +231,22 @@ public class House implements java.io.Serializable {
 		this.countprice = countprice;
 	}
 
+	public Integer getIs_hot() {
+		return is_hot;
+	}
+
+	public void setIs_hot(Integer is_hot) {
+		this.is_hot = is_hot;
+	}
+
+	public Date getHdate() {
+		return this.hdate;
+	}
+
+	public void setHdate(Date hdate) {
+		this.hdate = hdate;
+	}
+
 	public String getProvince() {
 		return this.province;
 	}
@@ -140,108 +263,32 @@ public class House implements java.io.Serializable {
 		this.city = city;
 	}
 
-	public String getVillage() {
-		return this.village;
+	public String getUntiprice() {
+		return this.untiprice;
 	}
 
-	public void setVillage(String village) {
-		this.village = village;
-	}
-
-	public String getAddress() {
-		return this.address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getFloor() {
-		return this.floor;
-	}
-
-	public void setFloor(String floor) {
-		this.floor = floor;
-	}
-
-	public String getHtime() {
-		return this.htime;
-	}
-
-	public void setHtime(String htime) {
-		this.htime = htime;
-	}
-
-	public String getHphoto() {
-		return this.hphoto;
-	}
-
-	public void setHphoto(String hphoto) {
-		this.hphoto = hphoto;
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public Integer getIsHot() {
-		return this.isHot;
-	}
-
-	public void setIsHot(Integer isHot) {
-		this.isHot = isHot;
-	}
-
-	public Date getHdate() {
-		return this.hdate;
-	}
-
-	public void setHdate(Date hdate) {
-		this.hdate = hdate;
-	}
-
-	public String getHstate() {
-		return this.hstate;
-	}
-
-	public void setHstate(String hstate) {
-		this.hstate = hstate;
-	}
-
-	public Integer getUid() {
-		return this.uid;
-	}
-
-	public void setUid(Integer uid) {
-		this.uid = uid;
-	}
-
-	public String getUname() {
-		return this.uname;
-	}
-
-	public void setUname(String uname) {
-		this.uname = uname;
-	}
-
-	public String getPhone() {
-		return this.phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setUntiprice(String untiprice) {
+		this.untiprice = untiprice;
 	}
 
 	public Integer getCid() {
-		return cid;
+		return this.cid;
 	}
 
 	public void setCid(Integer cid) {
 		this.cid = cid;
 	}
+
+	@Override
+	public String toString() {
+		return "House [hid=" + hid + ", identify=" + identify + ", areas=" + areas + ", village=" + village + ", title="
+				+ title + ", htype=" + htype + ", htime=" + htime + ", floor=" + floor + ", description=" + description
+				+ ", himage=" + himage + ", uid=" + uid + ", phone=" + phone + ", uname=" + uname + ", hstate=" + hstate
+				+ ", stretch=" + stretch + ", address=" + address + ", layout=" + layout + ", area=" + area
+				+ ", countprice=" + countprice + ", is_hot=" + is_hot + ", hdate=" + hdate + ", province=" + province
+				+ ", city=" + city + ", untiprice=" + untiprice + ", cid=" + cid + "]";
+	}
 	
+	
+
 }

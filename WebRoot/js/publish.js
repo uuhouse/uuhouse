@@ -6,15 +6,16 @@ function submit() {
 	}else if($("#MinPrice1").val() == null || $("#MinPrice1").val() == "" ) {
 		alert("请填写总价");
 	}else if($("#Title1").val() == null || $("#Title1").val() == "" ) {
-		alert("请填写标题");
-	}else if($("#miaoshu").val() == null || $("#miaoshu").val() == "" ) {
-		alert("请填写个性描述");
+		alert("请填写标题");	
 	}else if($("#Phone").val() == null || $("#Phone").val() == "" ) {
 		alert("请填写联系电话");
 	}else if($("#goblianxiren").val() == null || $("#goblianxiren").val() == "" ) {
 		alert("请填写联系人");
 	}else {
-		document.publish_form.submit();
+		setTimeout(function() {
+			document.publish_form.submit();
+		},50)
+		
 	}
 	
 }

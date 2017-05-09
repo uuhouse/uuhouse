@@ -81,7 +81,7 @@ public class UserService {
 		pageBean.setTotalPage(totalPage);
 		// 设置每页显示数据集合:
 		int begin = (page - 1)*limit;
-		List<User> list = userDao.findByPage(begin,limit);   //findByPage(begin,limit)方法未实现
+		List<User> list = userDao.findByPage(begin,limit);  
 		pageBean.setList(list);
 		return pageBean;
 	}
