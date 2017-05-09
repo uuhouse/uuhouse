@@ -1,5 +1,10 @@
 package com.house.uuhouse.action;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.house.utils.PageBean;
 import com.house.uuhouse.service.HouseService;
 import com.house.uuhouse.vo.House;
@@ -8,8 +13,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class HouseAction extends ActionSupport implements
-ModelDriven<House>{
+public class HouseAction extends ActionSupport implements ModelDriven<House>{
 	private static final long serialVersionUID = 1L;
 		// 用于接收数据的模型驱动.
 		private House house = new House();
@@ -17,6 +21,8 @@ ModelDriven<House>{
 		private HouseService houseService;
 		// 接收分类cid
 		private Integer cid;
+		HttpServletRequest request = ServletActionContext.getRequest();
+		HttpServletResponse response = ServletActionContext.getResponse();
 
 		// 接收当前页数:
 		private int page;
@@ -58,7 +64,22 @@ ModelDriven<House>{
 		}
 		
 		/*****************************************发布信息部分***************************************/
-		public String publishfinish() {
-			return "publishfinish";	
+		public String publish() {
+			String identity = (String)request.getParameter("identity").trim();
+			String village = (String)request.getParameter("village").trim();
+			String streets = (String)request.getParameter("streets").trim();
+			String htype = (String)request.getParameter("htype").trim();
+			String htime = (String)request.getParameter("htime").trim();
+			String xiaoqu = (String)request.getParameter("xiaoqu").trim();
+			String dizhi = (String)request.getParameter("dizhi").trim();
+			String huxingshi = (String)request.getParameter("huxingshi1").trim();
+			String huxingting = (String)request.getParameter("huxingting").trim();
+			String huxingwei = (String)request.getParameter("huxingwei").trim();
+			String minPrice = (String)request.getParameter("MinPrice1").trim();
+			String  = (String)request.getParameter("").trim();
+			String  = (String)request.getParameter("").trim();
+			
+			return "publishfinish";
 		}
+		
 }

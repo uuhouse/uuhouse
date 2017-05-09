@@ -235,6 +235,6 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	}
 /*****************************************发布信息部分***************************************/
 	public String publish() {
-		return "publish";	
+		return "to_publish";	
 	}
 }

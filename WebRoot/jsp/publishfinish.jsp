@@ -40,9 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="l_font">该信息已发布在  <a href="http://xa.58.com/ershoufang/" target="_blank" onclick="clickLog('from=postsuccess_liebiao');">优优二手房</a>您的信息需要审核才能展示，请在个人中心关注信息状态。</div>
 		
 				<div class="main_zd_iframe">
-			<iframe src="http://cube.58.com/cube/createPromotion?key=468468684006541493120254363&amp;infoId=29839392569150&amp;infostate=1&amp;zdkey=" name="tuiguangFrame" id="tuiguangFrame" frameborder="0" scrolling="no" onload="tuiguang_iframe();" style="width: 100%; height: 150px;"></iframe>
 		</div>
-				<iframe src="http://refresh.vip.58.com/common/noviprefresh?day=0&amp;buyNum=1&amp;infoid=29839392569150" name="refreshDayFrame" id="refreshDayFrame" frameborder="0" scrolling="no" style="width:100%; height:0px;"></iframe>
 							<div class="l_btns clearfix">
 								<a href="http://xa.58.com/ershoufang/29839392569150x.shtml" class="p_active_btn" onclick="clickLog('from=postsuccess_chakan');">
 					<span>查看信息</span>

@@ -13,13 +13,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
     <base href="<%=basePath%>">
     <link type="text/css" href="http://c.58cdn.com.cn/ui7/post/css/post_v20151022154316.css" rel="stylesheet">
-	<link type="text/css" href="http://c.58cdn.com.cn/ui7/post/css/topbar_v20150624171305.css" rel="stylesheet">
     <title>发布房屋信息</title>
 	<link href="./css/post.css" rel="stylesheet" type="text/css"/>
 	<link href="./css/common.css" rel="stylesheet" type="text/css"/>
 	<script type="text/javascript" src="./js/jquery-1.8.3.js"></script>
 	<script type="text/javascript" src="./js/area.js"></script>
-	<script type="text/javascript" src="./js/ajax/publish.js"></script>
+	<script type="text/javascript" src="./js/publish.js"></script>
 </head>
 
 <body>
@@ -32,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="container publish">
 	<div id="passportLayer">
 	</div>
-
+	<form id="postForm" name="publish_form" action="${pageContext.request.contextPath}/house_publish.action" method="post" onsubmit="return checkForm();" novalidate="novalidate" >
 	<div class="progcontrl clearfix">
 		<div class="active" id="propbartwo">
 			<span>1.填写信息</span>
@@ -42,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<span>2.完成发布</span>
 		</div>
 	</div>
-	<form action="${pageContext.request.contextPath}/house_publishfinish.action" name="postForm" id="postForm">
+	
 		<div class="minheightout w">
 			<div id="formWrap">
 				
@@ -60,12 +59,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="tip" style="display: none;"></div>
 							<div class="radio_wrap clearfix success" name="isBiz">
 								<div tabindex="2" id="geren" class="radio focus" >
-									<i>0</i>
+									<i></i>
 									<label>个人转让</label>
 								</div>
 		
 								<div tabindex="2" id="shangjia" class="radio" >
-									<i>1</i>
+									<i></i>
 									<label>商家转让</label>
 								</div>
 							</div>
@@ -105,8 +104,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="rows_content">
 							<div class="tip validate_error" id="xiaoqu_error" style="left: 0px;display:none"><i></i>请填写小区名称</div>
 		
-							<div class="input_text_wrap" name="xiaoqu" style="position: relative;">
-								<input type="autoComplete" tabindex="13" id="xiaoqu" autocomplete="off" disableautocomplete="true" maxlength="30" placeholder="只填写小区名，例嘉铭桐城" style="width: 395px;">
+							<div class="input_text_wrap"  style="position: relative;">
+								<input type="autoComplete" name="xiaoqu" tabindex="13" id="xiaoqu" autocomplete="off" disableautocomplete="true" maxlength="30" placeholder="只填写小区名，例嘉铭桐城" style="width: 395px;">
 			
 								<div class="tooltip" style=" margin:1px 0 0 -10px;overflow-y:auto;overflow-x:hidden;border:1px solid #ccc;position:absolute;z-index:487;display:none">
 									<ul class="autoCompleteul" style="margin:0; padding:0; display:block; width: 100%; ; border:0;background:#fff">
@@ -152,8 +151,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					
 						<div class="selectordef" name="localArea" id="localArea1" style="z-index: 1485; width: 150px;" tabindex="15" nameid="483">
 							<div class="title">
-								<span class="seled" id="select_area">
-							请选择</span>
+								<span class="seled" id="select_area">请选择</span>
 								<div class="arrow">
 							</div>
 						</div>
@@ -169,20 +167,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<li val="3194" class="">长安</li>
 								<li val="488" class="">灞桥</li>
 								<li val="3116" class="">临潼</li>
-								<li val="490" class="">阎良</li>
-								<li val="5926" class="">高新区</li>
-								<li val="12324" class="">沣渭新区</li>
-								<li val="12325" class="">曲江新区</li>
-								<li val="5927" class="">杨凌</li>
-								<li val="1939" class="">西安周边</li>
+								<li val="5927" class="">杨陵</li>
 							</ul>
 						</div>
 					</div>
 			
 				<div class="selectordef" name="localDiduan" id="local_diduan" style="z-index: 1484; width: 150px;" tabindex="16">
 					<div class="title">
-						<span class="seled" id="select_diduan">请选择地段
-						</span>
+						<span class="seled" id="select_diduan">请选择地段</span>
 					<div class="arrow">
 					</div>
 				</div>
@@ -194,8 +186,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</div>
 		
-			<div class="input_text_wrap" name="dizhi" style="position: relative;">
-				<input type="inputText" tabindex="17" id="dizhi" placeholder="请输入具体的地址" style="width: 277px;">
+			<div class="input_text_wrap"  style="position: relative;">
+				<input type="inputText" tabindex="17" id="dizhi" name="dizhi" placeholder="请输入具体的地址" style="width: 277px;">
 			</div>
 		</div>
 	
@@ -212,12 +204,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="tip validate_error" id="mianji_error" style="left: 0px; display: none;"><i></i>请输入面积</div>
 							
 							<div class="input_text_wrap clearfix" name="huxingshi1" style="position: relative;">
-								<input type="inputText" tabindex="18" id="huxingshi1" maxlength="1" style="width: 95px;">
+								<input type="inputText" tabindex="18" id="huxingshi1" name="huxingshi1" maxlength="1" style="width: 95px;">
 									<span>室</span>
 							</div>
 							
-							<div class="input_text_wrap clearfix" name="huxingting" style="position: relative;">
-								<input type="inputText" tabindex="19" id="huxingting" maxlength="1" style="width: 95px;">
+							<div class="input_text_wrap clearfix"  style="position: relative;">
+								<input type="inputText" tabindex="19" name="huxingting" id="huxingting" maxlength="1" style="width: 95px;">
 								<span>
 								厅</span>
 							</div>
@@ -303,8 +295,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							
 							<div class="selectordef" id="fangyuanleixing" name="ObjectType1" style="z-index: 1476; width: 150px;" tabindex="24" nameid="1083">
 								<div class="title">
-									<span class="seled" id="leibie">
-									普通住宅</span>
+									<span class="seled" id="leibie">普通住宅</span>
 									<div class="arrow">
 									</div>
 								</div>
@@ -346,22 +337,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 							<div class="selectordef" id="chanquannianxian" style="z-index: 1473; width: 150px;" tabindex="27" nameid="7535">
 								<div class="title">
-									<span class="seled" id="nianxian">
-									请选择</span>
+									<span class="seled" id="nianxian">请选择</span>
 									<div class="arrow">
 									</div>
 								</div>
 			
 								<div class="optiondef" id="changquan" style="width: 147px;display:none">
 									<ul style="width:147px;">
-										<li val="">
-										请选择产权年限</li>
-										<li val="70" class="">
-										70年产权</li>
-										<li val="50" class="">
-										50年产权</li>
-										<li val="40" class="">
-										40年产权</li>
+										<li val="">请选择产权年限</li>
+										<li val="70" class="">70年产权</li>
+										<li val="50" class="">50年产权</li>
+										<li val="40" class="">40年产权</li>
 									</ul>
 								</div>
 							</div>
@@ -406,15 +392,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 				<div class="block_wrap">
 					<div class="block_title" id="fangyuangexingmiaoshu">
-						<h2>房源个性描述</h2>
+						<h2>*房源个性描述</h2>
 						
-						<textarea type="text" name="miaoshu" style="width:515px;height:215px;position: absolute;margin:0 0 0 160px">
+						<textarea type="text" id="miaoshu111" name="miaoshu111" style="width:515px;height:215px;position: absolute;margin:0 0 0 160px">
 						</textarea>
 					
 					</div>
-					
-					
-					
 					
 					<div class="block_content">
 						<div class="rows_content">
@@ -516,9 +499,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</div>
 		
 						<div class="submit_wrap" >
-							<div class="mdzz" >
-								<span >
-								发布</span>
+							<div class="mdzz" id="submit1">
+								<div id = "zz1" class="zz" onclick="submit();">
+								发布</div>
+								
 							</div>
 						</div>
 		
@@ -533,8 +517,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 			</div>
 		</div>
+	
+		<input type="text" id="identity" name="identity" style="display:none"/>
+		<input type="text" id="village" name="village" style="display:none"/>
+		<input type="text" id="streets" name="streets" style="display:none"/>
+		<input type="text" id="htype" name="htype" style="display:none"/>
+		<input type="text" id="htime" name="htime" style="display:none"/>
+		
 	</form>
-
+	
 </div>
 
 <!-- *********************底部********************** -->

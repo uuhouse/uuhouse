@@ -30,7 +30,7 @@
 			<result name="checkcodeFail">/jsp/regist.jsp</result>
 			<result name="error">jsp/error.jsp</result>
 			<result name="usercenter">jsp/membercenter.jsp</result>
-			<result name="publish">jsp/publish.jsp</result>
+			<result name="to_publish">jsp/publish.jsp</result>
 			
 			<result name="input">jsp/regist.jsp</result>
 		</action>
