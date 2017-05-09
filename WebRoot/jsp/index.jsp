@@ -26,43 +26,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div id="header">
 <!--header e-->
         <!--search box s-->
-<div class="h-search" data-widget="app/ms_v2/common/list_page.js#fixSearchBar">
-    <div class="search clearfix">
+<div class="h-search" >
+   <div class="search clearfix">
       <div class="clearfix">
-          <div class="logo-box">
-              <a href="/" class="logo-2013"></a>
-          </div>
-		            
-		  <div class="s-search" id="listSearch" data-widget="app/ms_v2/widget/key_search_with_local_storage.js" data-focus-class="small-focus" data-url-template="http://bj.ganji.com/%s/_{{keyword}}/" data-is-list="1" data-autocomplete-url="/ajax.php?_pdt=fang&amp;module=suggestion&amp;domain=bj&amp;keyword={{keyword}}">
+		 <div class="s-search" id="listSearch" >
 		  <form action="" method="post" onsubmit="return false;">
-		    <input name="search_keyword" value="" type="text" autocomplete="off" id="search_keyword" data-role="input" class="search-broad " placeholder="想找什么？输入关键字试试">
-		  <div class="sear-menu0" style="position:relative" data-target="_blank" data-default-url="http://bj.ganji.com/fang5/_{{keyword}}/" data-cate="fang5" data-role="selected">
-		    <span class="js-text">热搜房</span>
-		    <em class="ic2"></em>
-		  	<ul class="sear-menu0-con" data-role="options">
-		    	<li data-role="option" data-cate="fang5" data-default-url="http://bj.ganji.com/fang5/_{{keyword}}/" data-target="_blank" style="display:none"><a href="###" title="二手房">二手房</a></li>
-		        <li data-role="option" data-default-url="http://bj.ganji.com/fang1/_{{keyword}}/" data-cate="fang1" data-target="_blank" data-is-sub-cate="true">
-		            <a href="###" title="出租房">景区房</a>
-		        </li>
-		        <li data-role="option" data-default-url="http://bj.ganji.com/fang3/_{{keyword}}/" data-cate="fang3" data-target="_blank" data-is-sub-cate="true">
-		            <a href="###" title="合租房">商业房</a>
-		        </li>
-		        <li data-role="option" data-default-url="http://bj.ganji.com/fang12/_{{keyword}}/" data-cate="fang12" data-target="_blank" data-is-sub-cate="true">
-		            <a href="###" title="新房">小区房</a>
-		        </li>
-		        
-		        <li class="st1" data-role="option" data-cate="site" data-default-url="/site/s/_{{keyword}}" data-target="_blank">
-		        	<a href="###" title="所有分类">所有分类</a>
-		        </li>
-		    </ul>
-		</div>
-		    <input data-role="btn" name="search" id="search_button" type="submit" gjalog="/fang/fang5/from=list@atype=click" class="sbtn-s" value="搜索">
+		    <input name="search_keyword" value="" type="text" autocomplete="off" id="search_keyword" data-role="input" class="search-broad " placeholder="想找什么？输入关键字试试" />
+		    <input data-role="btn" name="search" id="search_button" type="submit" class="sbtn-s" value="搜索" />
 		  </form>
 		  </div>
 		  
 		   <div class="edit-eara">
 		        <a rel="nofollow" class="btn-post" href="${pageContext.request.contextPath}/user_publish.action" title="免费发布信息" target="_blank"><span><em class="edit-ico"></em>免费发布信息</span></a>
-		        <a rel="nofollow" class="btn-del" href="" title="修改/删除信息" target="_blank"><span class="del-ico">修改/删除信息</span></a>
+		        <a rel="nofollow" class="btn-del" href="${pageContext.request.contextPath}/user_publishlist.action" title="修改/删除信息" target="_blank"><span class="del-ico">修改/删除信息</span></a>
 		   </div>    
 		</div>
 		
@@ -75,33 +51,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <dl class="hot-city clearfix">
                 <dt>热门城市：</dt>
                 <dd>
-                 <a href="http://bj.ganji.com/fang5/">北京</a>
-                 <a href="http://sh.ganji.com/fang5/">上海</a>
-                 <a href="http://zz.ganji.com/fang5/">郑州</a>
-                 <a href="http://sy.ganji.com/fang5/">沈阳</a>
-                 <a href="http://sz.ganji.com/fang5/">深圳</a>
-                 <a href="http://cd.ganji.com/fang5/">成都</a>
-                 <a href="http://cq.ganji.com/fang5/">重庆</a>
-                 <a href="http://qd.ganji.com/fang5/">青岛</a>
-                 <a href="http://wh.ganji.com/fang5/">武汉</a>
-                 <a href="http://tj.ganji.com/fang5/">天津</a>
-                 <a href="http://jn.ganji.com/fang5/">济南</a>
-                 <a href="http://nj.ganji.com/fang5/">南京</a>
-                 <a href="http://gz.ganji.com/fang5/">广州</a>
-                 <a href="http://xa.ganji.com/fang5/">西安</a>
-                 <a href="http://hf.ganji.com/fang5/">合肥</a>
-                 <a href="http://sjz.ganji.com/fang5/">石家庄</a>
-                 <a href="http://dl.ganji.com/fang5/">大连</a>
-                 <a href="http://hz.ganji.com/fang5/">杭州</a>
-                 <a href="http://su.ganji.com/fang5/">苏州</a>
+                 <a href="">北京</a>
+                 <a href="">上海</a>
+                 <a href="">郑州</a>
+                 <a href="">沈阳</a>
+                 <a href="">深圳</a>
+                 <a href="">成都</a>
+                 <a href="">重庆</a>
+                 <a href="">青岛</a>
+                 <a href="">武汉</a>
+                 <a href="">天津</a>
+                 <a href="">济南</a>
+                 <a href="">南京</a>
+                 <a href="">广州</a>
+                 <a href="">西安</a>
+                 <a href="">合肥</a>
+                 <a href="">石家庄</a>
+                 <a href="">大连</a>
+                 <a href="">杭州</a>
+                 <a href="">苏州</a>
                  </dd>
             </dl>    
             <dl class="all-city clearfix">
-                <dt>全国城市：</dt>
+                <dt>地区搜索：</dt>
                 <dd>
                     <form id="cityform" name="cityform" action = "" >
 	                    <div id="id_prov_box" class="select-box width height ">
-	                    	
 	                         <select style="WIDTH: 120px"  name="sheng" id="sheng" onchange="ProvinceChange(this, cityform.city);">
 						        <option selected="selected" value="">-请选择省份</option>
 						        <option value="北京">北京</option>
@@ -159,10 +134,48 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <span class="list-tab">全国二手房</span>
             </div>
             <ul class="list-style1">
+             	 <s:iterator var="h" value="hList">
+					<li  class="list-img clearfix">
+						<a href="${ pageContext.request.contextPath }/house_findByHid.action?hid=<s:property value="#h.hid"/>" target="_blank"><img src="${pageContext.request.contextPath}/<s:property value="#h.himage"/>" data-original="http://storage.housexx.net/demo-image/3.0/201301/0ff130db-0a1b-4b8d-a918-ed9016317009-thumbnail.jpg" style="display: block;"></a>
+					</li>
+					 <li class="list-img clearfix">
+                    <div class="list-mod1">
+                        <a href="http://bj.ganji.com/fang5/2732040299x.htm" target="_blank" class="img-box"><img width="160" height="120" alt="西城马连道三义里 纯南向2居" src="http://scs.ganjistatic1.com/gjfsqq/v1bl2lwkgu3xzfqf7zrvjq_120-100_9-0.jpg">
+                            <span class="ico-number"><em><i class="number">7</i>图</em></span>
+                                                    </a>
+                    </div>
+                    <div class="list-mod2">
+                        <div class="info-title"><a href="http://bj.ganji.com/fang5/2732040299x.htm" target="_blank" class="list-info-title">西城马连道三义里 纯南向2居</a><span class="fc-red"></span>
+                            
+                            <span class="ico-box clearfix">
+                                <!--<span class="ico-new"> </span>-->
+                                  
+                                     <span class="ico-extension"></span>
+                                                            </span>                             
+                            <span id="imjs-embed-user-50005439" class="talkBtn imjs-embed-user webim-embed-user-online" data="%7B%22postPicUrl%22%3A%22http%3A%5C%2F%5C%2Fimage.ganjistatic1.com%5C%2Fgjfstmp1%5C%2FM00%5C%2F00%5C%2F00%5C%2FCgP%2CylGJ9xGIVoiNAAFGUhd01KQAAAAHAH76AgAAUZq273_120-100_9-0.jpg%22%2C%22channel%22%3A1%2C%22userName%22%3A%22yangyu1%22%2C%22userId%22%3A%2250005439%22%2C%22postTitle%22%3A%22account%5C%2Fcpc_consumed.htm%22%2C%22postUrl%22%3A%22http%3A%5C%2F%5C%2Fbj.ganji.com%5C%2Ffang5%5C%2Ftuiguang-973757.htm%22%2C%22postId%22%3A%22973757_5_1002_0%22%7D" name="973757" style="display: inline-block;"><span class="imjs-user-online" style=""><span class="webim-detail-online"><a class="icon_dingdong" href="javascript:" gjalog="/dingdong@name=ding_dong_fang_list@atype=click">&nbsp;</a></span></span></span>
+                        </div>
+                        <div class="list-word">
+                                                        <span class="sp-general">三义里</span>
+                            <span class="sp-coordinate"><i class="ico-coordinate"></i>广安门                                                         - 马连道北街                                                                                      </span>
+                        </div>
+                                                <div class="lbl-box clearfix">
+                                                        <span class="lbls ico-lbl1">电梯房</span>
+                                                    </div>
+                                              
+                        <p class="list-word fc-999"><span class="js-huxing">2室1厅1卫</span><i class="cut-line">/</i>5/5层<i class="cut-line">/</i>中等装修<i class="cut-line">/</i>南向<i class="cut-line">/</i>4月24日</p>
+                    </div>
+                    <div class="list-mod3">
+                        <p class="list-part list-part-first">
+                                                        <em class="sale-price js-price">510</em>万                            </p>
+                                                        <p class="list-part"><span class="js-area">51㎡</span>
+                            (100000元/㎡)                            </p>              
+                                    
+                    </div>
+                </li> 
+				</s:iterator>	
                 <li class="list-img clearfix">
                     <div class="list-mod1">
                         <a href="http://bj.ganji.com/fang5/2732040299x.htm" target="_blank" class="img-box"><img width="160" height="120" alt="西城马连道三义里 纯南向2居" src="http://scs.ganjistatic1.com/gjfsqq/v1bl2lwkgu3xzfqf7zrvjq_120-100_9-0.jpg">
-                                                       
                             <span class="ico-number"><em><i class="number">7</i>图</em></span>
                                                     </a>
                     </div>

@@ -17,7 +17,7 @@ public class IndexAction extends ActionSupport{
 	 */
 	private static final long serialVersionUID = 1L;
 	// 注入房屋的Service
-	private HouseService houseService;
+	private HouseService houseService = new HouseService();
 	
 	public void setHouseService(HouseService houseService) {
 		this.houseService = houseService;
@@ -27,6 +27,10 @@ public class IndexAction extends ActionSupport{
 	 * 执行的访问首页的方法:
 	 */
 	public String execute(){
+		// 查询所有房源:
+		List<House> cList = houseService.findByHid();
+		// 保存到值栈中:
+		ActionContext.getContext().getValueStack().set("cList", cList);
 		// 查询热门房源:
 		List<House> hList = houseService.findHot();
 		// 保存到值栈中:

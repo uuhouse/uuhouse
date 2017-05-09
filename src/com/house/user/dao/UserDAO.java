@@ -3,6 +3,8 @@ package com.house.user.dao;
 import com.house.hibernate.BaseHibernateDAO;
 import com.house.user.vo.User;
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.LockOptions;
@@ -79,7 +81,7 @@ public class UserDAO extends BaseHibernateDAO {
 	public User findById(java.lang.Integer id) {
 		log.debug("getting User instance with id: " + id);
 		try {
-			User instance = (User) getSession().get("com.house.adminuser.vo.User", id);
+			User instance = (User) getSession().get("com.house.user.vo.User", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -183,6 +185,7 @@ public class UserDAO extends BaseHibernateDAO {
 	public int findCount() {
 		String hql = "select count(*) from User";
 		Query query = getSession().createQuery(hql);
+		
 		if(query.list() != null && query.list().size() != 0) {
 			return ((Integer) query.list().get(0)).intValue();
 		}
@@ -191,7 +194,13 @@ public class UserDAO extends BaseHibernateDAO {
 	
 	// 查询用户在一页中的记录数
 	public List<User> findByPage(int begin, int limit) {
-		return null;
+		String hql = "from User";
+		Query query = getSession().createQuery(hql);
+		query.setFirstResult(begin);
+		query.setMaxResults(limit);
+		
+		return query.list();
+		
 	}
 
 	public String getPassword(String username) {
@@ -208,7 +217,6 @@ public class UserDAO extends BaseHibernateDAO {
 	public int getState(String username) {
 		String hql = "select state from User u where u.username='" +  username + "'";
 		Query query = getSession().createQuery(hql);	
-		System.out.println(query);
 		if(query.list() != null && query.list().size() > 0) {
 			return ((Integer) query.list().get(0)).intValue();
 		}
