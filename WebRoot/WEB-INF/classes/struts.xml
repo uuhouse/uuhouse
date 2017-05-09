@@ -31,7 +31,6 @@
 			<result name="error">jsp/error.jsp</result>
 			<result name="usercenter">jsp/membercenter.jsp</result>
 			<result name="publish">jsp/publish.jsp</result>
-			<result name="publishfinish">jsp/publishfinish.jsp</result>
 			
 			<result name="input">jsp/regist.jsp</result>
 		</action>
@@ -43,6 +42,7 @@
 		<action name="house_*" class="com.house.uuhouse.action.HouseAction" method="{1}">
 			<result name="findByHid">/jsp/information.jsp</result>
 			<result name="findByCid">/jsp/informationList.jsp</result>
+			<result name="publishfinish">jsp/publishfinish.jsp</result>
 		</action>
 		
 		<!-- 我的收藏的Action -->

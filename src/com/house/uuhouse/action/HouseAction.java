@@ -56,4 +56,9 @@ ModelDriven<House>{
 			ActionContext.getContext().getValueStack().set("pageBean", pageBean);
 			return "findByCid";
 		}
+		
+		/*****************************************发布信息部分***************************************/
+		public String publishfinish() {
+			return "publishfinish";	
+		}
 }
