@@ -1,4 +1,4 @@
-@charset "UTF-8";a img,img{border:0}
+@charset "UTF-8";a img,img{border:0;}
 .f12,body{font-size:12px}
 .collect-house,.manage-house,.manage-wrap a,.piclayer,.top-publish-news{text-align:center}
 .jp-audio:focus,.jp-audio-stream:focus,.jp-video:focus,:focus{outline:0}
@@ -86,7 +86,7 @@ table{border-collapse:collapse;border-spacing:0}
 .house-title{z-index:5;position:relative}
 .house-title h1{font-weight:700;width:940px;line-height:24px}
 .manage-wrap a,.report-column a{font-size:12px;line-height:28px}
-.house-update-info{margin-top:10px;margin-bottom:20px;overflow:hidden}
+.house-update-info{margin-top:10px;margin-bottom:5px;overflow:hidden}
 .house-update-info span{float:left;padding:4px 5px;margin-right:5px}
 .house-update-info .js{background:#F5A623;color:#fff}
 .house-update-info .jj{background:#3AA731;color:#fff}
@@ -375,7 +375,7 @@ span.jp-artist{font-size:.8em;color:#666}
 .house-basic-item3 .mapNavIcon{font-size:12px}
 .house-basic-item3 .mapNavIcon .icon{margin-bottom:-2px;margin-right:5px;background-position:0 -309px;width:14px;height:15px}
 .house-basic-item4{border-top:1px solid #f3f3f3;padding:3px 20px 3px;}
-.house-basic-item4 .jjr-desc{height:120px;overflow:hidden;line-height:16px;font-size:15px}
+.house-basic-item4 .jjr-desc{height:180px;overflow:hidden;line-height:30px;font-size:15px}
 .house-basic-item4 .nav{margin-bottom:2px;height:32px;overflow:hidden}
 
 .house-basic-item4 .jjrlogo{float:left;display:block;width:30px;height:30px;margin-right:19px;border-radius:50%;border:1px solid #e3e3e3}
@@ -674,3 +674,4 @@ span.jp-artist{font-size:.8em;color:#666}
 .fotBtmIcon #fotBm_4{width:108px;background-position:0 -48px}
 .fotBtmIcon #fotBm_5{width:130px;background-position:0 -144px}
 .fotBtmIcon #fotBm_6{width:120px;background-position:0 -240px}
+#imgbang44428596452621 {width:50px}

@@ -50,7 +50,7 @@ area[num++] = new Array("大差市","碑林");
 area[num++] = new Array("东关南街","碑林");
 area[num++] = new Array("西工大","碑林");
 area[num++] = new Array("李家村","碑林");
-area[num++] = new Array("南门</","碑林");
+area[num++] = new Array("南门","碑林");
 area[num++] = new Array("南稍门","碑林");
 area[num++] = new Array("体育场","碑林");
 area[num++] = new Array("文艺北路","碑林");
@@ -247,6 +247,9 @@ area[num++] = new Array("水厂路","杨陵");
 
 
 $(function() {
+	$("#tijiao222").click(function() {
+		document.cityform.submit();
+	})
 	//选择身份
 	$("#geren").click(function() {
 		$("#geren").removeClass().addClass("radio focus");
@@ -377,6 +380,7 @@ $(function() {
 		
 	})
 	//地区
+	
 	$("#localArea1").click(function(){
 		$("#diqu11").toggle();
 
@@ -384,6 +388,8 @@ $(function() {
 	$("#diqu11 li").click(function() {
 		var leibie = this.innerHTML;	
 		$("#select_area").html(leibie);
+		
+		$("#village1").val(leibie);
 		$("#diduanxuanxiang ul").html("");
 		for(var i=0;i<area.length;i++) {
 			if(area[i][1] == leibie) {
@@ -417,17 +423,16 @@ $(function() {
 	$("#diduanxuanxiang li").click(function() {
 		var leibie = this.innerHTML;
 		$("#select_diduan").html(leibie);
+		$("#streets1").val(leibie);
 		//js线程冲突
 		setTimeout(function(){
 			$("#diduanxuanxiang").css("display","none");
 		},0)
 		
 	})
+	
 	$("#local_diduan").blur(function() {
 		$("#diduanxuanxiang").css("display","none");
-		
 	})
-	
-	
 })
 	

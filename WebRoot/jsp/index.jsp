@@ -13,8 +13,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <title>优优二手房</title>
 <link href="./css/common.css" rel="stylesheet" type="text/css"/>
 <link href="./css/home.css" rel="stylesheet" type="text/css"/>
+<link href="./css/post.css" rel="stylesheet" type="text/css"/>
+<link href="${pageContext.request.contextPath}/css/product.css" rel="stylesheet" type="text/css"/>
 
-<script language="JavaScript" src="./js/city.js"></script>
+
+<script type="text/javascript" src="./js/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="./js/area.js"></script>
 </head>
 <body>
 <!-- *********************顶部********************** -->	
@@ -75,104 +79,107 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <dl class="all-city clearfix">
                 <dt>地区搜索：</dt>
                 <dd>
-                    <form id="cityform" name="cityform" action = "" >
-	                    <div id="id_prov_box" class="select-box width height ">
-	                         <select style="WIDTH: 120px"  name="sheng" id="sheng" onchange="ProvinceChange(this, cityform.city);">
-						        <option selected="selected" value="">-请选择省份</option>
-						        <option value="北京">北京</option>
-						        <option value="天津">天津</option>
-						        <option value="辽宁">辽宁</option>
-						        <option value="吉林">吉林</option>
-						        <option value="黑龙江">黑龙江</option>
-						        <option value="河北">河北</option>
-						        <option value="山西">山西</option>
-						        <option value="内蒙古">内蒙古</option>
-						        <option value="上海">上海</option>
-						        <option value="江苏">江苏</option>
-						        <option value="浙江">浙江</option>
-						        <option value="安徽">安徽</option>
-						        <option value="福建">福建</option>
-						        <option value="江西">江西</option>
-						        <option value="山东">山东</option>
-						        <option value="河南">河南</option>
-						        <option value="湖北">湖北</option>
-						        <option value="湖南">湖南</option>
-						        <option value="广东">广东</option>
-						        <option value="广西">广西</option>
-						        <option value="海南">海南</option>
-						        <option value="重庆">重庆</option>
-						        <option value="四川">四川</option>
-						        <option value="贵州">贵州</option>
-						        <option value="云南">云南</option>
-						        <option value="西藏">西藏</option>
-						        <option value="陕西">陕西</option>
-						        <option value="甘肃">甘肃</option>
-						        <option value="青海">青海</option>
-						        <option value="宁夏">宁夏</option>
-						        <option value="新疆">新疆</option>
-						        <option value="台湾">台湾</option>
-						        <option value="香港">香港</option>
-						        <option value="澳门">澳门</option>
-						      </select>
-						  </div>
-						  <div id="id_city_box" class="select-box width">
-						      <select style="WIDTH: 120px" name="city" id="city" >
-						      <option selected="selected" value="">-请选择城市</option>
-						      </select> 
-						 </div> 
-						 
-						 <div class="btn-box fl">
-			              	<input class="btn-confirm" type="button" id="submit_btn" value="确定">
-			              </div>
+                    <form id="cityform" name="cityform" action = "house_findByArea.action" >
+                    	<input type="text" id="village1" name="village" style="display:none"/>
+						<input type="text" id="streets1" name="streets" style="display:none"/>
+	                    <div class="selectordef" name="localArea" id="localArea1" style="z-index: 1485; width: 150px;" tabindex="15" nameid="483">
+							<div class="title">
+								<span class="seled" id="select_area">请选择</span>
+								<div class="arrow"></div>
+							</div>
+							<div class="optiondef" id="diqu11" style="width: 147px;">
+								<ul style="width:147px;">
+									<li val="">请选择</li>
+									<li val="487" class="">雁塔</li>
+									<li val="486" class="">碑林</li>
+									<li val="484" class="">莲湖</li>
+									<li val="485" class="">新城</li>
+									<li val="489" class="">未央</li>
+									<li val="3194" class="">长安</li>
+									<li val="488" class="">灞桥</li>
+									<li val="3116" class="">临潼</li>
+									<li val="5927" class="">杨陵</li>
+								</ul>
+							</div>
+						</div>
+						
+						<div class="selectordef" name="localDiduan" id="local_diduan" style="z-index: 1484; width: 150px;" tabindex="16">
+							<div class="title">
+								<span class="seled" id="select_diduan">请选择地段</span>
+								<div class="arrow"></div>
+							</div>
+							<div class="optiondef" id="diduanxuanxiang" style="width: 147px;display:none">
+								<ul>
+									<li>请选择地段</li>
+								</ul>
+							</div>
+						
+						</div>
+						<div class="">
+			              	<input class="btn-confirm" type="submit" id="dizhi" value="提交" />
+			            </div>
 					 </form>
                 </dd>
             </dl>
         </div>
         
-        <div class="listBox">
+        <div class="listBox" id = "tijiao222">
             <div class="list-top clearfix">
-                <span class="list-tab">全国二手房</span>
+                <span class="list-tab">热门二手房</span>
             </div>
             <ul class="list-style1">
              	 <s:iterator var="h" value="hList">
-					<li  class="list-img clearfix">
-						<a href="${ pageContext.request.contextPath }/house_findByHid.action?hid=<s:property value="#h.hid"/>" target="_blank"><img src="${pageContext.request.contextPath}/<s:property value="#h.himage"/>" data-original="http://storage.housexx.net/demo-image/3.0/201301/0ff130db-0a1b-4b8d-a918-ed9016317009-thumbnail.jpg" style="display: block;"></a>
-					</li>
-					 <li class="list-img clearfix">
+					<li class="list-img clearfix">
                     <div class="list-mod1">
-                        <a href="http://bj.ganji.com/fang5/2732040299x.htm" target="_blank" class="img-box"><img width="160" height="120" alt="西城马连道三义里 纯南向2居" src="http://scs.ganjistatic1.com/gjfsqq/v1bl2lwkgu3xzfqf7zrvjq_120-100_9-0.jpg">
-                            <span class="ico-number"><em><i class="number">7</i>图</em></span>
-                                                    </a>
+                        <a href="${pageContext.request.contextPath}/house_findByHid.action?hid=<s:property value="#h.hid" />" target="_blank" class="img-box">
+                        	<img width="160" height="120" alt="<s:property value="#h.title" />" src="${pageContext.request.contextPath}/<s:property value="#h.himage"/>" /></a>
                     </div>
+                    
                     <div class="list-mod2">
-                        <div class="info-title"><a href="http://bj.ganji.com/fang5/2732040299x.htm" target="_blank" class="list-info-title">西城马连道三义里 纯南向2居</a><span class="fc-red"></span>
-                            
+                        <div class="info-title">
+                        	<a href="${pageContext.request.contextPath}/house_findByHid.action?hid=<s:property value="#h.hid" />" target="_blank" class="list-info-title"><s:property value="#h.title" /></a>
+                        	<span class="fc-red"></span>
                             <span class="ico-box clearfix">
-                                <!--<span class="ico-new"> </span>-->
-                                  
-                                     <span class="ico-extension"></span>
-                                                            </span>                             
-                            <span id="imjs-embed-user-50005439" class="talkBtn imjs-embed-user webim-embed-user-online" data="%7B%22postPicUrl%22%3A%22http%3A%5C%2F%5C%2Fimage.ganjistatic1.com%5C%2Fgjfstmp1%5C%2FM00%5C%2F00%5C%2F00%5C%2FCgP%2CylGJ9xGIVoiNAAFGUhd01KQAAAAHAH76AgAAUZq273_120-100_9-0.jpg%22%2C%22channel%22%3A1%2C%22userName%22%3A%22yangyu1%22%2C%22userId%22%3A%2250005439%22%2C%22postTitle%22%3A%22account%5C%2Fcpc_consumed.htm%22%2C%22postUrl%22%3A%22http%3A%5C%2F%5C%2Fbj.ganji.com%5C%2Ffang5%5C%2Ftuiguang-973757.htm%22%2C%22postId%22%3A%22973757_5_1002_0%22%7D" name="973757" style="display: inline-block;"><span class="imjs-user-online" style=""><span class="webim-detail-online"><a class="icon_dingdong" href="javascript:" gjalog="/dingdong@name=ding_dong_fang_list@atype=click">&nbsp;</a></span></span></span>
-                        </div>
-                        <div class="list-word">
-                                                        <span class="sp-general">三义里</span>
-                            <span class="sp-coordinate"><i class="ico-coordinate"></i>广安门                                                         - 马连道北街                                                                                      </span>
-                        </div>
-                                                <div class="lbl-box clearfix">
-                                                        <span class="lbls ico-lbl1">电梯房</span>
-                                                    </div>
-                                              
-                        <p class="list-word fc-999"><span class="js-huxing">2室1厅1卫</span><i class="cut-line">/</i>5/5层<i class="cut-line">/</i>中等装修<i class="cut-line">/</i>南向<i class="cut-line">/</i>4月24日</p>
-                    </div>
+                                   <span class="ico-extension"></span>
+                            </span>                             
+                            <span id="imjs-embed-user-50005439" class="talkBtn imjs-embed-user webim-embed-user-online" data="%7B%22postPicUrl%22%3A%22http%3A%5C%2F%5C%2Fimage.ganjistatic1.com%5C%2Fgjfstmp1%5C%2FM00%5C%2F00%5C%2F00%5C%2FCgP%2CylGJ9xGIVoiNAAFGUhd01KQAAAAHAH76AgAAUZq273_120-100_9-0.jpg%22%2C%22channel%22%3A1%2C%22userName%22%3A%22yangyu1%22%2C%22userId%22%3A%2250005439%22%2C%22postTitle%22%3A%22account%5C%2Fcpc_consumed.htm%22%2C%22postUrl%22%3A%22http%3A%5C%2F%5C%2Fbj.ganji.com%5C%2Ffang5%5C%2Ftuiguang-973757.htm%22%2C%22postId%22%3A%22973757_5_1002_0%22%7D" name="973757" style="display: inline-block;">
+	                            <span class="imjs-user-online" style="">
+		                            <span class="webim-detail-online">
+		                            	<a class="icon_dingdong" href="javascript:" gjalog="/dingdong@name=ding_dong_fang_list@atype=click">&nbsp;</a>
+		                            </span>
+	                            </span>
+                            </span>
+                     </div>
+                      
+                       <div class="list-word">
+                           <span class="sp-general"><s:property value="#h.areas" /></span>
+                           <span class="sp-coordinate"><i class="ico-coordinate"></i><s:property value="#h.village" /> - <s:property value="#h.stretch" />                                                                                                                                      </span>
+                       </div>
+                       
+                       <div class="lbl-box clearfix">
+                               <span class="lbls ico-lbl1"><s:property value="#h.htype" /> </span>
+                       </div>
+                                             
+                       <p class="list-word fc-999"><span class="js-huxing"><s:property value="#h.layout" /></span>
+                       	<i class="cut-line"></i><s:property value="#h.floor" /> 
+                       	<i class="cut-line"></i><s:property value="#h.htime" /> 
+                       	<i class="cut-line"></i><s:property value="#h.identify" /> 
+                       	<i class="cut-line"></i><s:date name="#h.hdate" format="yyyy-MM-dd" /> 
+                       </p>
+                   </div>
+                    
                     <div class="list-mod3">
                         <p class="list-part list-part-first">
-                                                        <em class="sale-price js-price">510</em>万                            </p>
-                                                        <p class="list-part"><span class="js-area">51㎡</span>
-                            (100000元/㎡)                            </p>              
-                                    
+                       		 <em class="sale-price js-price"><s:property value="#h.countprice" /></em> 
+                      	</p>
+                        <p class="list-part"><span class="js-area"><s:property value="#h.area" /></span>  (<s:property value="#h.untiprice"/>)
+                        </p>              
                     </div>
                 </li> 
 				</s:iterator>	
+				
+				
+				
                 <li class="list-img clearfix">
                     <div class="list-mod1">
                         <a href="http://bj.ganji.com/fang5/2732040299x.htm" target="_blank" class="img-box"><img width="160" height="120" alt="西城马连道三义里 纯南向2居" src="http://scs.ganjistatic1.com/gjfsqq/v1bl2lwkgu3xzfqf7zrvjq_120-100_9-0.jpg">
@@ -975,6 +982,53 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </li> 
                                                         
             </ul>
+            
+            
+            <div class="pagination">
+			<span>第 <s:property value="pageBean.page"/>/<s:property value="pageBean.totalPage"/> 页</span>
+		<s:if test="cid != null">
+			<s:if test="pageBean.page != 1">
+				<a href="${ pageContext.request.contextPath }/house_findByCid.action?cid=<s:property value="cid"/>&page=1" class="firstPage">&nbsp;</a>
+				<a href="${ pageContext.request.contextPath }/house_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.page-1"/>" class="previousPage">&nbsp;</a>
+			</s:if>
+			
+			<s:iterator var="i" begin="1" end="pageBean.totalPage">
+				<s:if test="pageBean.page != #i">
+					<a href="${ pageContext.request.contextPath }/house_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="#i"/>"><s:property value="#i"/></a>
+				</s:if>
+				<s:else>
+					<span class="currentPage"><s:property value="#i"/></span>
+				</s:else>
+			</s:iterator>
+			
+			<s:if test="pageBean.page != pageBean.totalPage">	
+				<a class="nextPage" href="${ pageContext.request.contextPath }/house_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.page+1"/>">&nbsp;</a>
+				<a class="lastPage" href="${ pageContext.request.contextPath }/house_findByCid.action?cid=<s:property value="cid"/>&page=<s:property value="pageBean.totalPage"/>">&nbsp;</a>
+			</s:if>
+		</s:if>	
+		<s:if test="csid != null">
+			<s:if test="pageBean.page != 1">
+				<a href="${ pageContext.request.contextPath }/house_findByCsid.action?csid=<s:property value="csid"/>&page=1" class="firstPage">&nbsp;</a>
+				<a href="${ pageContext.request.contextPath }/house_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="pageBean.page-1"/>" class="previousPage">&nbsp;</a>
+			</s:if>
+			
+			<s:iterator var="i" begin="1" end="pageBean.totalPage">
+				<s:if test="pageBean.page != #i">
+					<a href="${ pageContext.request.contextPath }/house_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="#i"/>"><s:property value="#i"/></a>
+				</s:if>
+				<s:else>
+					<span class="currentPage"><s:property value="#i"/></span>
+				</s:else>
+			</s:iterator>
+			
+			<s:if test="pageBean.page != pageBean.totalPage">	
+				<a class="nextPage" href="${ pageContext.request.contextPath }/house_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="pageBean.page+1"/>">&nbsp;</a>
+				<a class="lastPage" href="${ pageContext.request.contextPath }/house_findByCsid.action?csid=<s:property value="csid"/>&page=<s:property value="pageBean.totalPage"/>">&nbsp;</a>
+			</s:if>
+		</s:if>	
+	</div>
+	
+	
         </div>
         
         

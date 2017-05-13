@@ -174,22 +174,12 @@ public class HouseDAO extends BaseHibernateDAO {
 	public List<House> findHot() {
 		String hql = "from House where is_hot = 1";
 		Query query = getSession().createQuery(hql);
-		System.out.println(query.list().toString());
 		return query.list();
 	}
 
 	// 最新房屋的查询
 	public List<House> findNew() {
-		/*// 使用离线条件查询:
-		DetachedCriteria criteria = DetachedCriteria.forClass(House.class);
-		// 按日期进行倒序排序:
-		criteria.addOrder(Order.desc("hdate"));
-		// 执行查询:
-		List<House> list = this.getHibernateTemplate().findByCriteria(criteria, 0, 10);*/
-		String hql = "from House order by hdate desc";
-		Query query = getSession().createQuery(hql);
-		
-		return query.list();
+		return findByPage(0, 4);
 	}
 	
 	// 根据房屋ID查询房屋房屋列表信息
@@ -228,6 +218,13 @@ public class HouseDAO extends BaseHibernateDAO {
 		Query query = getSession().createQuery(hql);
 		query.setFirstResult(begin);
 		query.setMaxResults(limit);
+		
+		return query.list();
+	}
+
+	public List<House> findByArea(String village, String stretch) {
+		String hql = "from House where village = '" + village + "'and stretch = '" + stretch + "'";
+		Query query = getSession().createQuery(hql);
 		
 		return query.list();
 	}

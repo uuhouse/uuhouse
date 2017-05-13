@@ -78,6 +78,10 @@ public class HouseService {
 			HouseDAO.update(house);
 		}
 
+		public List<House> findByArea(String village, String streets) {
+			return HouseDAO.findByArea(village,streets);
+		}
+
 	
 
 }

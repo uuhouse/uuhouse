@@ -41,7 +41,7 @@
 		<!-- 房屋模块的Action ,ByHid为房屋详细信息页，ByCid为分类下房屋信息分类页面-->
 		<action name="house_*" class="com.house.uuhouse.action.HouseAction" method="{1}">
 			<result name="findByHid">/jsp/information.jsp</result>
-			<result name="findByCid">/jsp/informationList.jsp</result>
+			<result name="index">/jsp/index.jsp</result>
 			<result name="publishfinish">jsp/publishfinish.jsp</result>
 		</action>
 		
