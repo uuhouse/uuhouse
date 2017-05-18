@@ -1,0 +1,727 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0080)http://localhost:8080/mango/login.jhtml?redirectUrl=%2Fmango%2Fcart%2Flist.jhtml -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>center.html</title>
+	<link href="./css/center.css" rel="stylesheet" type="text/css"/>
+
+  </head>
+  
+  <body>
+    <form id="subform" name="subform" method="post" enctype="multipart/form-data" target="formSubmit" action="/submit/userdata/?sys=my&amp;PGTID=0d000000-0000-02d8-7684-ba21d3497dc8&amp;ClickID=1&amp;r=0.015075629944428348">
+
+<input type="hidden" name="wbtk" value="4a954824a09ba1c5fd90fbfb71971659">
+
+<div class="title clearfix">
+	<h2 class="balance-h2">修改头像</h2>
+</div>
+<table class="grpic mt20">
+	<tbody>
+		<tr>
+			<th rowspan="2"><div id="previewimage"> <span class="tx"> <img id="userimg" src="//img.58cdn.com.cn/ui6/my/images/touxiang_default.gif"></span></div></th>
+			<td>
+				<div>快速上传</div>
+				<div><input id="btn_use_wx_face" type="button" value="使用微信头像"> (
+					 未绑定微信 				)
+				</div>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>
+				<div>本地上传</div>
+				<input type="file" size="38" onchange="$.c.Uploader.uploaduserimg('subform')" id="userface" name="fileUploadInput">
+				<input type="hidden" value="uploadresult" name="backFunction" id="backFunction">
+				<iframe name="uploadframe" id="uploadframe" src="/submit.htm" style="display: none;"> </iframe>
+				<br>
+				图片格式:GIF、JPG、JPEG、PNG,最适合尺寸120*120 像素 
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="title clearfix">
+	<h2 class="balance-h2">修改联系方式</h2>
+</div>
+<table class="grinfo">
+	<tbody>
+		<tr>
+			<th> 手 &nbsp; &nbsp;机：</th>
+			<td>
+									<strong>132****0119</strong>
+					<img align="absmiddle" alt="手机已验证" src="//img.58cdn.com.cn/ucenter/my/img/icotel.gif">
+											<a href="/safeset/authmobile?sys=my">修改</a>
+					            	            </td>
+		</tr>
+		<tr>
+			<th>座 &nbsp; &nbsp;机：</th>
+			<td>
+				<input class="inp inw" name="txtPhone" type="text" id="txtPhone" value="">
+				<span id="txtPhone_Tip"></span>
+			</td>
+		</tr>
+		
+		<tr>
+			<th><span class="red">*</span> 电子邮件：</th>
+			<td colspan="2">
+															<a href="/authmail?sys=my">去填写邮箱并认证</a>
+									            </td>
+		</tr>
+		
+		<tr>
+			<th>企业QQ员工号：</th>
+			<td colspan="2">
+				<input class="inp inw" name="txtQQ" type="text" maxlength="11" id="txtQQ" value="">
+				<span id="txtQQ_Tip">
+					<a target="_blank" href="http://about.58.com/376.html">查看展示效果及开通步骤»</a>
+				</span>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="title clearfix">
+	<h2 class="balance-h2">修改资料</h2>
+</div>
+<table class="grinfo">
+<tbody>
+	<tr>
+		<th>用户名：</th>
+		<td> <strong>笑颜如花fff</strong></td>
+	</tr>
+	<tr>
+		<th><span class="red">*</span> 真实姓名：</th>
+		<td>
+							<input class="inp inw" name="txtTrueName" type="text" id="txtTrueName" value="">
+										<a href="/authrealname?sys=my">验证身份增加信用</a>
+							
+        </td>
+	</tr>
+	<tr>
+		<th><span class="red">*</span> 性 &nbsp; &nbsp;别：</th>
+		<td>
+			<input type="radio" value="2" name="rbsex" id="rbSex1">
+			<label for="rbSex1">女</label>
+			<input type="radio" value="1" name="rbsex" id="rbSex2">
+			<label for="rbSex2">男</label>
+			<span id="Sex_Tip"></span>
+		</td>
+	</tr>
+	<tr>
+		<th><span class="red">*</span> 年 &nbsp; &nbsp;龄：</th>
+		<td>
+			<style type="text/css">
+				.yearcssdefault{width: 55px;}
+				.monthcssdefault{width: 50px;}
+				.daycssdefault{width: 50px;}
+			</style>
+			<span id="templateyearmonthandday">
+				<script>
+	                var date1 = new $.c.public1.dropdowndate("date1",undefined,1980,1,1);
+	                date1.load(2017);
+	            </script><span class="yearcssdefault" style="width:auto"><select id="yeardate1" class="yearcssdefault" name="yeardate1" onchange="date1.InitMonth(0);date1.InitDay(this.value,1,1)" value="1980"><option value="1918">1918</option><option value="1919">1919</option><option value="1920">1920</option><option value="1921">1921</option><option value="1922">1922</option><option value="1923">1923</option><option value="1924">1924</option><option value="1925">1925</option><option value="1926">1926</option><option value="1927">1927</option><option value="1928">1928</option><option value="1929">1929</option><option value="1930">1930</option><option value="1931">1931</option><option value="1932">1932</option><option value="1933">1933</option><option value="1934">1934</option><option value="1935">1935</option><option value="1936">1936</option><option value="1937">1937</option><option value="1938">1938</option><option value="1939">1939</option><option value="1940">1940</option><option value="1941">1941</option><option value="1942">1942</option><option value="1943">1943</option><option value="1944">1944</option><option value="1945">1945</option><option value="1946">1946</option><option value="1947">1947</option><option value="1948">1948</option><option value="1949">1949</option><option value="1950">1950</option><option value="1951">1951</option><option value="1952">1952</option><option value="1953">1953</option><option value="1954">1954</option><option value="1955">1955</option><option value="1956">1956</option><option value="1957">1957</option><option value="1958">1958</option><option value="1959">1959</option><option value="1960">1960</option><option value="1961">1961</option><option value="1962">1962</option><option value="1963">1963</option><option value="1964">1964</option><option value="1965">1965</option><option value="1966">1966</option><option value="1967">1967</option><option value="1968">1968</option><option value="1969">1969</option><option value="1970">1970</option><option value="1971">1971</option><option value="1972">1972</option><option value="1973">1973</option><option value="1974">1974</option><option value="1975">1975</option><option value="1976">1976</option><option value="1977">1977</option><option value="1978">1978</option><option value="1979">1979</option><option value="1980">1980</option><option value="1981">1981</option><option value="1982">1982</option><option value="1983">1983</option><option value="1984">1984</option><option value="1985">1985</option><option value="1986">1986</option><option value="1987">1987</option><option value="1988">1988</option><option value="1989">1989</option><option value="1990">1990</option><option value="1991">1991</option><option value="1992">1992</option><option value="1993">1993</option><option value="1994">1994</option><option value="1995">1995</option><option value="1996">1996</option><option value="1997">1997</option><option value="1998">1998</option><option value="1999">1999</option><option value="2000">2000</option><option value="2001">2001</option><option value="2002">2002</option><option value="2003">2003</option><option value="2004">2004</option><option value="2005">2005</option><option value="2006">2006</option><option value="2007">2007</option><option value="2008">2008</option><option value="2009">2009</option><option value="2010">2010</option><option value="2011">2011</option><option value="2012">2012</option><option value="2013">2013</option><option value="2014">2014</option><option value="2015">2015</option><option value="2016">2016</option><option value="2017">2017</option></select>  年</span><span class="monthcssdefault" style="width:auto"><select id="monthdate1" class="monthcssdefault" name="monthdate1" onchange="date1.MonthChange(this.value)" value="1"><option value="1">01</option><option value="2">02</option><option value="3">03</option><option value="4">04</option><option value="5">05</option><option value="6">06</option><option value="7">07</option><option value="8">08</option><option value="9">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select>  月</span><span class="daycssdefault" style="width:auto"><select id="daydate1" class="daycssdefault" name="daydate1" onchange="" value="1"><option value="1">01</option><option value="2">02</option><option value="3">03</option><option value="4">04</option><option value="5">05</option><option value="6">06</option><option value="7">07</option><option value="8">08</option><option value="9">09</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option></select>  日</span>
+			</span>
+		</td>
+	</tr>
+	<tr>
+		<th><span class="red">*</span> 我的生活圈：</th>
+		<td>
+			<span id="mylifecycle">
+				<script>
+				    var ms1 = new $.j.multiselect("ms1");
+				    var local1 = new $.c.public1.local("local1", ms1);
+				    local1.w('mylifecycle', '', '', '');
+				    local1.load('citylocal1', true, 0, '');
+		        </script><span id="sl_citylocal1"><select id="select_citylocal1" onchange="ms1.c('citylocal1')" name="select_citylocal1" value=""><option value="1">B北京</option><option value="2">S上海</option><option value="3">G广州</option><option value="4">S深圳</option><option value="5">S苏州</option><option value="18">T天津</option><option value="37">C重庆</option><option value="79">H杭州</option><option value="93">W无锡</option><option value="102">C成都</option><option value="122">Q青岛</option><option value="135">N宁波</option><option value="147">D大连</option><option value="158">W武汉</option><option value="172">N南京</option><option value="188">S沈阳</option><option value="202">H哈尔滨</option><option value="222">F佛山</option><option value="228">Y烟台</option><option value="233">L龙口</option><option value="241">S石家庄</option><option value="265">J济南</option><option value="276">T唐山</option><option value="291">Q泉州</option><option value="293">N南安</option><option value="296">S石狮</option><option value="297">J晋江</option><option value="304">F福州</option><option value="319">C长春</option><option value="330">W温州</option><option value="342">Z郑州</option><option value="355">S绍兴</option><option value="357">Z诸暨</option><option value="362">W潍坊</option><option value="369">S寿光</option><option value="375">D大庆</option><option value="385">Z淄博</option><option value="394">N南通</option><option value="397">R如皋</option><option value="399">H海门</option><option value="400">Q启东</option><option value="401">H海安县</option><option value="402">R如东县</option><option value="403">T台州</option><option value="408">W温岭市</option><option value="413">D东莞</option><option value="414">C长沙</option><option value="424">B保定</option><option value="450">J济宁</option><option value="463">C常州</option><option value="469">L溧阳</option><option value="471">X徐州</option><option value="477">P邳州</option><option value="478">X新沂</option><option value="483">X西安</option><option value="497">J嘉兴</option><option value="500">H海宁</option><option value="502">T桐乡</option><option value="505">L临沂</option><option value="518">W威海</option><option value="523">A鞍山</option><option value="531">J金华</option><option value="536">D东阳</option><option value="541">K昆明</option><option value="556">L洛阳</option><option value="572">H邯郸</option><option value="592">N南阳</option><option value="606">X厦门</option><option value="613">Y盐城</option><option value="615">D东台</option><option value="618">J建湖县</option><option value="623">D东营</option><option value="629">J江门</option><option value="637">Y扬州</option><option value="645">Z镇江</option><option value="648">D丹阳</option><option value="649">Y扬中</option><option value="652">C沧州</option><option value="669">N南昌</option><option value="679">M茂名</option><option value="686">T泰安</option><option value="693">T泰州</option><option value="696">T泰兴</option><option value="698">J靖江</option><option value="699">X兴化</option><option value="700">J吉林</option><option value="710">Z漳州</option><option value="722">H惠州</option><option value="725">H惠东县</option><option value="726">B博罗县</option><option value="728">D德州</option><option value="740">T太原</option><option value="751">X邢台</option><option value="771">Z中山</option><option value="772">L廊坊</option><option value="783">S汕头</option><option value="791">Z湛江</option><option value="801">B包头</option><option value="811">H呼和浩特</option><option value="821">Y岳阳</option><option value="831">H湖州</option><option value="834">C长兴县</option><option value="835">D德清县</option><option value="837">H合肥</option><option value="845">N南宁</option><option value="858">Y宜昌</option><option value="864">Y宜都</option><option value="872">C常德</option><option value="882">L聊城</option><option value="891">X襄阳</option><option value="901">Z肇庆</option><option value="910">Z珠海</option><option value="914">H衡阳</option><option value="927">J揭阳</option><option value="933">Z周口</option><option value="944">B滨州</option><option value="952">L兰州</option><option value="961">Z枣庄</option><option value="968">H淮安</option><option value="977">X许昌</option><option value="979">Y禹州</option><option value="984">X乌鲁木齐</option><option value="993">H衡水</option><option value="1005">P平顶山</option><option value="1016">X新乡</option><option value="1029">S商丘</option><option value="1039">G桂林</option><option value="1057">M绵阳</option><option value="1067">Z驻马店</option><option value="1078">Q秦皇岛</option><option value="1086">Z株洲</option><option value="1096">A安阳</option><option value="1734">H黄石</option><option value="2015">G贵阳</option><option value="2032">S十堰</option><option value="2037">E鄂尔多斯</option><option value="2038">L辽阳</option><option value="2039">M马鞍山</option><option value="2040">Y玉溪</option><option value="2041">P盘锦</option><option value="2042">K克拉玛依</option><option value="2043">H海拉尔</option><option value="2044">B宝鸡</option><option value="2045">W芜湖</option><option value="2046">W梧州</option><option value="2047">X湘潭</option><option value="2048">S三明</option><option value="2049">L连云港</option><option value="2050">H香港</option><option value="2051">T台湾</option><option value="2052">X西宁</option><option value="2053">H海口</option><option value="2054">Y银川</option><option value="2055">L拉萨</option><option value="2147">D东海县</option><option value="2192">S韶关</option><option value="2247">J九江</option><option value="2248">P萍乡</option><option value="2258">C其他</option><option value="2284">Y阳江</option><option value="2292">L莱芜</option><option value="2296">J荆门</option><option value="2299">H黄冈</option><option value="2302">E恩施</option><option value="2303">S邵阳</option><option value="2307">Y永州</option><option value="2315">S松原</option><option value="2319">H淮南</option><option value="2323">H黄山</option><option value="2325">F阜阳</option><option value="2328">L六安</option><option value="2329">B亳州</option><option value="2335">Q钦州</option><option value="2337">Y玉林</option><option value="2340">H河池</option><option value="2342">K开封</option><option value="2344">H鹤壁</option><option value="2346">P濮阳</option><option value="2347">L漯河</option><option value="2350">S宿迁</option><option value="2354">J锦州</option><option value="2360">J景德镇</option><option value="2363">G赣州</option><option value="2364">J吉安</option><option value="2371">P攀枝花</option><option value="2372">L泸州</option><option value="2373">D德阳</option><option value="2378">N南充</option><option value="2380">Y宜宾</option><option value="2381">G广安</option><option value="2389">Q曲靖</option><option value="2390">B保山</option><option value="2392">L丽江</option><option value="2393">C楚雄</option><option value="2394">H红河</option><option value="2395">W文山</option><option value="2397">B西双版纳</option><option value="2398">D大理</option><option value="2404">W乌海</option><option value="2408">X锡林郭勒</option><option value="2421">G固原</option><option value="2422">S三亚</option><option value="2429">P莆田</option><option value="2501">L辽源</option><option value="3157">A安康</option><option value="3163">H汉中</option><option value="3177">R日照</option><option value="3184">Y延边</option><option value="3198">Z正定</option><option value="3209">Y鹰潭</option><option value="3222">L吕梁</option><option value="3237">L乐山</option><option value="3251">A安庆</option><option value="3266">J焦作</option><option value="3279">W瓦房店</option><option value="3306">P庄河</option><option value="3328">Z张家口</option><option value="3350">J晋城</option><option value="3359">S宿州</option><option value="3434">X孝感</option><option value="3445">D丹东</option><option value="3453">X忻州</option><option value="3470">B蚌埠</option><option value="3479">J荆州</option><option value="3489">M牡丹江</option><option value="5333">Y余姚</option><option value="5334">C慈溪</option><option value="5632">H菏泽</option><option value="5633">X宣城</option><option value="5645">N宁国</option><option value="5653">Y运城</option><option value="5669">L临汾</option><option value="5695">C郴州</option><option value="5709">Y宜春</option><option value="5722">F抚顺</option><option value="5733">W渭南</option><option value="5756">H怀化</option><option value="5772">S沭阳县</option><option value="5845">B本溪</option><option value="5853">Q齐齐哈尔</option><option value="5898">Y营口</option><option value="5918">B白城</option><option value="5928">S内江</option><option value="5942">Y榆林</option><option value="6700">C赤峰</option><option value="6718">S绥化</option><option value="6729">T铁岭</option><option value="6738">X象山县</option><option value="6745">Z自贡</option><option value="6752">L龙岩</option><option value="6760">C承德</option><option value="6770">G贵港</option><option value="6776">J佳木斯</option><option value="6788">Z张家界</option><option value="6793">Q衢州</option><option value="6803">Z资阳</option><option value="6921">C长治</option><option value="6964">D大同</option><option value="7112">L临夏</option><option value="7133">L柳州</option><option value="7154">P平凉</option><option value="7168">K库尔勒</option><option value="7289">J鸡西</option><option value="7303">Q清远</option><option value="7428">J金昌</option><option value="7452">H哈密</option><option value="7453">X咸阳</option><option value="7458">A安顺</option><option value="7624">Z遵义</option><option value="7923">L丽水</option><option value="7969">N宁德</option><option value="8408">D定州</option><option value="8467">T天水</option><option value="8470">Z舟山</option><option value="8531">M明港</option><option value="8556">Y阳春</option><option value="8572">C昌吉</option><option value="8658">Z章丘</option><option value="8672">X信阳</option><option value="8684">G馆陶</option><option value="8694">S顺德</option><option value="8706">Q全国</option><option value="8738">Y阳泉</option><option value="8832">J晋中</option><option value="8951">Y延安</option><option value="9026">Z赵县</option><option value="9039">H鹤岗</option><option value="9101">Y鄢陵</option><option value="9124">Z诸城</option><option value="9179">L临猗</option><option value="9303">S三门峡</option><option value="9311">K喀什</option><option value="9329">C长葛</option><option value="9342">H淮北</option><option value="9348">Q黔东南</option><option value="9374">M梅州</option><option value="9384">A澳门</option><option value="9394">Z昭通</option><option value="9407">L临沧</option><option value="9417">D迪庆</option><option value="9422">D德宏</option><option value="9429">P普洱</option><option value="9441">S汕尾</option><option value="9452">N怒江</option><option value="9455">L娄底</option><option value="9464">T吐鲁番</option><option value="9465">Y伊犁</option><option value="9475">T天门</option><option value="9486">H和田</option><option value="9510">A阿克苏</option><option value="9527">K克孜勒苏</option><option value="9533">B巴音郭楞</option><option value="9539">B博尔塔拉</option><option value="9545">A阿拉尔</option><option value="9556">S石河子</option><option value="9563">T图木舒克</option><option value="9564">W五家渠</option><option value="9578">S山南</option><option value="9587">R日喀则</option><option value="9597">S神农架</option><option value="9616">X咸宁</option><option value="9625">N那曲</option><option value="9630">S随州</option><option value="9635">L林芝</option><option value="9636">C昌都</option><option value="9655">Q潜江</option><option value="9676">Y雅安</option><option value="9686">A阿里</option><option value="9690">R日土县</option><option value="9692">G改则县</option><option value="9695">S遂宁</option><option value="9702">E鄂州</option><option value="9704">M眉山</option><option value="9715">L凉山</option><option value="9723">X仙桃</option><option value="9751">G广元</option><option value="9760">G甘孜</option><option value="9765">Y伊春</option><option value="9799">D达州</option><option value="9808">B巴中</option><option value="9814">A阿坝</option><option value="9829">T铜川</option><option value="9836">S双鸭山</option><option value="9846">Q七台河</option><option value="9851">S商洛</option><option value="9858">H黑河</option><option value="9869">S朔州</option><option value="9875">D大兴安岭</option><option value="9886">Y玉树</option><option value="9894">J济源</option><option value="9896">H黄南</option><option value="9905">H海西</option><option value="9921">H海东</option><option value="9934">H海北</option><option value="9940">G果洛</option><option value="9948">W五指山</option><option value="9949">Z中卫</option><option value="9959">W吴忠</option><option value="9967">S石嘴山</option><option value="9968">W文昌</option><option value="9983">X兴安盟</option><option value="9998">W乌兰察布</option><option value="10011">W万宁</option><option value="10012">T通辽</option><option value="10035">H呼伦贝尔</option><option value="10049">T屯昌</option><option value="10060">Q琼中</option><option value="10063">B巴彦淖尔市</option><option value="10078">A阿拉善盟</option><option value="10083">H葫芦岛</option><option value="10093">F阜新</option><option value="10102">C朝阳</option><option value="10111">X新余</option><option value="10116">S上饶</option><option value="10130">Q琼海</option><option value="10138">F抚州</option><option value="10157">T通化</option><option value="10166">L陵水</option><option value="10167">S四平</option><option value="10177">B白山</option><option value="10193">Y益阳</option><option value="10196">L临高</option><option value="10214">X湘西</option><option value="10224">C巢湖</option><option value="10231">L乐东</option><option value="10244">D东方</option><option value="10254">C池州</option><option value="10260">C滁州</option><option value="10267">T天长</option><option value="10279">T铜陵</option><option value="10285">N南平</option><option value="10297">D定安</option><option value="10307">B白银</option><option value="10316">C澄迈</option><option value="10320">D定西</option><option value="10337">G甘南</option><option value="10347">C昌江</option><option value="10356">J嘉峪关</option><option value="10367">B保亭</option><option value="10375">B白沙</option><option value="10381">J酒泉</option><option value="10390">D儋州</option><option value="10409">L陇南</option><option value="10419">T铜仁</option><option value="10430">Q黔西南</option><option value="10441">Q黔南</option><option value="10443">W武威</option><option value="10449">Z张掖</option><option value="10456">C潮州</option><option value="10462">H河源</option><option value="10470">Q庆阳</option><option value="10480">Y云浮</option><option value="10500">L六盘水</option><option value="10506">B百色</option><option value="10510">B北海</option><option value="10514">C崇左</option><option value="10530">F防城港</option><option value="10541">H贺州</option><option value="10549">L来宾</option><option value="10553">B毕节</option><option value="10567">H海南</option><option value="10737">W武夷山</option><option value="10868">H和县</option><option value="10884">Q清徐</option><option value="11053">Y永新</option><option value="11176">Z张北</option><option value="11201">H霍邱</option><option value="11238">T台山</option><option value="11254">D大丰</option><option value="11271">T桐城</option><option value="11288">K垦利</option><option value="11325">X沛县</option><option value="12221">Y义乌</option><option value="13663">S三沙</option><option value="13894">R瑞安</option><option value="13895">Y乐清</option><option value="14320">J嘉善县</option><option value="16122">P菲律宾</option><option value="16141">S新加坡</option><option value="16194">B缅甸</option><option value="16200">T泰国</option><option value="16281">K柬埔寨</option><option value="16306">M马来西亚</option><option value="16312">I印度尼西亚</option><option value="16319">J日本</option><option value="16329">M蒙古</option><option value="16955">V越南</option><option value="16956">L老挝</option><option value="16957">C加拿大</option><option value="16958">U美国</option><option value="16959">K韩国</option><option value="16960">P秘鲁</option><option value="16961">I印度</option><option value="16962">R俄罗斯</option><option value="16963">B巴西</option><option value="16964">P巴拿马</option><option value="16965">U英国</option><option value="16966">N荷兰</option><option value="16967">A澳大利亚</option><option value="16968">N新西兰</option><option value="16969">S西班牙</option><option value="16970">D德国</option><option value="16971">F法国</option><option value="16972">I意大利</option><option value="18804">A阿勒泰</option><option value="18812">T塔城</option><option value="20643">G洛杉矶</option><option value="20645">G旧金山</option><option value="20646">G雪兰莪</option><option value="20647">G森美兰</option><option value="20648">G吉隆坡</option><option value="20649">G布城</option><option value="20650">G澳门</option><option value="20651">G香港</option><option value="20652">G台北</option><option value="20653">G新北</option><option value="20654">G台中</option><option value="20655">G台南</option><option value="20656">G高雄</option><option value="20657">G基隆</option><option value="20658">G新竹市</option><option value="20659">G嘉义</option><option value="20660">G桃园</option><option value="20661">G新竹县</option><option value="20662">G苗栗</option><option value="20663">G彰化</option><option value="20664">G南投</option><option value="20665">G云林</option><option value="20666">G嘉义</option><option value="20667">G屏东</option><option value="20668">G宜兰</option><option value="20669">G花莲</option><option value="20670">G台东</option><option value="20671">G澎湖</option><option value="20672">G新加坡</option><option value="20673">G纽约</option><option value="20674">G曼谷</option><option value="20675">G悉尼</option><option value="20676">G墨尔本</option><option value="20677">G芝加哥</option><option value="20678">G圣地亚哥</option><option value="20679">G拉斯维加斯</option><option value="20680">G多伦多</option><option value="20681">G温哥华</option><option value="20682">G蒙特利尔</option><option value="22584">G伦敦</option><option value="23275">G东京</option><option value="23301">G首尔</option><option value="23381">G渥太华</option><option value="23862">G檀香山</option><option value="23863">G华盛顿</option><option value="23864">G西雅图</option><option value="23865">G休斯顿</option><option value="23866">G费城</option><option value="23867">G波士顿</option><option value="23868">G卡尔加里</option><option value="23869">G巴黎</option><option value="23870">G米兰</option><option value="23871">G柏林</option><option value="23872">G巴塞罗那</option><option value="23873">G马德里</option><option value="23874">G莫斯科</option><option value="23875">G堪培拉</option><option value="23876">G布里斯班</option><option value="23877">G惠灵顿</option><option value="23878">G奥克兰</option><option value="24510">G清迈</option><option value="24650">G迪拜</option></select></span><span id="sl_arealocal1"><select style="display:none" id="select_arealocal1" onchange="ms1.c('arealocal1')" name="select_arealocal1"></select></span><span id="sl_namelocal1"><select style="display:none" id="select_namelocal1" onchange="ms1.c('namelocal1')" name="select_namelocal1"></select></span>
+			</span>
+			<input type="text" value="" id="txtAreola" size="10" maxlength="10" name="txtAreola">小区
+			<span id="txtAreola_Tip"></span>
+		</td>
+	</tr>
+	<tr>
+		<th>通讯地址：</th>
+		<td colspan="2">
+			<input class="inp inw" type="text" value="" id="txtAddress" name="txtAddress">
+			<span id="txtAddress_Tip"></span>
+		</td>
+	</tr>
+	<tr>
+		<th>&nbsp;邮 &nbsp; &nbsp;编：</th>
+		<td>
+			<input class="inp inw" type="text" maxlength="6" value="" id="txtPostZip" name="txtPostZip">
+			<span id="txtPostZip_Tip"></span>
+		</td>
+	</tr>
+	<tr>
+		<th>我的工作圈：</th>
+		<td>
+			<span id="myworkcycle">
+				<script>
+				    var ms2 = new $.j.multiselect("ms2");
+				    var local2 = new $.c.public1.local("local2", ms2);
+				    local2.w('myworkcycle', '', '', '');
+				    local2.load('citylocal2', true, 0, '');
+                </script><span id="sl_citylocal2"><select id="select_citylocal2" onchange="ms2.c('citylocal2')" name="select_citylocal2" value=""><option value="1">B北京</option><option value="2">S上海</option><option value="3">G广州</option><option value="4">S深圳</option><option value="5">S苏州</option><option value="18">T天津</option><option value="37">C重庆</option><option value="79">H杭州</option><option value="93">W无锡</option><option value="102">C成都</option><option value="122">Q青岛</option><option value="135">N宁波</option><option value="147">D大连</option><option value="158">W武汉</option><option value="172">N南京</option><option value="188">S沈阳</option><option value="202">H哈尔滨</option><option value="222">F佛山</option><option value="228">Y烟台</option><option value="233">L龙口</option><option value="241">S石家庄</option><option value="265">J济南</option><option value="276">T唐山</option><option value="291">Q泉州</option><option value="293">N南安</option><option value="296">S石狮</option><option value="297">J晋江</option><option value="304">F福州</option><option value="319">C长春</option><option value="330">W温州</option><option value="342">Z郑州</option><option value="355">S绍兴</option><option value="357">Z诸暨</option><option value="362">W潍坊</option><option value="369">S寿光</option><option value="375">D大庆</option><option value="385">Z淄博</option><option value="394">N南通</option><option value="397">R如皋</option><option value="399">H海门</option><option value="400">Q启东</option><option value="401">H海安县</option><option value="402">R如东县</option><option value="403">T台州</option><option value="408">W温岭市</option><option value="413">D东莞</option><option value="414">C长沙</option><option value="424">B保定</option><option value="450">J济宁</option><option value="463">C常州</option><option value="469">L溧阳</option><option value="471">X徐州</option><option value="477">P邳州</option><option value="478">X新沂</option><option value="483">X西安</option><option value="497">J嘉兴</option><option value="500">H海宁</option><option value="502">T桐乡</option><option value="505">L临沂</option><option value="518">W威海</option><option value="523">A鞍山</option><option value="531">J金华</option><option value="536">D东阳</option><option value="541">K昆明</option><option value="556">L洛阳</option><option value="572">H邯郸</option><option value="592">N南阳</option><option value="606">X厦门</option><option value="613">Y盐城</option><option value="615">D东台</option><option value="618">J建湖县</option><option value="623">D东营</option><option value="629">J江门</option><option value="637">Y扬州</option><option value="645">Z镇江</option><option value="648">D丹阳</option><option value="649">Y扬中</option><option value="652">C沧州</option><option value="669">N南昌</option><option value="679">M茂名</option><option value="686">T泰安</option><option value="693">T泰州</option><option value="696">T泰兴</option><option value="698">J靖江</option><option value="699">X兴化</option><option value="700">J吉林</option><option value="710">Z漳州</option><option value="722">H惠州</option><option value="725">H惠东县</option><option value="726">B博罗县</option><option value="728">D德州</option><option value="740">T太原</option><option value="751">X邢台</option><option value="771">Z中山</option><option value="772">L廊坊</option><option value="783">S汕头</option><option value="791">Z湛江</option><option value="801">B包头</option><option value="811">H呼和浩特</option><option value="821">Y岳阳</option><option value="831">H湖州</option><option value="834">C长兴县</option><option value="835">D德清县</option><option value="837">H合肥</option><option value="845">N南宁</option><option value="858">Y宜昌</option><option value="864">Y宜都</option><option value="872">C常德</option><option value="882">L聊城</option><option value="891">X襄阳</option><option value="901">Z肇庆</option><option value="910">Z珠海</option><option value="914">H衡阳</option><option value="927">J揭阳</option><option value="933">Z周口</option><option value="944">B滨州</option><option value="952">L兰州</option><option value="961">Z枣庄</option><option value="968">H淮安</option><option value="977">X许昌</option><option value="979">Y禹州</option><option value="984">X乌鲁木齐</option><option value="993">H衡水</option><option value="1005">P平顶山</option><option value="1016">X新乡</option><option value="1029">S商丘</option><option value="1039">G桂林</option><option value="1057">M绵阳</option><option value="1067">Z驻马店</option><option value="1078">Q秦皇岛</option><option value="1086">Z株洲</option><option value="1096">A安阳</option><option value="1734">H黄石</option><option value="2015">G贵阳</option><option value="2032">S十堰</option><option value="2037">E鄂尔多斯</option><option value="2038">L辽阳</option><option value="2039">M马鞍山</option><option value="2040">Y玉溪</option><option value="2041">P盘锦</option><option value="2042">K克拉玛依</option><option value="2043">H海拉尔</option><option value="2044">B宝鸡</option><option value="2045">W芜湖</option><option value="2046">W梧州</option><option value="2047">X湘潭</option><option value="2048">S三明</option><option value="2049">L连云港</option><option value="2050">H香港</option><option value="2051">T台湾</option><option value="2052">X西宁</option><option value="2053">H海口</option><option value="2054">Y银川</option><option value="2055">L拉萨</option><option value="2147">D东海县</option><option value="2192">S韶关</option><option value="2247">J九江</option><option value="2248">P萍乡</option><option value="2258">C其他</option><option value="2284">Y阳江</option><option value="2292">L莱芜</option><option value="2296">J荆门</option><option value="2299">H黄冈</option><option value="2302">E恩施</option><option value="2303">S邵阳</option><option value="2307">Y永州</option><option value="2315">S松原</option><option value="2319">H淮南</option><option value="2323">H黄山</option><option value="2325">F阜阳</option><option value="2328">L六安</option><option value="2329">B亳州</option><option value="2335">Q钦州</option><option value="2337">Y玉林</option><option value="2340">H河池</option><option value="2342">K开封</option><option value="2344">H鹤壁</option><option value="2346">P濮阳</option><option value="2347">L漯河</option><option value="2350">S宿迁</option><option value="2354">J锦州</option><option value="2360">J景德镇</option><option value="2363">G赣州</option><option value="2364">J吉安</option><option value="2371">P攀枝花</option><option value="2372">L泸州</option><option value="2373">D德阳</option><option value="2378">N南充</option><option value="2380">Y宜宾</option><option value="2381">G广安</option><option value="2389">Q曲靖</option><option value="2390">B保山</option><option value="2392">L丽江</option><option value="2393">C楚雄</option><option value="2394">H红河</option><option value="2395">W文山</option><option value="2397">B西双版纳</option><option value="2398">D大理</option><option value="2404">W乌海</option><option value="2408">X锡林郭勒</option><option value="2421">G固原</option><option value="2422">S三亚</option><option value="2429">P莆田</option><option value="2501">L辽源</option><option value="3157">A安康</option><option value="3163">H汉中</option><option value="3177">R日照</option><option value="3184">Y延边</option><option value="3198">Z正定</option><option value="3209">Y鹰潭</option><option value="3222">L吕梁</option><option value="3237">L乐山</option><option value="3251">A安庆</option><option value="3266">J焦作</option><option value="3279">W瓦房店</option><option value="3306">P庄河</option><option value="3328">Z张家口</option><option value="3350">J晋城</option><option value="3359">S宿州</option><option value="3434">X孝感</option><option value="3445">D丹东</option><option value="3453">X忻州</option><option value="3470">B蚌埠</option><option value="3479">J荆州</option><option value="3489">M牡丹江</option><option value="5333">Y余姚</option><option value="5334">C慈溪</option><option value="5632">H菏泽</option><option value="5633">X宣城</option><option value="5645">N宁国</option><option value="5653">Y运城</option><option value="5669">L临汾</option><option value="5695">C郴州</option><option value="5709">Y宜春</option><option value="5722">F抚顺</option><option value="5733">W渭南</option><option value="5756">H怀化</option><option value="5772">S沭阳县</option><option value="5845">B本溪</option><option value="5853">Q齐齐哈尔</option><option value="5898">Y营口</option><option value="5918">B白城</option><option value="5928">S内江</option><option value="5942">Y榆林</option><option value="6700">C赤峰</option><option value="6718">S绥化</option><option value="6729">T铁岭</option><option value="6738">X象山县</option><option value="6745">Z自贡</option><option value="6752">L龙岩</option><option value="6760">C承德</option><option value="6770">G贵港</option><option value="6776">J佳木斯</option><option value="6788">Z张家界</option><option value="6793">Q衢州</option><option value="6803">Z资阳</option><option value="6921">C长治</option><option value="6964">D大同</option><option value="7112">L临夏</option><option value="7133">L柳州</option><option value="7154">P平凉</option><option value="7168">K库尔勒</option><option value="7289">J鸡西</option><option value="7303">Q清远</option><option value="7428">J金昌</option><option value="7452">H哈密</option><option value="7453">X咸阳</option><option value="7458">A安顺</option><option value="7624">Z遵义</option><option value="7923">L丽水</option><option value="7969">N宁德</option><option value="8408">D定州</option><option value="8467">T天水</option><option value="8470">Z舟山</option><option value="8531">M明港</option><option value="8556">Y阳春</option><option value="8572">C昌吉</option><option value="8658">Z章丘</option><option value="8672">X信阳</option><option value="8684">G馆陶</option><option value="8694">S顺德</option><option value="8706">Q全国</option><option value="8738">Y阳泉</option><option value="8832">J晋中</option><option value="8951">Y延安</option><option value="9026">Z赵县</option><option value="9039">H鹤岗</option><option value="9101">Y鄢陵</option><option value="9124">Z诸城</option><option value="9179">L临猗</option><option value="9303">S三门峡</option><option value="9311">K喀什</option><option value="9329">C长葛</option><option value="9342">H淮北</option><option value="9348">Q黔东南</option><option value="9374">M梅州</option><option value="9384">A澳门</option><option value="9394">Z昭通</option><option value="9407">L临沧</option><option value="9417">D迪庆</option><option value="9422">D德宏</option><option value="9429">P普洱</option><option value="9441">S汕尾</option><option value="9452">N怒江</option><option value="9455">L娄底</option><option value="9464">T吐鲁番</option><option value="9465">Y伊犁</option><option value="9475">T天门</option><option value="9486">H和田</option><option value="9510">A阿克苏</option><option value="9527">K克孜勒苏</option><option value="9533">B巴音郭楞</option><option value="9539">B博尔塔拉</option><option value="9545">A阿拉尔</option><option value="9556">S石河子</option><option value="9563">T图木舒克</option><option value="9564">W五家渠</option><option value="9578">S山南</option><option value="9587">R日喀则</option><option value="9597">S神农架</option><option value="9616">X咸宁</option><option value="9625">N那曲</option><option value="9630">S随州</option><option value="9635">L林芝</option><option value="9636">C昌都</option><option value="9655">Q潜江</option><option value="9676">Y雅安</option><option value="9686">A阿里</option><option value="9690">R日土县</option><option value="9692">G改则县</option><option value="9695">S遂宁</option><option value="9702">E鄂州</option><option value="9704">M眉山</option><option value="9715">L凉山</option><option value="9723">X仙桃</option><option value="9751">G广元</option><option value="9760">G甘孜</option><option value="9765">Y伊春</option><option value="9799">D达州</option><option value="9808">B巴中</option><option value="9814">A阿坝</option><option value="9829">T铜川</option><option value="9836">S双鸭山</option><option value="9846">Q七台河</option><option value="9851">S商洛</option><option value="9858">H黑河</option><option value="9869">S朔州</option><option value="9875">D大兴安岭</option><option value="9886">Y玉树</option><option value="9894">J济源</option><option value="9896">H黄南</option><option value="9905">H海西</option><option value="9921">H海东</option><option value="9934">H海北</option><option value="9940">G果洛</option><option value="9948">W五指山</option><option value="9949">Z中卫</option><option value="9959">W吴忠</option><option value="9967">S石嘴山</option><option value="9968">W文昌</option><option value="9983">X兴安盟</option><option value="9998">W乌兰察布</option><option value="10011">W万宁</option><option value="10012">T通辽</option><option value="10035">H呼伦贝尔</option><option value="10049">T屯昌</option><option value="10060">Q琼中</option><option value="10063">B巴彦淖尔市</option><option value="10078">A阿拉善盟</option><option value="10083">H葫芦岛</option><option value="10093">F阜新</option><option value="10102">C朝阳</option><option value="10111">X新余</option><option value="10116">S上饶</option><option value="10130">Q琼海</option><option value="10138">F抚州</option><option value="10157">T通化</option><option value="10166">L陵水</option><option value="10167">S四平</option><option value="10177">B白山</option><option value="10193">Y益阳</option><option value="10196">L临高</option><option value="10214">X湘西</option><option value="10224">C巢湖</option><option value="10231">L乐东</option><option value="10244">D东方</option><option value="10254">C池州</option><option value="10260">C滁州</option><option value="10267">T天长</option><option value="10279">T铜陵</option><option value="10285">N南平</option><option value="10297">D定安</option><option value="10307">B白银</option><option value="10316">C澄迈</option><option value="10320">D定西</option><option value="10337">G甘南</option><option value="10347">C昌江</option><option value="10356">J嘉峪关</option><option value="10367">B保亭</option><option value="10375">B白沙</option><option value="10381">J酒泉</option><option value="10390">D儋州</option><option value="10409">L陇南</option><option value="10419">T铜仁</option><option value="10430">Q黔西南</option><option value="10441">Q黔南</option><option value="10443">W武威</option><option value="10449">Z张掖</option><option value="10456">C潮州</option><option value="10462">H河源</option><option value="10470">Q庆阳</option><option value="10480">Y云浮</option><option value="10500">L六盘水</option><option value="10506">B百色</option><option value="10510">B北海</option><option value="10514">C崇左</option><option value="10530">F防城港</option><option value="10541">H贺州</option><option value="10549">L来宾</option><option value="10553">B毕节</option><option value="10567">H海南</option><option value="10737">W武夷山</option><option value="10868">H和县</option><option value="10884">Q清徐</option><option value="11053">Y永新</option><option value="11176">Z张北</option><option value="11201">H霍邱</option><option value="11238">T台山</option><option value="11254">D大丰</option><option value="11271">T桐城</option><option value="11288">K垦利</option><option value="11325">X沛县</option><option value="12221">Y义乌</option><option value="13663">S三沙</option><option value="13894">R瑞安</option><option value="13895">Y乐清</option><option value="14320">J嘉善县</option><option value="16122">P菲律宾</option><option value="16141">S新加坡</option><option value="16194">B缅甸</option><option value="16200">T泰国</option><option value="16281">K柬埔寨</option><option value="16306">M马来西亚</option><option value="16312">I印度尼西亚</option><option value="16319">J日本</option><option value="16329">M蒙古</option><option value="16955">V越南</option><option value="16956">L老挝</option><option value="16957">C加拿大</option><option value="16958">U美国</option><option value="16959">K韩国</option><option value="16960">P秘鲁</option><option value="16961">I印度</option><option value="16962">R俄罗斯</option><option value="16963">B巴西</option><option value="16964">P巴拿马</option><option value="16965">U英国</option><option value="16966">N荷兰</option><option value="16967">A澳大利亚</option><option value="16968">N新西兰</option><option value="16969">S西班牙</option><option value="16970">D德国</option><option value="16971">F法国</option><option value="16972">I意大利</option><option value="18804">A阿勒泰</option><option value="18812">T塔城</option><option value="20643">G洛杉矶</option><option value="20645">G旧金山</option><option value="20646">G雪兰莪</option><option value="20647">G森美兰</option><option value="20648">G吉隆坡</option><option value="20649">G布城</option><option value="20650">G澳门</option><option value="20651">G香港</option><option value="20652">G台北</option><option value="20653">G新北</option><option value="20654">G台中</option><option value="20655">G台南</option><option value="20656">G高雄</option><option value="20657">G基隆</option><option value="20658">G新竹市</option><option value="20659">G嘉义</option><option value="20660">G桃园</option><option value="20661">G新竹县</option><option value="20662">G苗栗</option><option value="20663">G彰化</option><option value="20664">G南投</option><option value="20665">G云林</option><option value="20666">G嘉义</option><option value="20667">G屏东</option><option value="20668">G宜兰</option><option value="20669">G花莲</option><option value="20670">G台东</option><option value="20671">G澎湖</option><option value="20672">G新加坡</option><option value="20673">G纽约</option><option value="20674">G曼谷</option><option value="20675">G悉尼</option><option value="20676">G墨尔本</option><option value="20677">G芝加哥</option><option value="20678">G圣地亚哥</option><option value="20679">G拉斯维加斯</option><option value="20680">G多伦多</option><option value="20681">G温哥华</option><option value="20682">G蒙特利尔</option><option value="22584">G伦敦</option><option value="23275">G东京</option><option value="23301">G首尔</option><option value="23381">G渥太华</option><option value="23862">G檀香山</option><option value="23863">G华盛顿</option><option value="23864">G西雅图</option><option value="23865">G休斯顿</option><option value="23866">G费城</option><option value="23867">G波士顿</option><option value="23868">G卡尔加里</option><option value="23869">G巴黎</option><option value="23870">G米兰</option><option value="23871">G柏林</option><option value="23872">G巴塞罗那</option><option value="23873">G马德里</option><option value="23874">G莫斯科</option><option value="23875">G堪培拉</option><option value="23876">G布里斯班</option><option value="23877">G惠灵顿</option><option value="23878">G奥克兰</option><option value="24510">G清迈</option><option value="24650">G迪拜</option></select></span><span id="sl_arealocal2"><select style="display:none" id="select_arealocal2" onchange="ms2.c('arealocal2')" name="select_arealocal2"></select></span><span id="sl_namelocal2"><select style="display:none" id="select_namelocal2" onchange="ms2.c('namelocal2')" name="select_namelocal2"></select></span>
+            </span>&nbsp;
+			<input type="text" value="" id="txtManse" size="10" maxlength="10" name="txtManse">大厦
+			<span id="txtManse_Tip"></span>
+		</td>
+	</tr>
+	<tr>
+		<th>家 &nbsp; &nbsp;乡：</th>
+		<td>
+			<select id="hometown" name="hometown">
+									<option value="1">北京</option>
+									<option value="2">上海</option>
+									<option value="3">广州</option>
+									<option value="4">深圳</option>
+									<option value="5">苏州</option>
+									<option value="18">天津</option>
+									<option value="37">重庆</option>
+									<option value="79">杭州</option>
+									<option value="93">无锡</option>
+									<option value="102">成都</option>
+									<option value="122">青岛</option>
+									<option value="135">宁波</option>
+									<option value="147">大连</option>
+									<option value="158">武汉</option>
+									<option value="172">南京</option>
+									<option value="188">沈阳</option>
+									<option value="202">哈尔滨</option>
+									<option value="222">佛山</option>
+									<option value="228">烟台</option>
+									<option value="233">龙口</option>
+									<option value="241">石家庄</option>
+									<option value="265">济南</option>
+									<option value="276">唐山</option>
+									<option value="291">泉州</option>
+									<option value="293">南安</option>
+									<option value="296">石狮</option>
+									<option value="297">晋江</option>
+									<option value="304">福州</option>
+									<option value="319">长春</option>
+									<option value="330">温州</option>
+									<option value="342">郑州</option>
+									<option value="355">绍兴</option>
+									<option value="357">诸暨</option>
+									<option value="362">潍坊</option>
+									<option value="369">寿光</option>
+									<option value="375">大庆</option>
+									<option value="385">淄博</option>
+									<option value="394">南通</option>
+									<option value="397">如皋</option>
+									<option value="399">海门</option>
+									<option value="400">启东</option>
+									<option value="401">海安县</option>
+									<option value="402">如东县</option>
+									<option value="403">台州</option>
+									<option value="408">温岭市</option>
+									<option value="413">东莞</option>
+									<option value="414">长沙</option>
+									<option value="424">保定</option>
+									<option value="450">济宁</option>
+									<option value="463">常州</option>
+									<option value="469">溧阳</option>
+									<option value="471">徐州</option>
+									<option value="477">邳州</option>
+									<option value="478">新沂</option>
+									<option value="483">西安</option>
+									<option value="497">嘉兴</option>
+									<option value="500">海宁</option>
+									<option value="502">桐乡</option>
+									<option value="505">临沂</option>
+									<option value="518">威海</option>
+									<option value="523">鞍山</option>
+									<option value="531">金华</option>
+									<option value="536">东阳</option>
+									<option value="541">昆明</option>
+									<option value="556">洛阳</option>
+									<option value="572">邯郸</option>
+									<option value="592">南阳</option>
+									<option value="606">厦门</option>
+									<option value="613">盐城</option>
+									<option value="615">东台</option>
+									<option value="618">建湖县</option>
+									<option value="623">东营</option>
+									<option value="629">江门</option>
+									<option value="637">扬州</option>
+									<option value="645">镇江</option>
+									<option value="648">丹阳</option>
+									<option value="649">扬中</option>
+									<option value="652">沧州</option>
+									<option value="669">南昌</option>
+									<option value="679">茂名</option>
+									<option value="686">泰安</option>
+									<option value="693">泰州</option>
+									<option value="696">泰兴</option>
+									<option value="698">靖江</option>
+									<option value="699">兴化</option>
+									<option value="700">吉林</option>
+									<option value="710">漳州</option>
+									<option value="722">惠州</option>
+									<option value="725">惠东县</option>
+									<option value="726">博罗县</option>
+									<option value="728">德州</option>
+									<option value="740">太原</option>
+									<option value="751">邢台</option>
+									<option value="771">中山</option>
+									<option value="772">廊坊</option>
+									<option value="783">汕头</option>
+									<option value="791">湛江</option>
+									<option value="801">包头</option>
+									<option value="811">呼和浩特</option>
+									<option value="821">岳阳</option>
+									<option value="831">湖州</option>
+									<option value="834">长兴县</option>
+									<option value="835">德清县</option>
+									<option value="837">合肥</option>
+									<option value="845">南宁</option>
+									<option value="858">宜昌</option>
+									<option value="864">宜都</option>
+									<option value="872">常德</option>
+									<option value="882">聊城</option>
+									<option value="891">襄阳</option>
+									<option value="901">肇庆</option>
+									<option value="910">珠海</option>
+									<option value="914">衡阳</option>
+									<option value="927">揭阳</option>
+									<option value="933">周口</option>
+									<option value="944">滨州</option>
+									<option value="952">兰州</option>
+									<option value="961">枣庄</option>
+									<option value="968">淮安</option>
+									<option value="977">许昌</option>
+									<option value="979">禹州</option>
+									<option value="984">乌鲁木齐</option>
+									<option value="993">衡水</option>
+									<option value="1005">平顶山</option>
+									<option value="1016">新乡</option>
+									<option value="1029">商丘</option>
+									<option value="1039">桂林</option>
+									<option value="1057">绵阳</option>
+									<option value="1067">驻马店</option>
+									<option value="1078">秦皇岛</option>
+									<option value="1086">株洲</option>
+									<option value="1096">安阳</option>
+									<option value="1734">黄石</option>
+									<option value="2015">贵阳</option>
+									<option value="2032">十堰</option>
+									<option value="2037">鄂尔多斯</option>
+									<option value="2038">辽阳</option>
+									<option value="2039">马鞍山</option>
+									<option value="2040">玉溪</option>
+									<option value="2041">盘锦</option>
+									<option value="2042">克拉玛依</option>
+									<option value="2043">海拉尔</option>
+									<option value="2044">宝鸡</option>
+									<option value="2045">芜湖</option>
+									<option value="2046">梧州</option>
+									<option value="2047">湘潭</option>
+									<option value="2048">三明</option>
+									<option value="2049">连云港</option>
+									<option value="2050">香港</option>
+									<option value="2051">台湾</option>
+									<option value="2052">西宁</option>
+									<option value="2053">海口</option>
+									<option value="2054">银川</option>
+									<option value="2055">拉萨</option>
+									<option value="2147">东海县</option>
+									<option value="2192">韶关</option>
+									<option value="2247">九江</option>
+									<option value="2248">萍乡</option>
+									<option value="2258">其他</option>
+									<option value="2284">阳江</option>
+									<option value="2292">莱芜</option>
+									<option value="2296">荆门</option>
+									<option value="2299">黄冈</option>
+									<option value="2302">恩施</option>
+									<option value="2303">邵阳</option>
+									<option value="2307">永州</option>
+									<option value="2315">松原</option>
+									<option value="2319">淮南</option>
+									<option value="2323">黄山</option>
+									<option value="2325">阜阳</option>
+									<option value="2328">六安</option>
+									<option value="2329">亳州</option>
+									<option value="2335">钦州</option>
+									<option value="2337">玉林</option>
+									<option value="2340">河池</option>
+									<option value="2342">开封</option>
+									<option value="2344">鹤壁</option>
+									<option value="2346">濮阳</option>
+									<option value="2347">漯河</option>
+									<option value="2350">宿迁</option>
+									<option value="2354">锦州</option>
+									<option value="2360">景德镇</option>
+									<option value="2363">赣州</option>
+									<option value="2364">吉安</option>
+									<option value="2371">攀枝花</option>
+									<option value="2372">泸州</option>
+									<option value="2373">德阳</option>
+									<option value="2378">南充</option>
+									<option value="2380">宜宾</option>
+									<option value="2381">广安</option>
+									<option value="2389">曲靖</option>
+									<option value="2390">保山</option>
+									<option value="2392">丽江</option>
+									<option value="2393">楚雄</option>
+									<option value="2394">红河</option>
+									<option value="2395">文山</option>
+									<option value="2397">西双版纳</option>
+									<option value="2398">大理</option>
+									<option value="2404">乌海</option>
+									<option value="2408">锡林郭勒</option>
+									<option value="2421">固原</option>
+									<option value="2422">三亚</option>
+									<option value="2429">莆田</option>
+									<option value="2501">辽源</option>
+									<option value="3157">安康</option>
+									<option value="3163">汉中</option>
+									<option value="3177">日照</option>
+									<option value="3184">延边</option>
+									<option value="3198">正定</option>
+									<option value="3209">鹰潭</option>
+									<option value="3222">吕梁</option>
+									<option value="3237">乐山</option>
+									<option value="3251">安庆</option>
+									<option value="3266">焦作</option>
+									<option value="3279">瓦房店</option>
+									<option value="3306">庄河</option>
+									<option value="3328">张家口</option>
+									<option value="3350">晋城</option>
+									<option value="3359">宿州</option>
+									<option value="3434">孝感</option>
+									<option value="3445">丹东</option>
+									<option value="3453">忻州</option>
+									<option value="3470">蚌埠</option>
+									<option value="3479">荆州</option>
+									<option value="3489">牡丹江</option>
+									<option value="5333">余姚</option>
+									<option value="5334">慈溪</option>
+									<option value="5632">菏泽</option>
+									<option value="5633">宣城</option>
+									<option value="5645">宁国</option>
+									<option value="5653">运城</option>
+									<option value="5669">临汾</option>
+									<option value="5695">郴州</option>
+									<option value="5709">宜春</option>
+									<option value="5722">抚顺</option>
+									<option value="5733">渭南</option>
+									<option value="5756">怀化</option>
+									<option value="5772">沭阳县</option>
+									<option value="5845">本溪</option>
+									<option value="5853">齐齐哈尔</option>
+									<option value="5898">营口</option>
+									<option value="5918">白城</option>
+									<option value="5928">内江</option>
+									<option value="5942">榆林</option>
+									<option value="6700">赤峰</option>
+									<option value="6718">绥化</option>
+									<option value="6729">铁岭</option>
+									<option value="6738">象山县</option>
+									<option value="6745">自贡</option>
+									<option value="6752">龙岩</option>
+									<option value="6760">承德</option>
+									<option value="6770">贵港</option>
+									<option value="6776">佳木斯</option>
+									<option value="6788">张家界</option>
+									<option value="6793">衢州</option>
+									<option value="6803">资阳</option>
+									<option value="6921">长治</option>
+									<option value="6964">大同</option>
+									<option value="7112">临夏</option>
+									<option value="7133">柳州</option>
+									<option value="7154">平凉</option>
+									<option value="7168">库尔勒</option>
+									<option value="7289">鸡西</option>
+									<option value="7303">清远</option>
+									<option value="7428">金昌</option>
+									<option value="7452">哈密</option>
+									<option value="7453">咸阳</option>
+									<option value="7458">安顺</option>
+									<option value="7624">遵义</option>
+									<option value="7923">丽水</option>
+									<option value="7969">宁德</option>
+									<option value="8408">定州</option>
+									<option value="8467">天水</option>
+									<option value="8470">舟山</option>
+									<option value="8531">明港</option>
+									<option value="8556">阳春</option>
+									<option value="8572">昌吉</option>
+									<option value="8658">章丘</option>
+									<option value="8672">信阳</option>
+									<option value="8684">馆陶</option>
+									<option value="8694">顺德</option>
+									<option value="8706">全国</option>
+									<option value="8738">阳泉</option>
+									<option value="8832">晋中</option>
+									<option value="8951">延安</option>
+									<option value="9026">赵县</option>
+									<option value="9039">鹤岗</option>
+									<option value="9101">鄢陵</option>
+									<option value="9124">诸城</option>
+									<option value="9179">临猗</option>
+									<option value="9303">三门峡</option>
+									<option value="9311">喀什</option>
+									<option value="9329">长葛</option>
+									<option value="9342">淮北</option>
+									<option value="9348">黔东南</option>
+									<option value="9374">梅州</option>
+									<option value="9384">澳门</option>
+									<option value="9394">昭通</option>
+									<option value="9407">临沧</option>
+									<option value="9417">迪庆</option>
+									<option value="9422">德宏</option>
+									<option value="9429">普洱</option>
+									<option value="9441">汕尾</option>
+									<option value="9452">怒江</option>
+									<option value="9455">娄底</option>
+									<option value="9464">吐鲁番</option>
+									<option value="9465">伊犁</option>
+									<option value="9475">天门</option>
+									<option value="9486">和田</option>
+									<option value="9510">阿克苏</option>
+									<option value="9527">克孜勒苏</option>
+									<option value="9533">巴音郭楞</option>
+									<option value="9539">博尔塔拉</option>
+									<option value="9545">阿拉尔</option>
+									<option value="9556">石河子</option>
+									<option value="9563">图木舒克</option>
+									<option value="9564">五家渠</option>
+									<option value="9578">山南</option>
+									<option value="9587">日喀则</option>
+									<option value="9597">神农架</option>
+									<option value="9616">咸宁</option>
+									<option value="9625">那曲</option>
+									<option value="9630">随州</option>
+									<option value="9635">林芝</option>
+									<option value="9636">昌都</option>
+									<option value="9655">潜江</option>
+									<option value="9676">雅安</option>
+									<option value="9686">阿里</option>
+									<option value="9690">日土县</option>
+									<option value="9692">改则县</option>
+									<option value="9695">遂宁</option>
+									<option value="9702">鄂州</option>
+									<option value="9704">眉山</option>
+									<option value="9715">凉山</option>
+									<option value="9723">仙桃</option>
+									<option value="9751">广元</option>
+									<option value="9760">甘孜</option>
+									<option value="9765">伊春</option>
+									<option value="9799">达州</option>
+									<option value="9808">巴中</option>
+									<option value="9814">阿坝</option>
+									<option value="9829">铜川</option>
+									<option value="9836">双鸭山</option>
+									<option value="9846">七台河</option>
+									<option value="9851">商洛</option>
+									<option value="9858">黑河</option>
+									<option value="9869">朔州</option>
+									<option value="9875">大兴安岭</option>
+									<option value="9886">玉树</option>
+									<option value="9894">济源</option>
+									<option value="9896">黄南</option>
+									<option value="9905">海西</option>
+									<option value="9921">海东</option>
+									<option value="9934">海北</option>
+									<option value="9940">果洛</option>
+									<option value="9948">五指山</option>
+									<option value="9949">中卫</option>
+									<option value="9959">吴忠</option>
+									<option value="9967">石嘴山</option>
+									<option value="9968">文昌</option>
+									<option value="9983">兴安盟</option>
+									<option value="9998">乌兰察布</option>
+									<option value="10011">万宁</option>
+									<option value="10012">通辽</option>
+									<option value="10035">呼伦贝尔</option>
+									<option value="10049">屯昌</option>
+									<option value="10060">琼中</option>
+									<option value="10063">巴彦淖尔市</option>
+									<option value="10078">阿拉善盟</option>
+									<option value="10083">葫芦岛</option>
+									<option value="10093">阜新</option>
+									<option value="10102">朝阳</option>
+									<option value="10111">新余</option>
+									<option value="10116">上饶</option>
+									<option value="10130">琼海</option>
+									<option value="10138">抚州</option>
+									<option value="10157">通化</option>
+									<option value="10166">陵水</option>
+									<option value="10167">四平</option>
+									<option value="10177">白山</option>
+									<option value="10193">益阳</option>
+									<option value="10196">临高</option>
+									<option value="10214">湘西</option>
+									<option value="10224">巢湖</option>
+									<option value="10231">乐东</option>
+									<option value="10244">东方</option>
+									<option value="10254">池州</option>
+									<option value="10260">滁州</option>
+									<option value="10267">天长</option>
+									<option value="10279">铜陵</option>
+									<option value="10285">南平</option>
+									<option value="10297">定安</option>
+									<option value="10307">白银</option>
+									<option value="10316">澄迈</option>
+									<option value="10320">定西</option>
+									<option value="10337">甘南</option>
+									<option value="10347">昌江</option>
+									<option value="10356">嘉峪关</option>
+									<option value="10367">保亭</option>
+									<option value="10375">白沙</option>
+									<option value="10381">酒泉</option>
+									<option value="10390">儋州</option>
+									<option value="10409">陇南</option>
+									<option value="10419">铜仁</option>
+									<option value="10430">黔西南</option>
+									<option value="10441">黔南</option>
+									<option value="10443">武威</option>
+									<option value="10449">张掖</option>
+									<option value="10456">潮州</option>
+									<option value="10462">河源</option>
+									<option value="10470">庆阳</option>
+									<option value="10480">云浮</option>
+									<option value="10500">六盘水</option>
+									<option value="10506">百色</option>
+									<option value="10510">北海</option>
+									<option value="10514">崇左</option>
+									<option value="10530">防城港</option>
+									<option value="10541">贺州</option>
+									<option value="10549">来宾</option>
+									<option value="10553">毕节</option>
+									<option value="10567">海南</option>
+									<option value="10737">武夷山</option>
+									<option value="10868">和县</option>
+									<option value="10884">清徐</option>
+									<option value="11053">永新</option>
+									<option value="11176">张北</option>
+									<option value="11201">霍邱</option>
+									<option value="11238">台山</option>
+									<option value="11254">大丰</option>
+									<option value="11271">桐城</option>
+									<option value="11288">垦利</option>
+									<option value="11325">沛县</option>
+									<option value="12221">义乌</option>
+									<option value="13663">三沙</option>
+									<option value="13894">瑞安</option>
+									<option value="13895">乐清</option>
+									<option value="14320">嘉善县</option>
+									<option value="16122">菲律宾</option>
+									<option value="16141">新加坡</option>
+									<option value="16194">缅甸</option>
+									<option value="16200">泰国</option>
+									<option value="16281">柬埔寨</option>
+									<option value="16306">马来西亚</option>
+									<option value="16312">印度尼西亚</option>
+									<option value="16319">日本</option>
+									<option value="16329">蒙古</option>
+									<option value="16955">越南</option>
+									<option value="16956">老挝</option>
+									<option value="16957">加拿大</option>
+									<option value="16958">美国</option>
+									<option value="16959">韩国</option>
+									<option value="16960">秘鲁</option>
+									<option value="16961">印度</option>
+									<option value="16962">俄罗斯</option>
+									<option value="16963">巴西</option>
+									<option value="16964">巴拿马</option>
+									<option value="16965">英国</option>
+									<option value="16966">荷兰</option>
+									<option value="16967">澳大利亚</option>
+									<option value="16968">新西兰</option>
+									<option value="16969">西班牙</option>
+									<option value="16970">德国</option>
+									<option value="16971">法国</option>
+									<option value="16972">意大利</option>
+									<option value="18804">阿勒泰</option>
+									<option value="18812">塔城</option>
+									<option value="20643">洛杉矶</option>
+									<option value="20645">旧金山</option>
+									<option value="20646">雪兰莪</option>
+									<option value="20647">森美兰</option>
+									<option value="20648">吉隆坡</option>
+									<option value="20649">布城</option>
+									<option value="20650">澳门</option>
+									<option value="20651">香港</option>
+									<option value="20652">台北</option>
+									<option value="20653">新北</option>
+									<option value="20654">台中</option>
+									<option value="20655">台南</option>
+									<option value="20656">高雄</option>
+									<option value="20657">基隆</option>
+									<option value="20658">新竹市</option>
+									<option value="20659">嘉义</option>
+									<option value="20660">桃园</option>
+									<option value="20661">新竹县</option>
+									<option value="20662">苗栗</option>
+									<option value="20663">彰化</option>
+									<option value="20664">南投</option>
+									<option value="20665">云林</option>
+									<option value="20666">嘉义</option>
+									<option value="20667">屏东</option>
+									<option value="20668">宜兰</option>
+									<option value="20669">花莲</option>
+									<option value="20670">台东</option>
+									<option value="20671">澎湖</option>
+									<option value="20672">新加坡</option>
+									<option value="20673">纽约</option>
+									<option value="20674">曼谷</option>
+									<option value="20675">悉尼</option>
+									<option value="20676">墨尔本</option>
+									<option value="20677">芝加哥</option>
+									<option value="20678">圣地亚哥</option>
+									<option value="20679">拉斯维加斯</option>
+									<option value="20680">多伦多</option>
+									<option value="20681">温哥华</option>
+									<option value="20682">蒙特利尔</option>
+									<option value="22584">伦敦</option>
+									<option value="23275">东京</option>
+									<option value="23301">首尔</option>
+									<option value="23381">渥太华</option>
+									<option value="23862">檀香山</option>
+									<option value="23863">华盛顿</option>
+									<option value="23864">西雅图</option>
+									<option value="23865">休斯顿</option>
+									<option value="23866">费城</option>
+									<option value="23867">波士顿</option>
+									<option value="23868">卡尔加里</option>
+									<option value="23869">巴黎</option>
+									<option value="23870">米兰</option>
+									<option value="23871">柏林</option>
+									<option value="23872">巴塞罗那</option>
+									<option value="23873">马德里</option>
+									<option value="23874">莫斯科</option>
+									<option value="23875">堪培拉</option>
+									<option value="23876">布里斯班</option>
+									<option value="23877">惠灵顿</option>
+									<option value="23878">奥克兰</option>
+									<option value="24510">清迈</option>
+									<option value="24650">迪拜</option>
+				            </select>
+        </td>
+	</tr>
+	<tr>
+		<th valign="top">个性签名：</th>
+		<td>
+			<textarea id="txtSignContent" class="grtextarea" name="txtSignContent"> </textarea>
+			<span id="txtSignContent_Tip"></span>
+			<br>
+			<span class="fgrey">(128字符以内)</span>
+		</td>
+	</tr>
+	<tr>
+		<th>&nbsp;</th>
+		<td colspan="2">
+			<label class="butt" id="butt">
+				<input type="submit" class="btns" id="btnSubmit" value="完成修改" name="btnSubmit">
+			</label>
+		</td>
+	</tr>
+</tbody>
+</table>
+
+</form>
+  </body>
+</html>

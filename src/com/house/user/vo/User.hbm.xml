@@ -16,11 +16,14 @@
         <property name="password" type="string">
             <column name="password" length="20" />
         </property>
-        <property name="mail" type="string">
-            <column name="mail" length="50" />
-        </property>
         <property name="name" type="string">
             <column name="name" length="30" />
+        </property>
+        <property name="idCard" type="string">
+            <column name="id_card" length="18" />
+        </property>
+        <property name="mail" type="string">
+            <column name="mail" length="50" />
         </property>
         <property name="nicname" type="string">
             <column name="nicname" length="50" />
@@ -48,6 +51,9 @@
         </property>
         <property name="state" type="integer">
             <column name="state" />
+        </property>
+        <property name="loginTime" type="timestamp">
+            <column name="login_time" length="19" />
         </property>
         <property name="power" type="integer">
             <column name="power" />

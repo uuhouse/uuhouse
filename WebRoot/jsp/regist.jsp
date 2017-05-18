@@ -80,6 +80,48 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var img1 = document.getElementById("checkImg");
 		img1.src="${pageContext.request.contextPath}/checkImg.action?"+new Date().getTime();
 	}
+	
+	function IdCard(num){
+		// 获得身份证框的值:
+		var UUserCard = document.getElementById("idCard").value;
+		if(num==1) {
+			//获取出生日期
+			birth=UUserCard.substring(6, 10) + "-" + UUserCard.substring(10, 12) + "-" 
+				+ UUserCard.substring(12, 14);
+			return birth;
+		}
+		if(num==2) {
+			//获取性别
+			if (parseInt(UUserCard.substr(16, 1)) % 2 == 1) {
+				//男
+				return "男";
+			} 
+			else {
+				//女
+				return "女";
+			}
+		}
+		if(num==3) {
+			//获取年龄
+			var myDate = new Date();
+			var month = myDate.getMonth() + 1;
+			var day = myDate.getDate();
+			var age = myDate.getFullYear() - UUserCard.substring(6, 10) - 1;
+			if (UUserCard.substring(10, 12) < month || UUserCard.substring(10, 12) == month 
+				&& UUserCard.substring(12, 14) <= day) {
+				age++;
+			}
+			return age;
+		}
+	}
+	
+	function getBirthday() {
+		document.getElementById('birthday').value = IdCard(1); 
+	}
+	
+	function getGender() {
+		document.getElementById('gender').value = IdCard(2); 
+	}
 </script>
 </head>
 <body>
@@ -94,7 +136,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="title">
 						<strong>会员注册</strong>USER REGISTER
 					</div>
-					<form id="registerForm"  action="${pageContext.request.contextPath}/user_regist.action" method="post" onsubmit="return checkForm();" novalidate="novalidate" >
+					<div>
+						<s:actionerror />
+					</div>
+					<form id="registerForm"  action="${pageContext.request.contextPath}/user_regist.action" method="post" novalidate="novalidate" onsubmit="return checkForm();" >
 						<table>
 							<tbody>
 							<s:hidden name="user.uid" readonly="true"></s:hidden>
@@ -127,6 +172,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							
 							<tr>
 								<th>
+									<span class="requiredField">*</span>姓&nbsp;&nbsp;名:
+								</th>
+								<td>
+										<input type="text" name="name" value="赵明" class="text" maxlength="200">
+										<span><s:fielderror fieldName="name"/></span>
+								</td>
+							</tr>
+							<tr>
+								<th>
+									<span class="requiredField">*</span>身份证号:
+								</th>
+								<td>
+										<input type="text" id="idCard" name="idCard" value="610428199312034562" class="text" maxlength="200">
+										<span><s:fielderror fieldName="idCard"/></span>
+								</td>
+							</tr>
+							<tr>
+								<th>
 									<span class="requiredField">*</span>E-mail:
 								</th>
 								<td>
@@ -136,16 +199,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</tr>
 							<tr>
 								<th>
-									姓名:
-								</th>
-								<td>
-										<input type="text" name="name" value="玉玉" class="text" maxlength="200">
-										<span><s:fielderror fieldName="name"/></span>
-								</td>
-							</tr>
-							<tr>
-								<th>
-									性别:
+									性&nbsp;&nbsp;别:
 								</th>
 								<td>
 										<span class="fieldSet">
@@ -163,13 +217,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									出生日期:
 								</th>
 								<td>
-										<input type="text" name="birthday" value="1995-03-24" class="text" onfocus="WdatePicker();">
+										<input type="text" id="birthday" name="birthday" class="text" onclick="getBirthday()">
 								</td>
 							</tr>
 							
 							<tr>
 								<th>
-									地址:
+									地&nbsp;&nbsp;址:
 								</th>
 								<td>
 										<input type="text" name="address" value="陕西西安雁塔区" class="text" maxlength="200">

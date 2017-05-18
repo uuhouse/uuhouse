@@ -10,19 +10,27 @@
 		</field-validator>
 	</field>
 	
-	<!-- 校验用户名 -->
+	<!-- 校验密码 -->
 	<field name="password">
 		<field-validator type="requiredstring">
 			<message>密码不能为空!</message>
 		</field-validator>
 	</field>
-	<!-- 校验用户名 -->
+	<!-- 校验姓名 -->
 	<field name="name">
 		<field-validator type="requiredstring">
 			<message>姓名不能为空!</message>
 		</field-validator>
 	</field>	
-	<!-- 校验用户名 -->
+	<!-- 校验身份证号 -->
+	<field name="idCard">
+		<field-validator type="stringlength">
+			<param name="maxLength">18</param>
+			<param name="minLength">18</param>
+			<message>身份证号必须为18位!</message>
+		</field-validator>
+	</field>
+	<!-- 校验地址 -->
 	<field name="address">
 		<field-validator type="requiredstring">
 			<message>地址不能为空!</message>

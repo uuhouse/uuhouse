@@ -78,10 +78,10 @@ public class UserDAO extends BaseHibernateDAO {
 		}
 	}
 
-	public User findById(java.lang.Integer id) {
-		log.debug("getting User instance with id: " + id);
+	public User findByUid(java.lang.Integer uid) {
+		log.debug("getting User instance with uid: " + uid);
 		try {
-			User instance = (User) getSession().get("com.house.user.vo.User", id);
+			User instance = (User) getSession().get("com.house.user.vo.User", uid);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -160,7 +160,7 @@ public class UserDAO extends BaseHibernateDAO {
 	 }
 	 
 	// 根据ID查询用户
-	public User findByUid(Integer uid){
+	public User findByUid(String uid){
 		List result = findByProperty(UID, uid);
 		 if(result != null && result.size() != 0) {
 			 return (User) result.get(0);
@@ -216,6 +216,28 @@ public class UserDAO extends BaseHibernateDAO {
 	
 	public int getState(String username) {
 		String hql = "select state from User u where u.username='" +  username + "'";
+		Query query = getSession().createQuery(hql);	
+		if(query.list() != null && query.list().size() > 0) {
+			return ((Integer) query.list().get(0)).intValue();
+		}
+		else {
+			return 0;
+		}
+	}
+
+	public int getPower(String username) {
+		String hql = "select power from User u where u.username='" +  username + "'";
+		Query query = getSession().createQuery(hql);	
+		if(query.list() != null && query.list().size() > 0) {
+			return ((Integer) query.list().get(0)).intValue();
+		}
+		else {
+			return 0;
+		}
+	}
+
+	public int getUid(String username) {
+		String hql = "select uid from User u where u.username='" +  username + "'";
 		Query query = getSession().createQuery(hql);	
 		if(query.list() != null && query.list().size() > 0) {
 			return ((Integer) query.list().get(0)).intValue();

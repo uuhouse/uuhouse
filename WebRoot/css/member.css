@@ -192,17 +192,38 @@ a:hover{color:#666}
 .no-msg-text{margin-top:8px;display:inline-block;color:#999}
 .no-msg-img{display:inline-block;margin-top:80px;width:160px;height:120px;background-image:url("http://pages.anjukestatic.com/usersite/site/img/userCenter/noContent.png");background-image:url("")\9;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="http://pages.anjukestatic.com/usersite/site/img/userCenter/noContent.png",sizingMethod='scale');background-size:160px 120px}
 
-
-
-
 .profile-title {
-	font-size:15px;
-    height: 76px;
-    line-height: 76px;
+	font-size:24px;
+    height: 50px;
+    line-height: 56px;
+    margin-left:20px;
 }
 
+.profile-list li{
+	font-size:16px;
+	height:30px;
+	margin-left:20px;
+}
+
+.profile-list span{
+	margin-left:10px;
+}
+.value{
+	margin-left:20px;
+}
 .photo {
 	font-size:15px;
     height: 64px;
     line-height: 64px;
 }
+
+.btn-post{height:30px;line-height:29px;font-size:14px;font-weight:bold;display:block;float:left;margin-left:30px}
+.btn-post{background-color:#fd8000;width:auto;padding:0 30px 0 30px;overflow:visible;text-indent:0;background-position:-4px -118px;color:#fff}
+.btn-post:hover{background-color:#fd6000;text-decoration:none;color:#fff}
+.btn-post:visited{color:#fff}
+.btn-post span{margin-left:0px}
+
+.tab-lists{margin:10px 0 10px 30px;height:38px;font-size:16px;color:#666}
+.tab-lists li{float:left}
+.tab-lists li a{display:inline-block;height:38px;line-height:38px;padding:0 32px}
+.tab-lists li a.cur{background:#fd6000;color:#fff}

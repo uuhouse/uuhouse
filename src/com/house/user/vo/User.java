@@ -1,5 +1,7 @@
 package com.house.user.vo;
 
+import java.util.Date;
+
 /**
  * User entity. @author MyEclipse Persistence Tools
  */
@@ -11,8 +13,9 @@ public class User implements java.io.Serializable {
 	private Integer uid;
 	private String username;
 	private String password;
-	private String mail;
 	private String name;
+	private String idCard;
+	private String mail;
 	private String nicname;
 	private String gender;
 	private String photo;
@@ -22,6 +25,7 @@ public class User implements java.io.Serializable {
 	private String birthday;
 	private String code;
 	private Integer state;
+	private Date loginTime;
 	private Integer power;
 
 	// Constructors
@@ -30,24 +34,18 @@ public class User implements java.io.Serializable {
 	public User() {
 	}
 
-	/** minimal constructor */
-	public User(String username, String password, String mail, String code, Integer state, Integer power) {
-		this.username = username;
-		this.password = password;
-		this.mail = mail;
-		this.code = code;
-		this.state = state;
-		this.power = power;
-	}
+	
 
-	/** full constructor */
-	public User(String username, String password, String mail, String name, String nicname, String gender,
-			String photo, String phone, String qq, String address, String birthday, String code, Integer state,
-			Integer power) {
+	public User(Integer uid, String username, String password, String name, String idCard, String mail, String nicname,
+			String gender, String photo, String phone, String qq, String address, String birthday, String code,
+			Integer state, Date loginTime, Integer power) {
+		super();
+		this.uid = uid;
 		this.username = username;
 		this.password = password;
-		this.mail = mail;
 		this.name = name;
+		this.idCard = idCard;
+		this.mail = mail;
 		this.nicname = nicname;
 		this.gender = gender;
 		this.photo = photo;
@@ -57,8 +55,11 @@ public class User implements java.io.Serializable {
 		this.birthday = birthday;
 		this.code = code;
 		this.state = state;
+		this.loginTime = loginTime;
 		this.power = power;
 	}
+
+
 
 	// Property accessors
 
@@ -92,6 +93,15 @@ public class User implements java.io.Serializable {
 
 	public void setMail(String mail) {
 		this.mail = mail;
+	}
+
+	
+	public String getIdCard() {
+		return idCard;
+	}
+
+	public void setIdCard(String idCard) {
+		this.idCard = idCard;
 	}
 
 	public String getName() {
@@ -174,6 +184,17 @@ public class User implements java.io.Serializable {
 		this.state = state;
 	}
 
+	
+	public Date getLoginTime() {
+		return loginTime;
+	}
+
+
+
+	public void setLoginTime(Date loginTime) {
+		this.loginTime = loginTime;
+	}
+
 	public Integer getPower() {
 		return this.power;
 	}
@@ -181,15 +202,5 @@ public class User implements java.io.Serializable {
 	public void setPower(Integer power) {
 		this.power = power;
 	}
-
-	@Override
-	public String toString() {
-		return "User [uid=" + uid + ", username=" + username + ", password=" + password + ", mail=" + mail + ", name="
-				+ name + ", nicname=" + nicname + ", gender=" + gender + ", photo=" + photo + ", phone=" + phone
-				+ ", qq=" + qq + ", address=" + address + ", birthday=" + birthday + ", code=" + code + ", state="
-				+ state + ", power=" + power + "]";
-	}
-	
-	
 
 }

@@ -18,7 +18,6 @@ import com.opensymphony.xwork2.ModelDriven;
 
 public class HouseAction extends ActionSupport implements
 	ModelDriven<House>{
-
 	private static final long serialVersionUID = 1L;
 		// 用于接收数据的模型驱动.
 		private House house = new House();
@@ -121,7 +120,7 @@ public class HouseAction extends ActionSupport implements
 			house.setUname(uname);
 			house.setHdate(new Date());
 			house.setHstate("未出售");
-			house.setIs_hot(0);
+			house.setIsHot(0);
 			house.setHimage("house/house101.jpg");
 			house.setProvince("陕西");
 			house.setCity("西安");

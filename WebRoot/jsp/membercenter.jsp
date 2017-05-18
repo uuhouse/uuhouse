@@ -13,8 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
 	<link href="./css/common.css" rel="stylesheet" type="text/css"/>
 	<link href="./css/member.css" rel="stylesheet" type="text/css"/>
-	<script type="text/javascript" src="./js/001.js"></script>
-	<script type="text/javascript" src="./js/2.js"></script>
+
   </head>
   
   <body>
@@ -27,11 +26,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <div class="content clearfix">
 <div class="headerSub clearfix">
-    <img src="http://pages.anjukestatic.com/usersite/site/img/userCenter/photo.png" class="user-photo" alt="用户头像">
+    <img src="${pageContext.request.contextPath}/<s:property value="model.photo"/>" class="user-photo" alt="用户头像">
     <div class="user-info">
       <div class="info-sup clearfix">
         <span class="hello">
-                    <span class="now-time">下午</span>好，<span class="name">亲</span>
+                    <span class="now-time">欢迎你，</span><span class="name"><s:property value="model.name"/></span>
         </span>
         <ul class="log-way">
                     <li>
@@ -48,15 +47,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div class="info-sub clearfix">
         <ul>
           <li class="user-account">
-            账户名：<span>手机2931490077774</span>
+           <span> 账户名：<s:property value="model.username"/></span>
           </li>
           <i class="split-icon"></i>
-          <li class="user-type">
-              <span>用户</span>
+          <li >
+           <span>手机 : <s:property value="model.phone"/></span>
           </li>
           <i class="split-icon"></i>
           <li class="last-time">
-            上次登录：<span class="day">2017-04-24 09:50:41</span>
+           	<span class="day"> 本次登录 ：<s:date name="model.loginTime" format="yyyy-MM-dd HH:mm:ss" /></span>
           </li>
         </ul>
       </div>
@@ -67,72 +66,70 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="right-content">
             <div class="right-cont">
                 <ul class="tab-list clearfix">
-  <li><a href="#" class="cur">个人资料</a></li>
-</ul>
+				  <li><a href="#" class="cur">个人资料</a></li>
+				</ul>
 
 <!-- 个人资料 -->
 <div class="profile">
   <div class="profile-title">
-    <i class="iconfont"></i>
+    <i class="iconfont"></i>
     <span>基本账号资料</span>
   </div>
   <ul class="profile-list">
-    <li class="photo">
-      <span class="key">头像</span>
-            <img src="" alt="你的头像">
-      <a href="/user/modifyPhoto" class="operate-btn">修改</a>
-    </li>
     <li class="account">
-      <span class="key">帐号</span>
-      <span class="value">手机2931490077774</span>
-    </li>
-    <li class="name">
-      <span class="key">昵称</span>
-      <span class="value">暂无提供</span>
-      <button class="operate-btn">修改</button>
-    </li>
-    <li class="email">
-      <span class="key">邮箱</span>
-      <span class="value">暂无提供</span>
-      <a class="operate-btn" href="/user/modifyEmail">绑定</a>
-    </li>
-    <li class="phone">
-      <span class="key">手机</span>
-      <span class="value">13259431310</span>
-      <a class="operate-btn" href="/user/modifyPhone">修改</a>
+      <span class="key">帐号 </span>
+      <span class="value"><s:property value="model.username"/></span>
     </li>
     <li class="password">
       <span class="key">密码</span>
-      <span class="value">暂无提供</span>
-      <a class="operate-btn" href="/user/modifyPassword">修改</a>
+      <span class="value"><s:property value="model.password"/></span>
+    </li>
+    <li class="name">
+      <span class="key">姓名</span>
+      <span class="value"><s:property value="model.name"/></span>
+    </li>
+    <li class="mail">
+      <span class="key">邮箱</span>
+      <span class="value"><s:property value="model.mail"/></span>
+    </li>
+    <li class="nicname">
+      <span class="key">昵称</span>
+      <span class="value"><s:property value="model.nicname"/></span>
+    </li>
+    <li class="gender">
+      <span class="key">性别</span>
+      <span class="value"><s:property value="model.gender"/></span>
+    </li>
+    <li class="birthday">
+      <span class="key">生日</span>
+      <span class="value"><s:property value="model.birthday"/></span>
+    </li>
+    <li class="phone">
+      <span class="key">手机</span>
+      <span class="value"><s:property value="model.phone"/></span>
+    </li>
+    <li class="qq">
+      <span class="key">QQ</span>
+      <span class="value"><s:property value="model.qq"/></span>
+    </li>
+    <li class="address">
+      <span class="key">地址</span>
+      <span class="value"><s:property value="model.address"/></span>
+    </li>
+    <li class="idCard">
+      <span class="key">身份证号</span>
+      <span class="value"><s:property value="model.idCard"/></span>
     </li>
   </ul>
-  <hr>
-   <div class="profile-title">
-    <i class="iconfont"></i>
-    <span>扩充账号资料</span>
-  </div>
-  <ul class="profile-list">
-    <li class="bound">
-      <span class="key">微信</span>
-      <span class="value"></span>
-            <button class="operate-btn">绑定</button>
-          </li>
+  
+  <!-- 底行-->
+  <ul class="tab-lists clearfix">
+	  <li><a href="${pageContext.request.contextPath}/user_toUpdate.action" class="cur" title="修改信息" target="_blank">修改信息</a></li>
   </ul>
 </div>
-
-<!-- 绑定提示框 -->
-<div class="wrap-tip ">
-  <div class="content-tip">
-    <div class="center-tip">
-        </div>
-  </div>
-</div>
-
-            </div>
-            <div class="recommend-house">
-                <!-- 推荐 -->
-                <div class="rh-area">
+<hr/>
+<!-- 推荐 -->
+<div class="rh-area">
 	<p class="rh-title">您可能感兴趣的房源</p>
 	<ul class="rh-items">
 					<li class="rh-item">

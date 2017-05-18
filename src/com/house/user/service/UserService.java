@@ -45,7 +45,7 @@ public class UserService {
 
 
 	// 按用户ID查询用户
-	public User findByUid(Integer uid) {
+	public User findByUid(int uid) {
 		return userDao.findByUid(uid);
 	}
 	// 按用户名查询用户
@@ -84,5 +84,25 @@ public class UserService {
 		List<User> list = userDao.findByPage(begin,limit);  
 		pageBean.setList(list);
 		return pageBean;
+	}
+
+	public String getPassword(String username) {
+		// TODO Auto-generated method stub
+		return userDao.getPassword(username);
+	}
+
+	public int getState(String username) {
+		// TODO Auto-generated method stub
+		return userDao.getState(username);
+	}
+
+	public int getPower(String username) {
+		// TODO Auto-generated method stub
+		return userDao.getPower(username);
+	}
+
+	public int getUid(String username) {
+		// TODO Auto-generated method stub
+		return userDao.getUid(username);
 	}
 }

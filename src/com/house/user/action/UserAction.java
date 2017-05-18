@@ -1,15 +1,14 @@
 package com.house.user.action;
 
 import java.io.IOException;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
-import org.hibernate.Query;
 
 import com.house.hibernate.HibernateSessionFactory;
-import com.house.user.dao.UserDAO;
 import com.house.user.vo.User;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -17,74 +16,85 @@ import com.house.user.service.UserService;
 
 public class UserAction extends ActionSupport implements ModelDriven<User> {
 	private static final long serialVersionUID = -680099124229323722L;
-	User user = new User();
-	UserDAO dao = new UserDAO();
+	
 	HttpServletRequest request = ServletActionContext.getRequest();
 	
-	public User getUser() {
-		return user;
-	}
-
-
+	// User
+	User user = new User();
 	public void setUser(User user) {
 		this.user = user;
-	}
-	
-	public UserDAO getDao() {
-		return dao;
-	}
-
-
-	public void setDao(UserDAO dao) {
-		this.dao = dao;
 	}
 	
 	public User getModel() {
 		return user;
 	}
 	
+	// UserService
+	private UserService userService = new UserService();
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
+	
 	/**************************************用户增删改部分***************************************/
 	public String addUser() {
-		dao.save(user);
+		userService.save(user);
 		return "add";
 	}
 	public String deleteUser() {
 		if("0".equals(request.getSession().getAttribute("power"))) {
-			dao.delete((User)HibernateSessionFactory.getSession().get(User.class, user.getUid()));
+			userService.delete((User)HibernateSessionFactory.getSession().get(User.class, user.getUid()));
 			return "delete";
 		}else {
 			request.getSession().setAttribute("msg", "权限不够");
 			return "error";
 		}	
 	}
-	public String toupdateUser() {
-		if("0".equals(request.getSession().getAttribute("power"))) {
-			user = (User)HibernateSessionFactory.getSession().get(User.class, user.getUid());
+	
+	//去修改用户信息
+	public String toUpdate() {
+		if("1".equals(request.getSession().getAttribute("power").toString()) ||
+				"0".equals(request.getSession().getAttribute("power").toString())) {
+			int uid = (int) request.getSession().getAttribute("uid");
+			user = userService.findByUid(uid);
 			return "to_update";
 		}else {
 			request.getSession().setAttribute("msg", "权限不够");
 			return "error";
 		}
 	}
-	public String updateUser() {
-		User user1 = (User)HibernateSessionFactory.getSession().get(User.class, user.getUid());
-		user1.setUsername(user.getUsername());
-		user1.setPassword(user.getPassword());
-		user1.setMail(user.getMail());
-		user1.setName(user.getName());
-		user1.setNicname(user.getNicname());
-		user1.setGender(user.getGender());
-		user1.setPhoto(user.getPhoto());
-		user1.setPhone(user.getPhone());
-		user1.setQq(user.getQq());
-		user1.setAddress(user.getAddress());
-		user1.setBirthday(user.getBirthday());
-		user1.setCode(user.getCode());
-		user1.setState(user.getState());
-		user1.setPower(user.getPower());
+
+	// 修改用户信息:
+	public String update() {
+		int uid = (int) request.getSession().getAttribute("uid");
+		user = userService.findByUid(uid);
+		
+		String username = request.getParameter("username").trim();
+		String password = request.getParameter("password").trim();
+		String name = request.getParameter("name").trim();
+		String idCard = request.getParameter("idCard").trim();
+		String mail = request.getParameter("mail").trim();
+		String nicname = request.getParameter("nicname").trim();
+		String gender = request.getParameter("gender").trim();
+		String birthday = request.getParameter("birthday").trim();
+		String phone = request.getParameter("phone").trim();
+		String qq = request.getParameter("qq").trim();
+		String address = request.getParameter("address").trim();
+		
+		user.setUsername(username);
+		user.setPassword(password);
+		user.setName(name);
+		user.setIdCard(idCard);
+		user.setMail(mail);
+		user.setNicname(nicname);
+		user.setGender(gender);
+		user.setBirthday(birthday);
+		user.setPhone(user.getPhone());
+		user.setQq(user.getQq());
+		user.setAddress(address);
+		
+		userService.update(user);
 		return "update";
 	}
-
 	/*******************************************用户注册部分****************************************/
 	
 	// 接收验证码:
@@ -94,14 +104,6 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 		this.checkcode = checkcode;
 	}
 	
-	// 注入UserService
-	private UserService userService = new UserService();
-
-	public void setUserService(UserService userService) {
-		this.userService = userService;
-	}
-	
-
 	/**
 	 * 跳转到注册页面的执行方法
 	 */
@@ -125,8 +127,16 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 			// 查询到该用户:用户名已经存在
 			response.getWriter().println("<font color='red'>用户名已经存在，请重新命名！</font>");
 		} else {
-			// 没查询到该用户:用户名可以使用
-			response.getWriter().println("<font color='green'>用户名可以使用</font>");
+			// 没查询到该用户:用户名不能为空
+			if("".equals(user.getUsername()))
+			{
+				response.getWriter().println("<font color='red'>用户名不能为空！</font>");
+			}
+			//用户名可以使用			
+			else
+			{
+				response.getWriter().println("<font color='green'>用户名可以使用</font>");
+			}
 		}
 		return NONE;
 	}
@@ -144,25 +154,29 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 			this.addActionError("验证码输入错误!");
 			return "checkcodeFail";
 		}
-		
-		String username = request.getParameter("username").trim();
-		String password = request.getParameter("password").trim();
-		String name = request.getParameter("name").trim();
-		String mail = request.getParameter("mail").trim();
-		String gender = request.getParameter("gender").trim();
-		String birthday = request.getParameter("birthday").trim();
-		String address = request.getParameter("address").trim();
-		
-		user.setUsername(username);
-		user.setPassword(password);
-		user.setName(name);
-		user.setMail(mail);
-		user.setGender(gender);
-		user.setBirthday(birthday);
-		user.setAddress(address);
-		userService.save(user);
-		this.addActionMessage("注册成功!请去邮箱激活!");
-		return "msg";
+		else
+		{
+			String username = request.getParameter("username").trim();
+			String password = request.getParameter("password").trim();
+			String name = request.getParameter("name").trim();
+			String idCard = request.getParameter("idCard").trim();
+			String mail = request.getParameter("mail").trim();
+			String gender = request.getParameter("gender").trim();
+			String birthday = request.getParameter("birthday").trim();
+			String address = request.getParameter("address").trim();
+			
+			user.setUsername(username);
+			user.setPassword(password);
+			user.setName(name);
+			user.setIdCard(idCard);
+			user.setMail(mail);
+			user.setGender(gender);
+			user.setBirthday(birthday);
+			user.setAddress(address);
+			userService.save(user);
+			this.addActionMessage("注册成功!请去邮箱激活!");
+			return "msg";
+		}
 	}
 	
 	/**
@@ -198,15 +212,20 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	 * 登录检查
 	 */
 	public String checkLogin() {
-		String username1 = request.getParameter("username1").trim();
-		String password1 = request.getParameter("password1").trim();
+		String username = request.getParameter("username1").trim();
+		String password = request.getParameter("password1").trim();
 		
-		String password2 = dao.getPassword(username1);
-		int state = dao.getState(username1);
-		User existUser = userService.findByUsername(username1);
-		if (password1.equals(password2) && state == 1) {
-			ServletActionContext.getRequest().getSession()
-				.setAttribute("existUser", existUser);
+		String password2 = userService.getPassword(username);
+		int state = userService.getState(username);
+		int power = userService.getPower(username);
+		int uid = userService.getUid(username);
+		User existUser = userService.findByUsername(username);
+		if (password.equals(password2) && state == 1) {
+			existUser.setLoginTime(new Date());
+			userService.update(existUser);
+			request.getSession().setAttribute("existUser", existUser);
+			request.getSession().setAttribute("power", power);
+			request.getSession().setAttribute("uid", uid);
 			return "login_success";
 		} else {
 			request.setAttribute("msg", "密码错误，登录失败！");
@@ -222,15 +241,10 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 		return "quit";
 	}
 	
-	/**
-	 * 登录首页方法
-	 */
-	public String index() {
-		return "index";
-	}
-	
 /*****************************************个人中心部分***************************************/
 	public String userCenter() {
+		int uid = (int) request.getSession().getAttribute("uid");
+		user = userService.findByUid(uid);
 		return "usercenter";
 	}
 /*****************************************发布信息部分***************************************/

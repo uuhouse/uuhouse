@@ -16,7 +16,7 @@
 		</global-results>
 		
 		<!-- 配置首页访问的Action-->
-		<action name="index" class="com.house.index.action.IndexAction" method="execute">
+		<action name="index" class="com.house.index.action.IndexAction">
 			<result name="index">/jsp/index.jsp</result>
 		</action>
 		
@@ -26,6 +26,8 @@
 			<result name="to_login">/jsp/login.jsp</result>
 			<result name="login_error">/jsp/login.jsp</result>
 			<result name="login_success" type="redirectAction">index</result>
+			<result name="to_update">/jsp/updateUser.jsp</result>
+			<result name="update">user_userCenter</result>
 			<result name="quit" type="redirectAction">index</result>
 			<result name="checkcodeFail">/jsp/regist.jsp</result>
 			<result name="error">jsp/error.jsp</result>

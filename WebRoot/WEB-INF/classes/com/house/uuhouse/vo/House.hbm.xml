@@ -10,53 +10,29 @@
             <column name="hid" />
             <generator class="identity" />
         </id>
-        <property name="identify" type="string">
-            <column name="identify" length="10" />
-        </property>
-        <property name="areas" type="string">
-            <column name="areas" length="50" />
-        </property>
-        <property name="village" type="string">
-            <column name="village" length="20" />
-        </property>
-        <property name="title" type="string">
-            <column name="title" length="200" />
+        <property name="kind" type="string">
+            <column name="kind" length="10" />
         </property>
         <property name="htype" type="string">
             <column name="htype" length="20" />
         </property>
-        <property name="htime" type="string">
-            <column name="htime" length="50" />
+        <property name="identify" type="string">
+            <column name="identify" length="10" />
+        </property>
+        <property name="layout" type="string">
+            <column name="layout" length="20" />
+        </property>
+        <property name="title" type="string">
+            <column name="title" length="200" />
+        </property>
+        <property name="areas" type="string">
+            <column name="areas" length="50" />
         </property>
         <property name="floor" type="string">
             <column name="floor" length="20" />
         </property>
-        <property name="description" type="string">
-            <column name="description" length="500" />
-        </property>
-        <property name="himage" type="string">
-            <column name="himage" length="100" />
-        </property>
-        <property name="uid" type="integer">
-            <column name="uid" />
-        </property>
-        <property name="phone" type="string">
-            <column name="phone" length="20" />
-        </property>
-        <property name="uname" type="string">
-            <column name="uname" length="30" />
-        </property>
-        <property name="hstate" type="string">
-            <column name="hstate" length="10" />
-        </property>
-        <property name="stretch" type="string">
-            <column name="stretch" length="20" />
-        </property>
-        <property name="address" type="string">
-            <column name="address" length="200" />
-        </property>
-        <property name="layout" type="string">
-            <column name="layout" length="20" />
+        <property name="untiprice" type="string">
+            <column name="untiprice" length="20" />
         </property>
         <property name="area" type="string">
             <column name="area" length="50" />
@@ -64,20 +40,77 @@
         <property name="countprice" type="string">
             <column name="countprice" length="30" />
         </property>
-        <property name="is_hot" type="integer">
-            <column name="is_hot" />
-        </property>
-        <property name="hdate" type="timestamp">
-            <column name="hdate" length="19" />
-        </property>
         <property name="province" type="string">
             <column name="province" length="10" />
         </property>
         <property name="city" type="string">
             <column name="city" length="20" />
         </property>
-        <property name="untiprice" type="string">
-            <column name="untiprice" length="20" />
+        <property name="village" type="string">
+            <column name="village" length="20" />
+        </property>
+        <property name="stretch" type="string">
+            <column name="stretch" length="20" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="200" />
+        </property>
+        <property name="cx" type="string">
+            <column name="cx" length="10" />
+        </property>
+        <property name="htime" type="string">
+            <column name="htime" length="50" />
+        </property>
+        <property name="propertyRight" type="string">
+            <column name="property_right" length="50" />
+        </property>
+        <property name="elevator" type="string">
+            <column name="elevator" length="10" />
+        </property>
+        <property name="decorate" type="string">
+            <column name="decorate" length="30" />
+        </property>
+        <property name="himage" type="string">
+            <column name="himage" length="100" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="500" />
+        </property>
+        <property name="feature" type="string">
+            <column name="feature" length="100" />
+        </property>
+        <property name="ownerMood" type="string">
+            <column name="owner_mood" length="100" />
+        </property>
+        <property name="areasInfo" type="string">
+            <column name="areas_info" length="500" />
+        </property>
+        <property name="amEnvironment" type="string">
+            <column name="am_environment" length="500" />
+        </property>
+        <property name="monthPay" type="string">
+            <column name="month_pay" length="50" />
+        </property>
+        <property name="map" type="string">
+            <column name="map" length="100" />
+        </property>
+        <property name="hstate" type="string">
+            <column name="hstate" length="10" />
+        </property>
+        <property name="uid" type="integer">
+            <column name="uid" />
+        </property>
+        <property name="uname" type="string">
+            <column name="uname" length="30" />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" length="20" />
+        </property>
+        <property name="isHot" type="integer">
+            <column name="is_hot" />
+        </property>
+        <property name="hdate" type="timestamp">
+            <column name="hdate" length="19" />
         </property>
         <property name="cid" type="integer">
             <column name="cid" />
