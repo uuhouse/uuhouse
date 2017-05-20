@@ -30,6 +30,8 @@ body {
         <td>管理员密码：</td>
         <td><input type="password" name="password" /></td>
       </tr>
+      <tr></tr>
+      <tr></tr>
       <tr><td>&nbsp;</td><td><input type="submit" value="进入管理中心" class="button" /></td></tr>
       </table>
     </td>

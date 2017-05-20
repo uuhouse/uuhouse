@@ -45,7 +45,7 @@ public class Collections implements Serializable{
 			// 判断购物车中是否已经存在该购物项:
 			if(map.containsKey(hid)){
 				// 存在,不添加
-				
+				System.out.println("存在");
 			}else{
 				// 不存在
 				map.put(hid, collectionItem);

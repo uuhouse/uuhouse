@@ -15,7 +15,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="./css/common.css" rel="stylesheet" type="text/css"/>
 	<link href="./css/info3.css" rel="stylesheet" type="text/css"/>
 	
-	<script src="./js/jquery-1.8.3.js" />
+	<!-- <script src="./js/jquery-1.8.3.js" /> -->
+	
+	<script>
+		function saveCart(){
+			document.getElementById("cartForm").submit();
+		}
+	</script>
   </head>
   
   <body>
@@ -30,11 +36,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <h1 class="c_333 f20"><s:property value="model.title"/></h1>
         <p class="house-update-info"></p>
         <div class="title-right-info f12">
-                        <a id="collectHouseTop" class="collect-house c_999 off ml_20" href="javascript:;" onclick="clickLog('from=fcpc_detail_esf_xa_collect')">
-                <div class="top c_555 f14 lh18"><i class="collectIcon icon"></i>收藏
+            <a id="collectHouseTop" class="collect-house c_999 off ml_20" >
+                <!-- <div class="top c_555 f14 lh18"><i class="collectIcon icon"></i>收藏</div> -->
+                <div class="top c_555 f14 lh18">
+	                <form id="cartForm" action="${ pageContext.request.contextPath }/collection_addCollections.action" method="post" >
+						<input type="hidden" name="hid" value="<s:property value="model.hid"/>"/>
+						<div class="action">
+							<div class="buy">
+								<i class="collectIcon icon"></i>
+								<input id="addCart" class="addCart" value="收藏" type="button" onclick="saveCart()"/>
+							</div>
+						</div>
+					</form>
                 </div>
-                <em id="collectCount">1</em>人气</a>
-                            <a id="defraudHouse" class="defraud-house c_888 ml_20" href="javascript:;"><i class="defraudIcon icon"></i>举报</a>
+                <em id="collectCount">1</em>人气
+             </a>
+
+                
+             <a id="defraudHouse" class="defraud-house c_888 ml_20" href="javascript:;"><i class="defraudIcon icon"></i>举报</a>
                     </div>
 
         <div id="manageBar" class="manage-wrap">

@@ -14,13 +14,13 @@ public class CollectionAction {
 		// 接收hid
 		private Integer hid;
 		// 注入商品的Service
-		private HouseService houseService;
+		private HouseService houseService = new HouseService();
 
 		public void setHouseService(HouseService houseService) {
 			this.houseService = houseService;
 		}
 
-		public void setPid(Integer hid) {
+		public void setHid(Integer hid) {
 			this.hid = hid;
 		}
 
@@ -30,6 +30,7 @@ public class CollectionAction {
 			CollectionItem collectionItem = new CollectionItem();
 			// 根据hid进行查询房屋:
 			House house = houseService.findByHid(hid);
+			System.out.println(house.toString());
 			// 设置房屋信息:
 			collectionItem.setHouse(house);
 			// 将收藏项添加到收藏车.

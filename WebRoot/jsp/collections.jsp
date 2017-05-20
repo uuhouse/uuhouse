@@ -22,10 +22,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <%@ include file="top.jsp" %>
 	
 <!-- ********************中间内容********************* -->
-</div>	<div class="container cart">
+<div class="container cart">
+	<s:if test="#session.collections.collectionItems.size() != 0">
 		<div class="span24">
 			<div class="step step1">
-				
+				收藏夹信息
 			</div>
 				<table>
 					<tbody><tr>
@@ -33,43 +34,52 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<th>标题</th>
 						<th>价格</th>
 						<th>简略信息</th>
-						<th>经纪人</th>
+						<th>特色</th>
 						<th>操作</th>
 					</tr>
+					<s:iterator var="collectionItems" value="#session.collections.collectionItems">
 						<tr>
-							<td width="60">
-								<input type="hidden" name="id" value="22">
-								<img src="./house/house001.jpg">
+							<td width="8%">
+								<img src="${pageContext.request.contextPath}/<s:property value="#collectionItems.house.himage"/>">
+							</td>
+							<td width="40%">
+								<a target="_blank"><s:property value="#collectionItems.house.title"/></a>
+							</td>
+							<td >
+								<s:property value="#collectionItems.house.countprice"/>
+							</td>
+							<td class="quantity" width="25%">
+								<s:property value="#collectionItems.house.layout"/><br />
+								<s:property value="#collectionItems.house.area"/><br />
+								小区：<s:property value="#collectionItems.house.areas"/> - <s:property value="#collectionItems.house.village"/>
+							</td>
+							<td width="10%">
+								<span class="subtotal"><s:property value="#collectionItems.house.feature"/></span>
 							</td>
 							<td>
-								<a target="_blank">经开区 地铁口 花园社区 精装2室 明厨明卫 婚房出售,常青二路5号</a>
-							</td>
-							<td>
-								62万
-							</td>
-							<td class="quantity" width="100">
-								2室2厅1卫<br />
-								88平<br />
-								小区： 枫韵润园 - 经济技术开发区
-							</td>
-							<td width="140">
-								<span class="subtotal">UU房屋-惠瀛 <br />电话：13259431310</span>
-							</td>
-							<td>
-								<a href="javascript:;" class="delete">删除</a>
+								<a href="${pageContext.request.contextPath}/collection_removeCollections.action?hid=<s:property value="#collectionItems.house.hid"/>" class="delete">删除</a>
 							</td>
 						</tr>
-				</tbody></table>
+						</s:iterator>
+					</tbody>
+				</table>
 				<dl id="giftItems" class="hidden" style="display: none;">
 				</dl>
 				<div class="total">
 					
 				</div>
 				<div class="bottom">
-					
-					<a href="${pageContext.request.contextPath}/user_loginPage.action" id="submit" class="submit">清空收藏夹</a>
+					<a href="${pageContext.request.contextPath}/collection_clearCollections.action" id="clear" class="clear">清空收藏夹</a>
 				</div>
 		</div>
+		</s:if>
+		<s:else>
+			<div class="span24">
+				<div class="step step1">
+					<span><h2>亲!您还没有收藏任何房屋信息!</h2></span>
+				</div>
+			</div>
+		</s:else>	
 	</div>
 
 <!-- *********************底部********************** -->       

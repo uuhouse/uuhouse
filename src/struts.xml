@@ -26,12 +26,12 @@
 			<result name="to_login">/jsp/login.jsp</result>
 			<result name="login_error">/jsp/login.jsp</result>
 			<result name="login_success" type="redirectAction">index</result>
-			<result name="to_update">/jsp/updateUser.jsp</result>
-			<result name="update">user_userCenter</result>
+			<result name="to_center">jsp/membercenter.jsp</result>
+			<result name="to_update">/jsp/updateuser.jsp</result>
+			<result name="update_success" type="redirectAction">user_center</result>
 			<result name="quit" type="redirectAction">index</result>
 			<result name="checkcodeFail">/jsp/regist.jsp</result>
 			<result name="error">jsp/error.jsp</result>
-			<result name="usercenter">jsp/membercenter.jsp</result>
 			<result name="to_publish">jsp/publish.jsp</result>
 			
 			<result name="input">jsp/regist.jsp</result>
@@ -48,7 +48,7 @@
 		</action>
 		
 		<!-- 我的收藏的Action -->
-		<action name="colletion_*" class="com.house.collection.action.CollectionAction" method="{1}">
+		<action name="collection_*" class="com.house.collection.action.CollectionAction" method="{1}">
 			<result name="addCollections">/jsp/collections.jsp</result>
 			<result name="clearCollections">/jsp/collections.jsp</result>
 			<result name="removeCollections">/jsp/collections.jsp</result>

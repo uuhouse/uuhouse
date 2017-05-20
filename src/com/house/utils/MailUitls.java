@@ -52,7 +52,8 @@ public class MailUitls {
 			message.setSubject("来自优优二手房官方网站的激活邮件");
 			// 设置邮件正文:
 			/*message.setContent("<h1>优优二手房官方网站激活邮件!点下面链接完成激活操作!</h1><h3><a href='http://192.168.139.7:8080/uuhouse/user_active.action?code="+code+"'>http://192.168.139.7:8080/uuhouse/user_active.action?code="+code+"</a></h3>", "text/html;charset=UTF-8");*/
-			message.setContent("<h1>优优二手房官方网站激活邮件!点下面链接完成激活操作!</h1><h3><a href='http://172.17.82.9:8080/uuhouse/user_active.action?code="+code+"'>http://172.17.82.9:8080/uuhouse/user_active.action?code="+code+"</a></h3>", "text/html;charset=UTF-8");
+			/*message.setContent("<h1>优优二手房官方网站激活邮件!点下面链接完成激活操作!</h1><h3><a href='http://172.17.82.9:8080/uuhouse/user_active.action?code="+code+"'>http://172.17.82.9:8080/uuhouse/user_active.action?code="+code+"</a></h3>", "text/html;charset=UTF-8");*/
+			message.setContent("<h1>优优二手房官方网站激活邮件!点下面链接完成激活操作!</h1><h3><a href='http://172.20.10.2:8080/uuhouse/user_active.action?code="+code+"'>http://172.20.10.2:8080/uuhouse/user_active.action?code="+code+"</a></h3>", "text/html;charset=UTF-8");
 			// 3.发送邮件:
 			Transport.send(message);
 		} catch (AddressException e) {

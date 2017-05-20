@@ -136,7 +136,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<a href="https://shanghai.anjuke.com/prop/view/720224993" class="rh-item-content" target="_blank">
 					<img src="https://pic1.ajkimg.com/display/hj/bf2009dfc71160d0a208b01d5270964c/240x180c.jpg?t=1" width="182" height="135">
 					<span class="community-area"></span>
-					<span class="community-text">华虹东方苑</span>
+					<span class="community-text"><s:property value="model.areas"/>华虹东方苑</span>
 					<p class="item-title">别墅的享受，12年花园洋房，一楼带超大地下室，精心装修。</p>
 					<p class="item-info"><span class="item-price">700万</span><span class="item-info-sub">3室3厅，85平米</span></p>
 				</a>

@@ -42,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										用户名/E-mail:
 								</th>
 								<td>
-									<input type="text" id="username" name="username1" class="text" maxlength="20">
+									<input type="text" id="username" name="username1" value="yst"class="text" maxlength="20">
 								</td>
 							</tr>
 							<tr>

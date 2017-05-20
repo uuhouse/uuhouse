@@ -34,7 +34,7 @@ TH {
 					<img width="100%" src="${pageContext.request.contextPath}/image/logo.jpg">
 				</td>
 
-				<td width="100%" background="${pageContext.request.contextPath}/images/top_100.jpg">
+				<td width="100%" background="${pageContext.request.contextPath}/images/top_1000.jpg">
 				</td>
 			</tr>
 		</table>
@@ -50,7 +50,7 @@ TH {
 tmpDate = new Date();
 date = tmpDate.getDate();
 month= tmpDate.getMonth() + 1 ;
-year= tmpDate.getYear();
+year=tmpDate.getFullYear();
 document.write(year);
 document.write("年");
 document.write(month);

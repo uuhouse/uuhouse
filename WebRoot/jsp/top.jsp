@@ -29,7 +29,7 @@
 							</li>
 							</s:else>
 							<li>
-								<a href="${pageContext.request.contextPath}/user_userCenter.action">个人中心</a>
+								<a href="${pageContext.request.contextPath}/user_center.action">个人中心</a>
 								|
 							</li>
 							<li>
@@ -43,7 +43,7 @@
 				</ul>
 			</div>
 			<div class="cart">
-				<a href="${pageContext.request.contextPath}/colletion_myCollections.action">我的收藏</a>
+				<a href="${pageContext.request.contextPath}/collection_myCollections.action">我的收藏</a>
 			</div>
 				<div class="phone">
 					客服热线:
