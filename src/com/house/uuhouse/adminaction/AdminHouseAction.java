@@ -33,7 +33,7 @@ public class AdminHouseAction extends ActionSupport implements
 	}
 
 	// 注入HouseService
-	private HouseService houseService;
+	private HouseService houseService = new HouseService();
 
 	public void setHouseService(HouseService houseService) {
 		this.houseService = houseService;

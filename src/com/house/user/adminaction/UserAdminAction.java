@@ -1,6 +1,5 @@
 package com.house.user.adminaction;
 
-import com.house.user.dao.UserDAO;
 import com.house.user.service.UserService;
 import com.house.utils.PageBean;
 import com.house.user.vo.User;
@@ -11,6 +10,7 @@ import com.opensymphony.xwork2.ModelDriven;
  * 后台用户管理的Action类
  *
  */
+@SuppressWarnings("serial")
 public class UserAdminAction extends ActionSupport implements ModelDriven<User>{
 	// 模型驱动使用的类
 	private User user = new User();
@@ -20,7 +20,7 @@ public class UserAdminAction extends ActionSupport implements ModelDriven<User>{
 	}
 	
 	// 注入用户的Service
-	private UserService userService;
+	private UserService userService = new UserService();
 	
 	public void setUserService(UserService userService) {
 		this.userService = userService;

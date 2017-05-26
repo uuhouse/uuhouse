@@ -30,7 +30,6 @@ public class CollectionAction {
 			CollectionItem collectionItem = new CollectionItem();
 			// 根据hid进行查询房屋:
 			House house = houseService.findByHid(hid);
-			System.out.println(house.toString());
 			// 设置房屋信息:
 			collectionItem.setHouse(house);
 			// 将收藏项添加到收藏车.

@@ -27,12 +27,13 @@ public class IndexAction extends ActionSupport{
 	 * 执行的访问首页的方法:
 	 */
 	public String execute(){
-		// 查询所有房源:
-		List<House> cList = houseService.findByHid();
-		// 保存到值栈中:
-		ActionContext.getContext().getValueStack().set("cList", cList);
 		// 查询热门房源:
 		List<House> hList = houseService.findHot();
+		for (House house : hList) {
+			String image = house.getHimage();
+			String arr[] = image.split(",");
+			house.setHimage(arr[0].trim());
+		}
 		// 保存到值栈中:
 		ActionContext.getContext().getValueStack().set("hList", hList);
 		// 查询最新房源:

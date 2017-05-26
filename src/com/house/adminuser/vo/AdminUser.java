@@ -9,8 +9,8 @@ public class AdminUser implements java.io.Serializable {
 	// Fields
 
 	private Integer aid;
-	private String username;
-	private String password;
+	private String ausername;
+	private String apassword;
 
 	// Constructors
 
@@ -19,9 +19,9 @@ public class AdminUser implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AdminUser(String username, String password) {
-		this.username = username;
-		this.password = password;
+	public AdminUser(String ausername, String apassword) {
+		this.ausername = ausername;
+		this.apassword = apassword;
 	}
 
 	// Property accessors
@@ -34,20 +34,22 @@ public class AdminUser implements java.io.Serializable {
 		this.aid = aid;
 	}
 
-	public String getUsername() {
-		return this.username;
+	public String getAusername() {
+		return ausername;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setAusername(String ausername) {
+		this.ausername = ausername;
 	}
 
-	public String getPassword() {
-		return this.password;
+	public String getApassword() {
+		return apassword;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setApassword(String apassword) {
+		this.apassword = apassword;
 	}
 
+	
+	
 }

@@ -10,11 +10,11 @@
             <column name="aid" />
             <generator class="identity" />
         </id>
-        <property name="username" type="string">
-            <column name="username" length="50" />
+        <property name="ausername" type="string">
+            <column name="ausername" length="50" />
         </property>
-        <property name="password" type="string">
-            <column name="password" length="20" />
+        <property name="apassword" type="string">
+            <column name="apassword" length="20" />
         </property>
     </class>
 </hibernate-mapping>

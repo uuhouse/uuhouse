@@ -239,4 +239,15 @@ public class HouseDAO extends BaseHibernateDAO {
 		
 		return query.list();
 	}
+
+	public House findByEndHid() {
+		String hql = "from House order by hdate desc";
+		Query query = getSession().createQuery(hql);
+		if(query.list() != null && query.list().size() > 0) {
+			return (House) query.list().get(0);
+		}
+		else {
+			return null;
+		}
+	}
 }

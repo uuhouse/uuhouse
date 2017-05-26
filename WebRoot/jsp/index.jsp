@@ -41,8 +41,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  </div>
 		  
 		   <div class="edit-eara">
-		        <a rel="nofollow" class="btn-post" href="${pageContext.request.contextPath}/user_publish.action" title="免费发布信息" target="_blank"><span><em class="edit-ico"></em>免费发布信息</span></a>
-		        <a rel="nofollow" class="btn-del" href="${pageContext.request.contextPath}/user_publishlist.action" title="修改/删除信息" target="_blank"><span class="del-ico">修改/删除信息</span></a>
+		        <a rel="nofollow" class="btn-post" href="${pageContext.request.contextPath}/user_publish.action" title="发布出售信息" ><span>发布出售信息</span></a>
+		        <a rel="nofollow" class="btn-post" href="${pageContext.request.contextPath}/user_publishbuy.action" title="发布求购信息" ><span>发布求购信息</span></a>
 		   </div>    
 		</div>
 		
@@ -131,13 +131,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              	 <s:iterator var="h" value="hList">
 					<li class="list-img clearfix">
                     <div class="list-mod1">
-                        <a href="${pageContext.request.contextPath}/house_findByHid.action?hid=<s:property value="#h.hid" />" target="_blank" class="img-box">
-                        	<img width="160" height="120" alt="<s:property value="#h.title" />" src="${pageContext.request.contextPath}/<s:property value="#h.himage"/>" /></a>
+                        <a href="${pageContext.request.contextPath}/house_findByHid.action?hid=<s:property value="#h.hid" />" class="img-box">
+                        	<img width="160" id="image111" height="120" alt="<s:property value="#h.title" />" 
+                        	src="${pageContext.request.contextPath}/<s:property value="#h.himage"/>" /></a>
                     </div>
                     
                     <div class="list-mod2">
                         <div class="info-title">
-                        	<a href="${pageContext.request.contextPath}/house_findByHid.action?hid=<s:property value="#h.hid" />" target="_blank" class="list-info-title"><s:property value="#h.title" /></a>
+                        	<a href="${pageContext.request.contextPath}/house_findByHid.action?hid=<s:property value="#h.hid" />"  class="list-info-title"><s:property value="#h.title" /></a>
                         	<span class="fc-red"></span>
                             <span class="ico-box clearfix">
                                    <span class="ico-extension"></span>
@@ -172,7 +173,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <p class="list-part list-part-first">
                        		 <em class="sale-price js-price"><s:property value="#h.countprice" /></em> 
                       	</p>
-                        <p class="list-part"><span class="js-area"><s:property value="#h.area" /></span>  (<s:property value="#h.untiprice"/>)
+                        <p class="list-part"><s:property value="#h.untiprice"/>
                         </p>              
                     </div>
                 </li> 
@@ -283,5 +284,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<%@ include file="bottom.jsp" %>
 
 </body>
+<script>
+
+	
+</script>
 </html>
 

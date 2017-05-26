@@ -341,7 +341,7 @@ $(function() {
 		$("#goblianxiren").parent().removeClass().addClass("input_text_wrap");
 		$("#lianxiren_error").css("display", "none");
 	})
-	//类型
+	//住宅
 	$("#fangyuanleixing").click(function(){
 		$("#leixing").toggle();
 
@@ -360,7 +360,45 @@ $(function() {
 		$("#leixing").css("display","none");
 		
 	})
-	//产权
+	//装修
+	$("#zhuangxiuleixing").click(function(){
+		$("#zhuangxiu").toggle();
+
+	})
+	$("#zhuangxiu li").click(function() {
+		var leibie = this.innerHTML;
+		
+		$("#qingkuang").html(leibie);
+		//js线程冲突
+		setTimeout(function(){
+			$("#zhuangxiu").css("display","none");
+		},0)
+		
+	})
+	$("#zhuangxiuleixing").blur(function() {
+		$("#zhuangxiu").css("display","none");		
+	})
+	
+	//朝向
+	$("#chaoxiangxingkuang").click(function(){
+		$("#chaoxiang").toggle();
+
+	})
+	$("#chaoxiang li").click(function() {
+		var leibie = this.innerHTML;
+		
+		$("#cx").html(leibie);
+		//js线程冲突
+		setTimeout(function(){
+			$("#chaoxiang").css("display","none");
+		},0)
+		
+	})
+	$("#chaoxiangxingkuang").blur(function() {
+		$("#chaoxiang").css("display","none");		
+	})
+	
+	//产权年限
 	$("#chanquannianxian").click(function(){
 		$("#changquan").toggle();
 
@@ -378,6 +416,35 @@ $(function() {
 	$("#chanquannianxian").blur(function() {
 		$("#changquan").css("display","none");
 		
+	})
+	//产权
+	$("#chanquanleixing").click(function(){
+		$("#xingzhi").toggle();
+
+	})
+	$("#xingzhi li").click(function() {
+		var leibie = this.innerHTML;
+		
+		$("#cq").html(leibie);
+		//js线程冲突
+		setTimeout(function(){
+			$("#xingzhi").css("display","none");
+		},0)
+		
+	})
+	$("#chanquanleixing").blur(function() {
+		$("#xingzhi").css("display","none");		
+	})
+	//建筑年代
+	$("#jianzhuniandai").blur(function() {
+		if($("#jianzhuniandai").val() == "") {
+			$("#jianzhuniandai").parent().removeClass().addClass("input_text_wrap clearfix error");
+			$("#jianzhu_error").css("display", "block");
+		}
+	})
+	$("#jianzhuniandai").focus(function() {
+		$("#jianzhuniandai").parent().removeClass().addClass("input_text_wrap clearfix");
+		$("#jianzhu_error").css("display", "none");
 	})
 	//地区
 	

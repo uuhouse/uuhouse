@@ -11,6 +11,8 @@ function submit() {
 		alert("请填写联系电话");
 	}else if($("#goblianxiren").val() == null || $("#goblianxiren").val() == "" ) {
 		alert("请填写联系人");
+	}else if($("#jianzhuniandai").val() == null || $("#jianzhuniandai").val() == "" ) {
+		alert("请填写建筑年代");
 	}else {
 		setTimeout(function() {
 			document.publish_form.submit();
@@ -32,12 +34,18 @@ $(function() {
 		if($("#leibie").html() != "请选择类别") {
 			$("#htype").val($("#leibie").html());
 		}
+		if($("#qingkuang").html() != "请选择") {
+			$("#decorate").val($("#qingkuang").html());
+		}
+		if($("#cx").html() != "请选择") {
+			$("#cx1").val($("#cx").html());
+		}
 		if($("#nianxian").html() != "请选择") {
 			$("#htime").val($("#nianxian").html());
 		}
-		
-			
-		
+		if($("#cq").html() != "请选择") {
+			$("#cq1").val($("#cq").html());
+		}
 	})
 	
 })

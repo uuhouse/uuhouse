@@ -183,9 +183,17 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	
 /*****************************************个人中心部分***************************************/
 	public String center() {
-		int uid = (int) request.getSession().getAttribute("uid");
-		user = userService.findByUid(uid);
-		return "to_center";
+		if((Integer)request.getSession().getAttribute("uid") != null)
+		{
+			int uid = (int) request.getSession().getAttribute("uid");
+			user = userService.findByUid(uid);
+			return "to_center";	
+		}
+		else
+		{
+			request.getSession().setAttribute("msg", "权限不够，您还没有登录！");
+			return "error";
+		}
 	}
 	
 	//去修改用户信息
@@ -236,7 +244,33 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	
 	/***************************************发布信息部分*************************************/
 	public String publish() {
-		return "to_publish";	
+		
+		if((Integer)request.getSession().getAttribute("uid") != null)
+		{
+			int uid = (int) request.getSession().getAttribute("uid");
+			user = userService.findByUid(uid);
+			return "to_publish";	
+		}
+		else
+		{
+			request.getSession().setAttribute("msg", "您还没有登录，权限不够！");
+			return "error";
+		}
+		
+	}
+	
+	public String publishbuy() {
+		if((Integer)request.getSession().getAttribute("uid") != null)
+		{
+			int uid = (int) request.getSession().getAttribute("uid");
+			user = userService.findByUid(uid);
+			return "to_publishbuy";	
+		}
+		else
+		{
+			request.getSession().setAttribute("msg", "您还没有登录，权限不够！");
+			return "error";
+		}
 	}
 
 

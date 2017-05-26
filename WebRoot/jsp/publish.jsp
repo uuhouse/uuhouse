@@ -13,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
     <base href="<%=basePath%>">
     <link type="text/css" href="http://c.58cdn.com.cn/ui7/post/css/post_v20151022154316.css" rel="stylesheet">
-    <title>发布房屋信息</title>
+    <title>发布出售信息</title>
 	<link href="./css/post.css" rel="stylesheet" type="text/css"/>
 	<link href="./css/common.css" rel="stylesheet" type="text/css"/>
 	<script type="text/javascript" src="./js/jquery-1.8.3.js"></script>
@@ -31,12 +31,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="container publish">
 	<div id="passportLayer">
 	</div>
-	<form id="postForm" name="publish_form" action="${pageContext.request.contextPath}/house_publish.action" method="post" onsubmit="return checkForm();" novalidate="novalidate" >
-	<input type="text" id="identity" name="identity" style="display:none"/>
+	<form id="postForm" name="publish_form" action="${pageContext.request.contextPath}/house_publish.action" method="post" onsubmit="return checkForm();" novalidate="novalidate">
+		<input type="text" id="identity" name="identity" style="display:none"/>
 		<input type="text" id="village" name="village" style="display:none"/>
 		<input type="text" id="streets" name="streets" style="display:none"/>
 		<input type="text" id="htype" name="htype" style="display:none"/>
 		<input type="text" id="htime" name="htime" style="display:none"/>
+		<input type="text" id="decorate" name="decorate" style="display:none"/>
+		<input type="text" id="cx1" name="cx1" style="display:none"/>
+		<input type="text" id="cq1" name="cq1" style="display:none"/>
 	<div class="progcontrl clearfix">
 		<div class="active" id="propbartwo">
 			<span>1.填写信息</span>
@@ -56,9 +59,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</div>
 
 					<div class="block_content">
-						<div class="rows_wrap clearfix"></div>
-					</div>
-				
 					<div class="rows_wrap clearfix">
 						<div class="rows_content">
 							<div class="tip" style="display: none;"></div>
@@ -252,9 +252,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								万</span>
 							</div>
 						</div>
-						
-
-
 						<div class="rows_title">
 							<span>
 							<span class="rows_title_star">
@@ -262,11 +259,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							总价</span>
 						</div>
 					</div>
-					
 					<div class="rows_wrap clearfix custom_name">
 						<div class="rows_content">
-						<div class="tip">
-					</div>
+						<div class="tip"></div>
 					<div class="input_text_wrap" style="position: relative;">
 						<input type="inputText" tabindex="23" name="Title1" id="Title1" maxlength="50" style="width: 395px;">
 						
@@ -295,54 +290,88 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="block_content" >
 					<div class="rows_wrap clearfix">
 						<div class="rows_content">
-							<div class="tip">
-							</div>
-							
+							<div class="tip"></div>
+							<label><input type="radio" name="elevator" value="有电梯" autocomplete="off">有</label>
+           					<label><input type="radio" name="elevator" value="无电梯" autocomplete="off" checked="checked">无</label>
+						</div>
+						<div class="rows_title">
+							<span>电梯</span>
+						</div>
+					</div>
+					
+					<div class="rows_wrap clearfix">
+						<div class="rows_content">
+							<div class="tip"></div>
 							<div class="selectordef" id="fangyuanleixing" name="ObjectType1" style="z-index: 1476; width: 150px;" tabindex="24" nameid="1083">
 								<div class="title">
 									<span class="seled" id="leibie">普通住宅</span>
-									<div class="arrow">
-									</div>
+									<div class="arrow"></div>
 								</div>
 								<div class="optiondef" id="leixing" style="width: 147px;display:none ">
 									<ul style="width:147px;">
-									<li val="">
-									请选择类别</li>
-									<li val="3" class="">
-									普通住宅</li>
-									<li val="4" class="">
-									公寓</li>
-									<li val="5" class="">
-									别墅</li>
-									<li val="2" class="">
-									平房</li>
-									<li val="8" class="">
-									新里洋房</li>
-									<li val="9" class="">
-									老公房</li>
-									<li val="10" class="">
-									四合院</li>
-									<li val="12" class="">
-									排屋</li>
-									<li val="6" class="">
-									其他</li>
+										<li val="">请选择类别</li>			
+										<li val="3" class="">普通住宅</li>					
+										<li val="4" class="">公寓</li>					
+										<li val="5" class="">别墅</li>					
+										<li val="2" class="">平房</li>					
+										<li val="8" class="">新里洋房</li>					
+										<li val="9" class="">老公房</li>				
+										<li val="10" class="">四合院</li>				
+										<li val="12" class="">排屋</li>					
+										<li val="6" class="">其他</li>				
+									</ul>
+								</div>
+							</div>
+							<div class="selectordef" name="fittype" id="zhuangxiuleixing" style="z-index: 1475; width: 150px;" tabindex="25" nameid="1080">
+								<div class="title">
+									<span class="seled" id="qingkuang">简单装修</span>		
+									<div class="arrow"></div>		
+								</div>
+								<div class="optiondef" id="zhuangxiu" style="width: 147px; display: none;">
+									<ul style="width:147px;">
+										<li val="">请选择装修情况</li>					
+										<li val="1" class="">毛坯</li>					
+										<li val="2" class="">简单装修</li>					
+										<li val="3" class="">中等装修</li>					
+										<li val="4" class="">精装修</li>					
+										<li val="5" class="">豪华装修</li>					
+										</ul>
+								</div>
+							</div>
+							
+							<div class="selectordef" id="chaoxiangxingkuang" name="Toward" style="z-index: 1474; width: 150px;" tabindex="26" nameid="1086">
+								<div class="title">
+									<span class="seled" id="cx">南</span>			
+									<div class="arrow"></div>
+								</div>						
+								<div class="optiondef" id="chaoxiang" style="width: 147px;">
+									<ul style="width:147px;">
+										<li val="">请选择朝向</li>					
+										<li val="1" class="">东</li>					
+										<li val="2" class="">南</li>					
+										<li val="3" class="">西</li>					
+										<li val="4" class="">北</li>					
+										<li val="6" class="">南北</li>					
+										<li val="5" class="">东西</li>					
+										<li val="7" class="">东南</li>					
+										<li val="8" class="">西南</li>				
+										<li val="9" class="">东北</li>					
+										<li val="10" class="">西北</li>				
 									</ul>
 								</div>
 							</div>
 						</div>
-		
 						<div class="rows_title">
-							<span>
-							类型</span>
+							<span>房屋情况</span>
 						</div>
 					</div>
+					
 					<div class="rows_wrap clearfix">
 						<div class="rows_content">
-							<div class="tip">
-							</div>
+							<div class="tip"></div>
 							<div class="selectordef" id="chanquannianxian" style="z-index: 1473; width: 150px;" tabindex="27" nameid="7535">
 								<div class="title">
-									<span class="seled" id="nianxian">请选择</span>
+									<span class="seled" id="nianxian">70年产权</span>
 									<div class="arrow">
 									</div>
 								</div>
@@ -355,6 +384,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<li val="40" class="">40年产权</li>
 									</ul>
 								</div>
+							</div>
+							<div class="selectordef" id="chanquanleixing" name="chanquan1" style="z-index: 1472; width: 150px;" tabindex="28" nameid="5344">
+								<div class="title">
+									<span class="seled" id="cq">商品房</span>	
+									<div class="arrow"></div>		
+								</div>
+								<div class="optiondef" id="xingzhi" style="width: 147px; display: none;">
+									<ul style="width:147px;">
+										<li val="">请选择产权</li>				
+										<li val="1" class="">商品房</li>				
+										<li val="5" class="">商住两用</li>				
+										<li val="2" class="">经济适用房</li>				
+										<li val="4" class="">使用权</li>			
+										<li val="3" class="">公房</li>				
+										<li val="6" class="">其他</li>				
+									</ul>
+								</div>
+							</div>
+							
+							<div class="input_text_wrap clearfix" name="jianzhuniandai" style="position: relative;">
+								<div class="tip validate_error" id="jianzhu_error" style="left: 0px; display: none;"><i></i>请填写建筑年代，只需填写四位数字，如“2009”</div>
+								<input type="inputText" tabindex="29" id="jianzhuniandai" name="jianzhuniandai" placeholder="建筑年代" style="width: 120px;">
+								<span>年</span>
 							</div>
 						</div>
 						<div class="rows_title">
@@ -395,14 +447,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					
 				</div>
 		
-				<div class="block_wrap">
-					<div class="block_title" id="fangyuangexingmiaoshu">
-						<h2>*房源个性描述</h2>
-						
-						<textarea type="text" id="miaoshu1" value="" name="miaoshu" style="width:515px;height:215px;position: absolute;margin:0 0 0 160px">
-						</textarea>
-					
+			<div class="block_wrap">
+				<div class="block_title">
+					<h2>房源个性描述</h2>
+				</div>
+		
+				<div class="block_content" >
+					<div class="rows_wrap clearfix">
+						<div class="rows_content">
+							<textarea type="text" id="miaoshu1" value="" name="miaoshu" style="width:515px;height:215px;position: absolute;margin:0 0 0 0">
+							</textarea>
+							</div>
+						<div class="rows_title">
+							<span>
+								<span class="rows_title_star">*</span>详细描述
+							</span>
+						</div>
 					</div>
+				</div>
 					
 					<div class="block_content">
 						<div class="rows_content">
@@ -419,28 +481,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									</li>
 								</ul>
 								
-								<div class="upload_wrap">
-									<div class="rows_title" style="margin:0 0 0 50px">
+								<div class="upload_wrap" style="margin:190px 0 0 0px">
+									<div class="rows_title" style="margin:0 0 0 70px">
 										<span>
-										上传图片</span>
+										<span class="rows_title_star">
+											*</span>上传图片</span>
 									</div>
-									<div class="upload">
-										
+									
+									
+									 <div class="upload">
 						     			<div class="localUpload_wrap">
-						     			
-								    		<div class="localTitle">上传电脑中图片</div>
-								    		<div class="localUpload">
-									    		<div id="imgUpload">
-													<div class="html5">
-														<input type="file" multiple="multiple">
-													</div>
-												</div>
-									    		<div id="maxlength_cover">24</div>
-								   			 </div>
+						     				<label for="thumbnail" class="col-md-3 control-label"></label>
+											<input type="file" class="form-control" id="thumbnail" name="thumbnail" style="width:500px">
+											<!-- 
+											<input type="button"  id="upload" value="上传">
+											 -->
+											<script src="${pageContext.request.contextPath}/js/imageupload.js"></script>
 										</div>
 									</div>
-		 
-									<div class="info">只能上传房屋图片，不能包含有文字、数字、网址、名片等，最多上传<span>24</span>张，每张最大<span>10M</span></div>
+  
+									<div class="info">只能上传房屋图片，不能包含有文字、数字、网址、名片等，最多上传<span>5</span>张</div>
 								</div>
 							</div>
 						</div>
@@ -460,7 +520,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<div class="tip validate_error" id="phone_error" style="left: 0px;display:none"><i></i>请填写完整手机号码</div>
 								
 								<div class="input_text_wrap" style="position: relative;">
-									<input type="inputText" tabindex="35" name="Phone" id="Phone" maxlength="11" style="width: 240px;">
+									<input type="inputText" tabindex="35" name="Phone" id="Phone" value='<s:property value="model.phone"/>' readonly="readonly" maxlength="11" style="width: 240px;">
 								</div>
 							</div>
 							<div class="rows_title">
@@ -484,7 +544,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							<div class="rows_content">
 								<div class="tip validate_error" id="lianxiren_error" style="left: 0px;display:none"><i></i>请填写联系人</div>
 								<div class="input_text_wrap" style="position: relative;">
-									<input type="inputText" tabindex="37" name="goblianxiren" id="goblianxiren" maxlength="6" style="width: 240px;">
+									<input type="inputText" tabindex="37" name="goblianxiren" id="goblianxiren" value='<s:property value="model.name"/>' maxlength="6" style="width: 240px;">
 								</div>
 							</div>
 		
@@ -534,6 +594,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<%@ include file="bottom.jsp" %>
 
  </body>
- 
+<script>
+    function getObjectURL(file) {
+        var url = null ;
+        if (window.createObjectURL!=undefined) { // basic
+            url = window.createObjectURL(file) ;
+        } else if (window.URL!=undefined) { // mozilla(firefox)
+            url = window.URL.createObjectURL(file) ;
+        } else if (window.webkitURL!=undefined) { // webkit or chrome
+            url = window.webkitURL.createObjectURL(file) ;
+        }
+        return url;
+    }
+
+
+
+    $('#thumbnail').change(function(){
+        var eImg = $('<img />');
+        eImg.attr('src', getObjectURL($(this)[0].files[0])).css({"width":"100px", "height":"80px","margin-right":"3px","margin-top":"10px"}); // 或 this.files[0] this->input
+        $(this).after(eImg);});
+
+    $('#upload').click(
+        function () {
+            $.ajax({
+                url: url,
+                method: post,
+                data: $('#thumbnail')[0].files[0],
+                success: function(){
+
+                }
+            })
+    })
+</script> 
 </html>
 

@@ -185,9 +185,10 @@ public class UserDAO extends BaseHibernateDAO {
 	public int findCount() {
 		String hql = "select count(*) from User";
 		Query query = getSession().createQuery(hql);
+		int count = (new Integer(query.uniqueResult().toString())).intValue();  
 		
 		if(query.list() != null && query.list().size() != 0) {
-			return ((Integer) query.list().get(0)).intValue();
+			return count;
 		}
 		return 0;
 	}

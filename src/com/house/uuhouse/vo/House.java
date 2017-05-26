@@ -6,6 +6,7 @@ import java.util.Date;
  * House entity. @author MyEclipse Persistence Tools
  */
 
+@SuppressWarnings("serial")
 public class House implements java.io.Serializable {
 
 	// Fields

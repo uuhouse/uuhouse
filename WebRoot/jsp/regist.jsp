@@ -143,6 +143,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<table>
 							<tbody>
 							<s:hidden name="user.uid" readonly="true"></s:hidden>
+							<tr> <th><span class="requiredField">*为必填项！</span></th><td></td></tr>
 							<tr>
 								<th>
 									<span class="requiredField">*</span>用户名:
@@ -186,6 +187,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<td>
 										<input type="text" id="idCard" name="idCard" value="610428199312034562" class="text" maxlength="200">
 										<span><s:fielderror fieldName="idCard"/></span>
+										<span class="requiredField">**身份证号必须真实有效！</span>
 								</td>
 							</tr>
 							<tr>
