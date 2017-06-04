@@ -31,14 +31,14 @@
         <property name="floor" type="string">
             <column name="floor" length="20" />
         </property>
-        <property name="untiprice" type="string">
-            <column name="untiprice" length="20" />
+        <property name="untiprice" type="integer">
+            <column name="untiprice" length="11" />
         </property>
-        <property name="area" type="string">
-            <column name="area" length="50" />
+        <property name="area" type="integer">
+            <column name="area" length="11" />
         </property>
-        <property name="countprice" type="string">
-            <column name="countprice" length="30" />
+        <property name="countprice" type="integer">
+            <column name="countprice" length="11" />
         </property>
         <property name="province" type="string">
             <column name="province" length="10" />

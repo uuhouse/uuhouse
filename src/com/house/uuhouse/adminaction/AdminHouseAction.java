@@ -69,7 +69,6 @@ public class AdminHouseAction extends ActionSupport implements
 	public String save() throws IOException {
 		// 将提交的数据添加到数据库中.
 		house.setHdate(new Date());
-		// house.setImage(image);
 		if(upload != null){
 			// 将房屋图片上传到服务器上.
 			// 获得上传图片的服务器端路径.
@@ -83,7 +82,7 @@ public class AdminHouseAction extends ActionSupport implements
 			house.setHimage("houses/" + uploadFileName);
 		}
 		houseService.save(house);
-		return "saveSuccess";
+		return "save_success";
 	}
 
 	// 删除房屋信息的方法:
@@ -98,7 +97,7 @@ public class AdminHouseAction extends ActionSupport implements
 		// 删除数据库中房屋信息记录:
 		houseService.delete(house);
 		// 页面跳转
-		return "deleteSuccess";
+		return "delete_success";
 	}
 
 	// 编辑商品的方法
@@ -106,7 +105,7 @@ public class AdminHouseAction extends ActionSupport implements
 		// 根据房屋id查询房屋信息
 		house = houseService.findByHid(house.getHid());
 		// 页面跳转到编辑页面:
-		return "editSuccess";
+		return "edit_success";
 	}
 
 	// 修改房屋信息的方法
@@ -132,7 +131,7 @@ public class AdminHouseAction extends ActionSupport implements
 		}
 		houseService.update(house);
 		// 页面跳转
-		return "updateSuccess";
+		return "update_success";
 	}
 
 }

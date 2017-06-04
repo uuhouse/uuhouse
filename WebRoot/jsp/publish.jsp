@@ -42,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<input type="text" id="cq1" name="cq1" style="display:none"/>
 	<div class="progcontrl clearfix">
 		<div class="active" id="propbartwo">
-			<span>1.填写信息</span>
+			<span>1.填写出售信息</span>
 		</div>
 		
 		<div class="propbar" id="propbarthree">
@@ -404,7 +404,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 							
 							<div class="input_text_wrap clearfix" name="jianzhuniandai" style="position: relative;">
-								<div class="tip validate_error" id="jianzhu_error" style="left: 0px; display: none;"><i></i>请填写建筑年代，只需填写四位数字，如“2009”</div>
+								<div class="tip validate_error" id="jianzhu_error" style="left: 0px; display: none;"><i></i></div>
 								<input type="inputText" tabindex="29" id="jianzhuniandai" name="jianzhuniandai" placeholder="建筑年代" style="width: 120px;">
 								<span>年</span>
 							</div>

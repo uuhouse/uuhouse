@@ -11,8 +11,6 @@ function submit() {
 		alert("请填写联系电话");
 	}else if($("#goblianxiren").val() == null || $("#goblianxiren").val() == "" ) {
 		alert("请填写联系人");
-	}else if($("#jianzhuniandai").val() == null || $("#jianzhuniandai").val() == "" ) {
-		alert("请填写建筑年代");
 	}else {
 		setTimeout(function() {
 			document.publish_form.submit();

@@ -60,6 +60,7 @@ public class AdminUserAction extends ActionSupport implements
 		public String findAll(){
 			PageBean<AdminUser> pageBean = adminUserService.findByPage(page);
 			ActionContext.getContext().getValueStack().set("pageBean", pageBean);
+			System.out.println("test"+pageBean.getList().size());
 			return "findAll";
 		}
 		
@@ -73,6 +74,7 @@ public class AdminUserAction extends ActionSupport implements
 		// 后台用户的编辑
 		public String edit(){
 			adminUser = adminUserService.findByAid(adminUser.getAid());
+//			request.getSession().
 			return "edit_success";
 		}
 		

@@ -27,7 +27,7 @@
 		d.add('0101','01','用户信息管理','','','mainFrame');
 		d.add('010101','0101','用户信息管理','${pageContext.request.contextPath}/userAdmin_findAll.action?page=1','','mainFrame');
 		d.add('0104','01','房屋信息管理');
-		d.add('010401','0104','房屋信息管理','${pageContext.request.contextPath}/adminProduct_findAll.action?page=1','','mainFrame');
+		d.add('010401','0104','房屋信息管理','${pageContext.request.contextPath}/adminHouse_findAll.action?page=1','','mainFrame');
 		d.add('0102','01','管理员信息管理','','','mainFrame');
 		d.add('010201','0102','管理员信息管理','${pageContext.request.contextPath}/adminUser_findAll.action?page=1','','mainFrame');
 		document.write(d);

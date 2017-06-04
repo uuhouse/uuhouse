@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<input type="text" id="propertyright" name="propertyright" style="display:none"/>
 	<div class="progcontrl clearfix">
 		<div class="active" id="propbartwo">
-			<span>1.填写信息</span>
+			<span>1.填写求购信息</span>
 		</div>
 		
 		<div class="propbar" id="propbarthree">

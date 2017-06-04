@@ -56,7 +56,6 @@ public class HouseAction extends ActionSupport implements
 				String image = house.getHimage();
 				String arr[] = image.split(",");
 				house.setHimage(arr[0]);
-				System.out.println(arr[0]);
 			}
 			// 保存到值栈中:
 			ActionContext.getContext().getValueStack().set("hList", hList);
@@ -70,20 +69,26 @@ public class HouseAction extends ActionSupport implements
 			return "findByHid";
 		}
 		
-		public String findByArea() {
-			String village = request.getParameter("village").trim();
-			String stretch = request.getParameter("streets").trim();
-			// 获得response对象,向页面输出:
-			/*HttpServletRequest requset = ServletActionContext.getRequest();
-			requset.setCharacterEncoding();*/
+		public String findHouse() {
+			String search_keyword = "";
+			if(request.getParameter("search_keyword").trim()==null||request.getParameter("search_keyword").trim()==""){
+				return "index";
+			}
+			else{
+				search_keyword = request.getParameter("search_keyword");
+				System.out.println(search_keyword);
+				List<House> result = houseService.findHouse(search_keyword);
+				System.out.println(result.toString());
+				if(result.size() > 0 ||  result != null){
+					ActionContext.getContext().getValueStack().set("hList", result);
+					return "index";
+				}
+				else{
+					request.setAttribute("msg", "没有符合您要求的房屋信息！");
+					return "error";
+				}
+			}
 			
-			HttpServletResponse response = ServletActionContext.getResponse();
-			response.setContentType("text/html;charset=UTF-8");
-			System.out.println(village);
-			System.out.println(stretch);
-			List<House> aList = houseService.findByArea(village,stretch);	
-			ActionContext.getContext().getValueStack().set("hList", aList);
-			return "index";
 		}
 		
 
@@ -115,7 +120,6 @@ public class HouseAction extends ActionSupport implements
 				String htime = request.getParameter("jianzhuniandai").trim();
 				String elevator = request.getParameter("elevator").trim();
 				String cq = request.getParameter("cq1").trim();
-				int taonei = (int) (Integer.parseInt(area) * 0.95);
 				
 				String image = request.getParameter("thumbnail").trim();
 				System.out.println(image);
@@ -132,9 +136,9 @@ public class HouseAction extends ActionSupport implements
 				house.setHtype(htype);
 				house.setAreas(areas);
 				house.setAddress(address);
-				house.setArea("建面" + area + "m²|套内" + taonei + "m²");
+				house.setArea(Integer.parseInt(area));
 				house.setLayout(shi + "室" + ting + "厅" + wei + "卫");
-				house.setCountprice(countprice + "万元");
+				house.setCountprice(Integer.parseInt(countprice));
 				house.setTitle(title);
 				house.setFloor(floor + "层/共" + maxfloor + "层" );
 				house.setDescription(description);
@@ -143,10 +147,10 @@ public class HouseAction extends ActionSupport implements
 				house.setHdate(new Date());
 				house.setHstate("未出售");
 				house.setIsHot(0);
-				house.setHimage(image);
+				house.setHimage("house/" + image);
 				house.setProvince("陕西");
 				house.setCity("西安");
-				house.setUntiprice(((Integer.parseInt(countprice)*10000)/ Integer.parseInt(area)) + "元/m²");
+				house.setUntiprice(((Integer.parseInt(countprice)*10000)/ Integer.parseInt(area)));
 				
 				houseService.save(house);
 				return "publishfinish";
@@ -170,24 +174,66 @@ public class HouseAction extends ActionSupport implements
 			String uname = request.getParameter("goblianxiren").trim();
 			String htype = request.getParameter("htype").trim();
 			String propertyright = request.getParameter("propertyright").trim();
-			System.out.println(description);
 			
 			house.setKind("求购");
+			house.setHimage("house/housebuy.png");
 			house.setPropertyRight(propertyright);
 			house.setHtype(htype);
-			house.setAddress(address);
-			house.setArea(area1 + "m²-" + area2 + "m²");
+			house.setVillage(address);
+			house.setIdentify(area1 + "m²-" + area2 + "m²"); //用来存放面积区域
 			house.setLayout(shi + "室" + ting + "厅" + wei + "卫");
-			house.setCountprice(price1 + "万元-" + price2 + "万元");
+			house.setFeature(price1 + "万元-" + price2 + "万元"); //用来存放价格区域
 			house.setTitle(title);
 			house.setPhone(user.getPhone());
 			house.setUname(uname);
 			house.setHdate(new Date());
 			house.setIsHot(0);
 			house.setDescription(description);
-			System.out.println(house.getHtime());
 			houseService.save(house);
 			return "publishfinish";
+		}
+		
+		
+		public String findByPage(){
+			PageBean<House> pageBean = houseService.findByPage(page);
+			// 将PageBean数据存入到值栈中.
+			ActionContext.getContext().getValueStack().set("hList", pageBean.getList());
+			ActionContext.getContext().getValueStack().set("pageBean", pageBean);
+			// 页面跳转
+			return "findAll";
+		}
+		
+		
+		public String findByProperty(){
+			Integer price1=0;
+			Integer price2=0;
+			if(request.getParameter("price1").trim()==null||request.getParameter("price1").trim()==""
+					||request.getParameter("price2").trim()==null||request.getParameter("price2").trim()==""){
+				price1=price2=0;
+			}
+			else{
+				price1 = Integer.valueOf(request.getParameter("price1").trim());
+				price2 = Integer.valueOf(request.getParameter("price2").trim());
+			}
+			String shitingwei = request.getParameter("shitingwei");
+			String shi = request.getParameter("shi");
+			String ting = request.getParameter("ting");
+			String wei = request.getParameter("wei");
+			Integer countprice= house.getCountprice();
+			String village = house.getVillage();
+			Integer area = house.getArea();
+			List<House> result = houseService.findByProperty(countprice,price1,price2,shitingwei,shi,ting,wei,area,village);
+			if(result.size() > 0 ||  result != null){
+				ActionContext.getContext().getValueStack().set("hList", result);
+				return "index";
+			}
+			else{
+				request.setAttribute("msg", "没有符合您要求的房屋信息！");
+				return "error";
+			}
+			
+			
+			
 		}
 		
 }

@@ -98,10 +98,10 @@ public class HouseDAO extends BaseHibernateDAO {
 	}
 
 
-	public House findById(java.lang.Integer id) {
-		log.debug("getting House instance with id: " + id);
+	public House findByHid(java.lang.Integer aid) {
+		log.debug("getting House instance with id: " + aid);
 		try {
-			House instance = (House) getSession().get("com.house.uuhouse.vo.House", id);
+			House instance = (House) getSession().get("com.house.uuhouse.vo.House", aid);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -199,33 +199,22 @@ public class HouseDAO extends BaseHibernateDAO {
 		Query query = getSession().createQuery(hql);
 		return query.list();
 	}
-	
-	// 根据房屋ID查询房屋
-	public House findByHid(Integer hid) {
-		List result = findByProperty(HID, hid);
-		 if(result != null && result.size() > 0) {
-			 return (House) result.get(0);
-		 }
-		else {
-			 return null;
-		}
-	}
 
 	// 统计房屋信息数的方法
 	public int findCount() {
 		String hql = "select count(*) from House";
-		Query query = getSession().createQuery(hql);	
-		if(query.list() != null && query.list().size() > 0) {
-			return ((Integer) query.list().get(0)).intValue();
+		Query query = getSession().createQuery(hql);
+		int count = (new Integer(query.uniqueResult().toString())).intValue();  
+		
+		if(query.list() != null && query.list().size() != 0) {
+			return count;
 		}
-		else {
-			return 0;
-		}
+		return 0;
 	}
 
 	// 查询一页中房屋信息的方法
 	public List<House> findByPage(int begin, int limit) {
-		String hql = "from House order by hdate desc";
+		String hql = "from House";
 		Query query = getSession().createQuery(hql);
 		query.setFirstResult(begin);
 		query.setMaxResults(limit);
@@ -249,5 +238,50 @@ public class HouseDAO extends BaseHibernateDAO {
 		else {
 			return null;
 		}
+	}
+
+	public List<House> findByProperty(Integer price1, Integer price2, Integer area1, Integer area2, List<String> villages2, String layout2) {
+		StringBuffer sql=new StringBuffer("from House  where 1=1 "); 
+		if(villages2!=null){
+			sql.append(" and village in (");
+		for (String village : villages2) {
+			sql.append("'"+village+"',");
+		}
+		sql.append("' ')");
+		}
+		if(price1!=price2 && price1!=-1){
+			sql.append(" and countprice between "+price1+" and " +price2);
+		}
+		if(area1!=area2&&area1!=-1){
+			sql.append(" and area between "+area1+" and " +area2);
+		}
+		if(!"".equals(layout2)){
+			sql.append(" and layout like '%"+layout2+"%' ");
+		}
+		
+		System.out.println(sql);
+		Query query = getSession().createQuery(sql.toString());
+//		List <Object []> result  = query.list();
+		
+		
+		return query.list();
+	}
+
+	public List<House> findBuy() {
+		String hql = "from House where kind = '求购'" ;
+		Query query = getSession().createQuery(hql);
+		
+		return query.list();
+	}
+
+	public List<House> findHouse(String search_keyword) {
+		String hql = "from House where village like '%" + search_keyword + "%' or areas like '%" + search_keyword + "%' or title like '%" + search_keyword + "%' or address like '%" + search_keyword + "%' or description like '%" + search_keyword + "%' " ;
+		Query query = getSession().createQuery(hql);
+		/*
+		 * or htype like '%" + search_keyword + "%' or identify like '%" + search_keyword + "%' or layout like '%" + search_keyword + "%' or title like '%" + search_keyword + "%' or areas like '%" + search_keyword + "%' or floor like '%" + search_keyword + "%' or untiprice like '%" + search_keyword + "%' or area like '%" 
+			+ "%' or countprice like '%" + search_keyword + "%' or village like '%" + search_keyword + "%' or stretch like '%" + search_keyword + "%' or address like '%" + search_keyword + "%' or cx like '%" + search_keyword + "%' or htime like '%" + search_keyword + "%' or propertyRight like '%" + search_keyword + "%' or elevator like '%" + search_keyword + "%' or decorate like '%" 
+				+ search_keyword + "%' or description like '%" + search_keyword + "%' or feature like '%"  + search_keyword + "%' 
+		 */
+		return query.list();
 	}
 }

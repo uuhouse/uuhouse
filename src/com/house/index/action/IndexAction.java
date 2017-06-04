@@ -26,7 +26,7 @@ public class IndexAction extends ActionSupport{
 	/**
 	 * 执行的访问首页的方法:
 	 */
-	public String execute(){
+	public String index(){
 		// 查询热门房源:
 		List<House> hList = houseService.findHot();
 		for (House house : hList) {
@@ -41,6 +41,14 @@ public class IndexAction extends ActionSupport{
 		// 保存到值栈中:
 		ActionContext.getContext().getValueStack().set("nList", nList);
 		return "index";
+	}
+	
+	public String indexbuy(){
+		// 查询最新房源:
+		List<House> bList = houseService.findBuy();
+		// 保存到值栈中:
+		ActionContext.getContext().getValueStack().set("hList", bList);
+		return "indexbuy";
 	}
 	
 	

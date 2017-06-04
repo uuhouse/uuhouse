@@ -42,7 +42,7 @@ color:green
 		 <table width="850px" border="0" cellspacing="0" align="center">
 		 <tr>
 			  <td style="padding-top:30px">
-				 	  <a href="${ pageContext.request.contextPath }/index.action">首页</a>
+				 	  <a href="${ pageContext.request.contextPath }/uu_index.action">首页</a>
 			          <a href="${ pageContext.request.contextPath }/user_registPage.action">注册</a>
 			          <a href="${ pageContext.request.contextPath }/user_loginPage.action">登录</a>
 		       </td>

@@ -187,7 +187,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<td>
 										<input type="text" id="idCard" name="idCard" value="610428199312034562" class="text" maxlength="200">
 										<span><s:fielderror fieldName="idCard"/></span>
-										<span class="requiredField">**身份证号必须真实有效！</span>
+										<span class="requiredField">**身份证号必须真实有效！核实后无效会注销。</span>
 								</td>
 							</tr>
 							<tr>

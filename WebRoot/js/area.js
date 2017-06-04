@@ -436,7 +436,7 @@ $(function() {
 		$("#xingzhi").css("display","none");		
 	})
 	//建筑年代
-	$("#jianzhuniandai").blur(function() {
+	/*$("#jianzhuniandai").blur(function() {
 		if($("#jianzhuniandai").val() == "") {
 			$("#jianzhuniandai").parent().removeClass().addClass("input_text_wrap clearfix error");
 			$("#jianzhu_error").css("display", "block");
@@ -445,7 +445,7 @@ $(function() {
 	$("#jianzhuniandai").focus(function() {
 		$("#jianzhuniandai").parent().removeClass().addClass("input_text_wrap clearfix");
 		$("#jianzhu_error").css("display", "none");
-	})
+	})*/
 	//地区
 	
 	$("#localArea1").click(function(){

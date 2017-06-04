@@ -16,8 +16,9 @@
 		</global-results>
 		
 		<!-- 配置首页访问的Action-->
-		<action name="index" class="com.house.index.action.IndexAction">
+		<action name="uu_*" class="com.house.index.action.IndexAction" method="{1}">
 			<result name="index">/jsp/index.jsp</result>
+			<result name="indexbuy">/jsp/indexbuy.jsp</result>
 		</action>
 		
 		<!-- 配置用户模块的Action -->
@@ -25,11 +26,11 @@
 			<result name="to_regist">/jsp/regist.jsp</result>
 			<result name="to_login">/jsp/login.jsp</result>
 			<result name="login_error">/jsp/login.jsp</result>
-			<result name="login_success" type="redirectAction">index</result>
+			<result name="login_success" type="redirectAction">uu_index</result>
 			<result name="to_center">jsp/membercenter.jsp</result>
 			<result name="to_update">/jsp/updateuser.jsp</result>
 			<result name="update_success" type="redirectAction">user_center</result>
-			<result name="quit" type="redirectAction">index</result>
+			<result name="quit" type="redirectAction">uu_index</result>
 			<result name="checkcodeFail">/jsp/regist.jsp</result>
 			<result name="error">jsp/error.jsp</result>
 			<result name="to_publish">jsp/publish.jsp</result>
@@ -46,6 +47,8 @@
 			<result name="findByHid">/jsp/information.jsp</result>
 			<result name="index">/jsp/index.jsp</result>
 			<result name="publishfinish">jsp/publishfinish.jsp</result>
+			<result name="findAll">/jsp/index.jsp</result>
+			<result name="findhouse">/jsp/index.jsp</result>
 		</action>
 		
 		<!-- 我的收藏的Action -->
@@ -60,14 +63,15 @@
 		<action name="adminUser_*" class="com.house.adminuser.action.AdminUserAction" method="{1}">
 			<result name="login_error">/admin/index.jsp</result>
 			<result name="login_success" type="redirect">/admin/home.jsp</result>
-			<result name="save_success" type="redirectAction">adminUser_findAll.action?page=1</result>
 			<result name="findAll">/admin/adminuser/list.jsp</result>
+			<result name="save_success" type="redirectAction">adminUser_findAll.action?page=1</result>
 			<result name="delete_success" type="redirectAction">adminUser_findAll.action?page=1</result>
 			<result name="edit_success">/admin/adminuser/edit.jsp</result>
 			<result name="update_success" type="redirectAction">adminUser_findAll.action?page=1</result>
 			
 			<interceptor-ref name="privilegeInterceptor">
-				<param name="excludeMethods">login</param>
+				<param name="excludeMethods">
+</param>
 			</interceptor-ref>
 			<interceptor-ref name="defaultStack"/>
 		</action>
@@ -75,12 +79,12 @@
 		
 		<!-- 后台房屋信息管理的Action -->
 		<action name="adminHouse_*" class="com.house.uuhouse.adminaction.AdminHouseAction" method="{1}">
-			<result name="findAll">/admin/product/list.jsp</result>
-			<result name="addPageSuccess">/admin/product/add.jsp</result>
-			<result name="saveSuccess" type="redirectAction">adminHouse_findAll.action?page=1</result>
-			<result name="deleteSuccess" type="redirectAction">adminHouse_findAll.action?page=1</result>
-			<result name="editSuccess">/admin/product/edit.jsp</result>
-			<result name="updateSuccess" type="redirectAction">adminHouse_findAll.action?page=1</result>
+			<result name="findAll">/admin/house/list.jsp</result>
+			<result name="add_success">/admin/house/add.jsp</result>
+			<result name="save_success" type="redirectAction">adminHouse_findAll.action?page=1</result>
+			<result name="delete_success" type="redirectAction">adminHouse_findAll.action?page=1</result>
+			<result name="edit_success">/admin/house/edit.jsp</result>
+			<result name="update_success" type="redirectAction">adminHouse_findAll.action?page=1</result>
 			<interceptor-ref name="privilegeInterceptor"/>
 			<interceptor-ref name="defaultStack"/>
 		</action>

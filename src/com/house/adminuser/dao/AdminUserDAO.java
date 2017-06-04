@@ -25,8 +25,8 @@ public class AdminUserDAO extends BaseHibernateDAO {
 		log.debug("updating AdminUser instance");
 		try {
 			getSession().update(persistentInstance);
-			getSession().flush();
             getSession().beginTransaction().commit();
+            getSession().flush();
 			getSession().close();
 			log.debug("update successful");
 		} catch (RuntimeException re) {
@@ -39,8 +39,8 @@ public class AdminUserDAO extends BaseHibernateDAO {
 		log.debug("saving AdminUser instance");
 		try {
 			getSession().save(transientInstance);
-			getSession().flush();
             getSession().beginTransaction().commit();
+            getSession().flush();
 			log.debug("save successful");
 			getSession().close();
 		} catch (RuntimeException re) {
@@ -53,8 +53,8 @@ public class AdminUserDAO extends BaseHibernateDAO {
 		log.debug("deleting AdminUser instance");
 		try {
 			getSession().delete(persistentInstance);
-			getSession().flush();
             getSession().beginTransaction().commit();
+            getSession().flush();
 			getSession().close();
 			log.debug("delete successful");
 		} catch (RuntimeException re) {
@@ -168,7 +168,7 @@ public class AdminUserDAO extends BaseHibernateDAO {
 	}
 
 	public String getAPassword(String adminUsername) {
-		String hql = "select apassword from AdminUser a where a.ausername='" +  adminUsername + "'";
+		String hql = "select apassword from AdminUser a where ausername='" +  adminUsername + "'";
 		Query query = getSession().createQuery(hql);	
 		if(query.list() != null && query.list().size() > 0) {
 			return (String) query.list().get(0);

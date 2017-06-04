@@ -5,6 +5,7 @@ import com.house.user.vo.User;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.LockOptions;
@@ -40,8 +41,8 @@ public class UserDAO extends BaseHibernateDAO {
 		log.debug("updating User instance");
 		try {
 			getSession().update(persistentInstance);
-			getSession().flush();
             getSession().beginTransaction().commit();
+            getSession().flush();
 			getSession().close();
 			log.debug("update successful");
 		} catch (RuntimeException re) {

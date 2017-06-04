@@ -1,5 +1,6 @@
 package com.house.user.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
@@ -17,8 +18,14 @@ import com.house.utils.UUIDUtils;
  */
 @Transactional
 public class UserService {
+	private User user = new User();
+	
 	private UserDAO userDao = new UserDAO();
 
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
 	public void setUserDao(UserDAO userDao) {
 		this.userDao = userDao;
 	}
@@ -105,4 +112,11 @@ public class UserService {
 		// TODO Auto-generated method stub
 		return userDao.getUid(username);
 	}
+
+	public void setLoginTime(Date date) {
+		// TODO Auto-generated method stub
+		user.setLoginTime(date);
+		
+	}
+
 }

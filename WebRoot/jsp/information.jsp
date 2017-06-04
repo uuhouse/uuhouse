@@ -15,13 +15,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link href="./css/common.css" rel="stylesheet" type="text/css"/>
 	<link href="./css/info3.css" rel="stylesheet" type="text/css"/>
 	
-	<!-- <script src="./js/jquery-1.8.3.js" /> -->
+	<script src="./js/jquery-1.8.3.js" />
 	
-	<script>
-		function saveCart(){
-			document.getElementById("cartForm").submit();
-		}
-	</script>
+	
   </head>
   
   <body>
@@ -74,7 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<div class="house-basic-pic fl" id="houseBasicPic">
 		<div id="bigImg" class="basic-top-bigpic pr " onclick="clickLog('from=fcpc_detail_esf_xa_bigpicture')">
-			<img id="smainPic" src="${pageContext.request.contextPath}/house/house001.jpg" alt="1/8" style="display: inline; margin-top: 0px;"><!--左上角房源大图一张-->
+			<img id="smainPic" src="${pageContext.request.contextPath}/<s:property value="model.himage"/>" alt="1/8" style="display: inline; margin-top: 0px;"><!--左上角房源大图一张-->
 			<span id="sImgNu" class="leftNum pa f12" style="display: block;">1/8</span>
 			<div class="basic-pic-load" id="loadingSmall" style="display: none;">
 				<div class="top icon"></div>
@@ -94,7 +90,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<ul id="leftImg" class="pic-list-wrap pa" onclick="" style="left: 0px;">
 					<!--基本信息小图-->
 				<li id="xtu_3" class="actives" data-value="${pageContext.request.contextPath}/house/house001.jpg"><!--轮播图点击之后的大图-->
-					<img data-value="${pageContext.request.contextPath}/house/house001.jpg" src="${pageContext.request.contextPath}/house/house001.jpg">
+					<img data-value="${pageContext.request.contextPath}/house/house001.jpg" src="${pageContext.request.contextPath}/<s:property value="model.himage"/>">
 				</li>
 				<li id="xtu_4" data-value="${pageContext.request.contextPath}/house/house002.jpg" class=""><!--轮播图点击之后的大图-->
 					<img data-value="${pageContext.request.contextPath}/house/house002.jpg" src="${pageContext.request.contextPath}/house/house002.jpg">
@@ -136,7 +132,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<div class="house-basic-right fr">
           <p class="house-basic-item1">
-              <span class="price"><s:property value="model.countprice"/></b></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="unit"><s:property value="model.untiprice"/></span>
+              <span class="price"><s:property value="model.countprice"/>万元</b></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="unit"><s:property value="model.untiprice"/>元/m²</span>
           </p>
 	      <div class="house-basic-item2">
               <p class="room">
@@ -144,7 +140,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   <span class="sub"><s:property value="model.floor"/></span>
               </p>
               <p class="area">
-                  <span class="sub"><s:property value="model.area"/></span>
+                  <span class="sub"><s:property value="model.area"/>m²</span>
               </p>
               <p class="toward">
                   <span class="sub"><s:property value="model.htime"/></span>
@@ -168,12 +164,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	       </ul>
 	          <div class="house-basic-item4">
 	              
-	              <p class="c_999 lh22 jjr-desc"><s:property value="model.description"/></p>
+	              <p class="c_999 lh22 jjr-desc"><marquee scrollAmount=1 scrollDelay=1 direction=up  style="color:#000; height:180px; font-size: 12px;"><s:property value="model.description"/></marquee></p>
 	          </div>
 	          <div class="house-chat-entry clearfix" id="houseChatEntry">
 	              <div class="house-chat-phone">
 	                  <!-- <p class="phone-logo"><i class="icon phone-icon"></i></p> -->
-	                  <p class="chat-phone-layer show-phone" id="phone111" onclick="changePhone();">电话联系TA</p>
+	                  <p class="chat-phone-layer show-phone" id="phone111" >电话联系TA</p>
 	                  <!-- <p class="phone-num">18192395854</p>
 	                  <p class="phone-belong">
 	                      <span>电话归属地 : 西安</span>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -217,20 +213,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <h3><em></em>概况</h3>
                 <div class="general-item-wrap">
                     <ul class="general-item-left">
-                                                    <li><span class="mr_25 c_999">房屋总价</span><span class="c_000"><s:property value="model.countprice"/>(单价 <s:property value="model.untiprice"/>)</span>
+                                                    <li><span class="mr_25 c_999">房屋总价</span><span class="c_000"><s:property value="model.countprice"/>万元(单价 <s:property value="model.untiprice"/>元/m²)</span>
                             </li>
                                                     <li><span class="mr_25 c_999">房屋户型</span><span class="c_000"><s:property value="model.layout"/></span></li>
-                                                    <li><span class="mr_25 c_999">房本面积</span><span class="c_000"><s:property value="model.area"/></span></li>
-                                                    <li><span class="mr_25 c_999">房屋朝向</span><span class="c_000">南</span></li>
+                                                    <li><span class="mr_25 c_999">房本面积</span><span class="c_000"><s:property value="model.area"/>m²</span></li>
+                                                    <li><span class="mr_25 c_999">房屋朝向</span><span class="c_000"><s:property value="model.cx"/></span></li>
                                             </ul>
                     <ul class="general-item-right">
                                                     <li><span class="mr_25 c_999">所在楼层</span><span class="c_000"><s:property value="model.floor"/></span></li>
                                                     <li><span class="mr_25 c_999">装修情况</span>
-       						                            <span class="c_000">精装修</span>
+       						                            <span class="c_000"><s:property value="model.decorate"/></span>
                             </li>
-                                                    <li><span class="mr_25 c_999">产权年限</span><span class="c_000"><s:property value="model.htime"/></span>
+                                                    <li><span class="mr_25 c_999">产权年限</span><span class="c_000"><s:property value="model.propertyRight"/></span>
                             </li>
-                                                    <li><span class="mr_25 c_999">建筑年代</span><span class="c_000"><s:date name="model.hdate" format="yyyy" />年</span></li>
+                                                    <li><span class="mr_25 c_999">建筑年代</span><span class="c_000"><s:property value="model.htime"/></span></li>
                                             </ul>
                 </div>
             </div>
@@ -241,14 +237,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="general-item-wrap">
                     <ul class="general-item-left">
                         <li><span class="mr_25 c_999">房屋总价</span>
-                            <span class="c_000"><s:property value="model.countprice"/>（<s:property value="model.untiprice"/>）</span>
+                            <span class="c_000"><s:property value="model.countprice"/>万元（<s:property value="model.untiprice"/>元/m²）</span>
                         </li>
                                                     <li><span class="mr_25 c_999">房屋类型</span><span class="c_000"><s:property value="model.htype"/></span></li>
                                                     <li><span class="mr_25 c_999">交易权属</span><span class="c_000"><s:property value="model.identify"/></span></li>
                                             </ul>
                     <ul class="general-item-right">
                         <li><span class="mr_25 c_999">参考首付</span>
-                            <span class="c_000">18.6万（月供1778元/月）</span>
+                        <s:if test=" model.monthPay == null" >
+							
+						</s:if>
+						<s:else>
+							<span class="c_000"><s:property value="model.countprice"/>万元（月供<s:property value="model.monthPay"/>）</span>
+						</s:else>
                         </li>
                    </ul>
                 </div>
@@ -263,9 +264,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="general-item general-type" id="generalType">
                 <h3><em></em>户型</h3>
                 <div class="general-item-wrap">
-                                            <ul class="general-pic-list" onclick="clickLog('from=fcpc_detail_esf_xa_fyms_tupian_click')">
+                                 <ul class="general-pic-list" onclick="clickLog('from=fcpc_detail_esf_xa_fyms_tupian_click')">
                                                             <li class="even" data-index="0">
-                                    <img data-src="http://pic5.58cdn.com.cn/anjuke_58/af1ea57f7aa29f966468aa1dd0b65285?w=454&amp;h=341&amp;crop=1" src="${pageContext.request.contextPath}/house/house001.jpg" style="display: inline;">
+                                    <img data-src="http://pic5.58cdn.com.cn/anjuke_58/af1ea57f7aa29f966468aa1dd0b65285?w=454&amp;h=341&amp;crop=1" src="${pageContext.request.contextPath}/<s:property value="model.himage"/>" style="display: inline;">
                                 </li>
                                                             <li data-index="1">
                                     <img data-src="http://pic1.58cdn.com.cn/anjuke_58/652c00a91b81be424888dd0ab9598337?w=454&amp;h=341&amp;crop=1" src="${pageContext.request.contextPath}/house/house002.jpg" style="display: inline;">
@@ -323,7 +324,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<div class="pic pr" style="margin:0 10px 0 0">
 						<img data-src="http://pic5.58cdn.com.cn/anjuke_58/1047b1e25136569b6431eabec7c5a6d5?w=444&amp;h=316&amp;crop=1" alt="" src="${pageContext.request.contextPath}/<s:property value="#h.himage"/>">
 					</div>
-					<p class="room f12 c_999"><span class="price"><s:property value="#h.countprice"/></span>&nbsp;&nbsp;<s:property value="#h.layout"/>&nbsp;&nbsp;</p>
+					<p class="room f12 c_999"><span class="price"><s:property value="#h.countprice"/>万元</span>&nbsp;&nbsp;<s:property value="#h.layout"/>&nbsp;&nbsp;</p>
 					
 					<p class="title f16 c_555 lh20"><s:property value="#h.areas"/></p>
 					
@@ -340,10 +341,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<a href="${pageContext.request.contextPath}/house_findByHid.action?hid=<s:property value="#n.hid"/>" target="_blank" >
 				<div class="pic pr"  style="margin:0 10px 0 0">
 					<img data-src="http://pic7.58cdn.com.cn/anjuke_58/1fe6de9708a9fb3fbcc262bbb2c93155?w=444&amp;h=316&amp;crop=1" alt="" src="${pageContext.request.contextPath}/<s:property value="#n.himage"/>">
-					<span class="marklight f12 pa"><b class="f18"><s:property value="#n.countprice" /></span>
+					<span class="marklight f12 pa"><b class="f18"><s:property value="#n.countprice" />万元</span>
 				</div>
 				<p class="title f16 c_555 lh20"><s:property value="#n.areas" /></p>
-				<p class="room f12 c_999 lh20"><s:property value="#n.layout" />&nbsp;/&nbsp;<s:property value="#n.area" /></p>
+				<p class="room f12 c_999 lh20"><s:property value="#n.layout" />&nbsp;/&nbsp;<s:property value="#n.area" />m²</p>
 			</a>
 		</li>           
 	</s:iterator>                       
@@ -462,5 +463,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(".picDescMask").fadeIn();
 		$("#sub").fadeOut()
 	})
+</script>
+
+<script >
+	function saveCart(){
+		document.getElementById("cartForm").submit();
+	}
 </script>
 </html>

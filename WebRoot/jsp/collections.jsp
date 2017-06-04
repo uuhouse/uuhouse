@@ -46,12 +46,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<a target="_blank"><s:property value="#collectionItems.house.title"/></a>
 							</td>
 							<td >
-								<s:property value="#collectionItems.house.countprice"/>
+								<s:property value="#collectionItems.house.countprice"/>万元
 							</td>
 							<td class="quantity" width="25%">
 								<s:property value="#collectionItems.house.layout"/><br />
-								<s:property value="#collectionItems.house.area"/><br />
-								小区：<s:property value="#collectionItems.house.areas"/> - <s:property value="#collectionItems.house.village"/>
+								<s:property value="#collectionItems.house.area"/>m²<br />
+								小区：<s:property value="#collectionItems.house.areas"/> - <s:property value="#collectionItems.house.village"/>区
 							</td>
 							<td width="10%">
 								<span class="subtotal"><s:property value="#collectionItems.house.feature"/></span>

@@ -152,25 +152,38 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	 * 登录检查
 	 */
 	public String checkLogin() {
+		String password2 = "";
+		int state = 0;
 		String username = request.getParameter("username1").trim();
 		String password = request.getParameter("password1").trim();
 		
-		String password2 = userService.getPassword(username);
-		int state = userService.getState(username);
-		int power = userService.getPower(username);
-		int uid = userService.getUid(username);
-		User existUser = userService.findByUsername(username);
-		if (password.equals(password2) && state == 1) {
-			existUser.setLoginTime(new Date());
-			userService.update(existUser);
-			request.getSession().setAttribute("existUser", existUser);
-			request.getSession().setAttribute("power", power);
-			request.getSession().setAttribute("uid", uid);
-			return "login_success";
-		} else {
-			request.setAttribute("msg", "密码错误，登录失败！");
+		
+		User existUser = new User();
+		if( userService.findByUsername(username) == null ) {
+			request.setAttribute("msg", "您还没有注册，请前去注册！");
 			return "login_error";
+			
+		}else {
+			existUser = userService.findByUsername(username);
+			int uid = userService.getUid(username);
+			password2 = userService.getPassword(username);
+			state = userService.getState(username);
+			if (!password.equals(password2)) {
+				request.setAttribute("msg", "密码错误，登录失败！");
+				return "login_error";
+				
+			} else if(state == 0) {
+				request.setAttribute("msg", "用户未激活，请去邮箱激活！");
+				return "login_error";
+			}  else {
+				existUser.setLoginTime(new Date());
+				userService.update(existUser);
+				request.getSession().setAttribute("existUser", existUser);
+				request.getSession().setAttribute("uid", uid);
+				return "login_success";
+			}
 		}
+		
 	}
 
 	/**
@@ -198,15 +211,10 @@ public class UserAction extends ActionSupport implements ModelDriven<User> {
 	
 	//去修改用户信息
 	public String toUpdate() {
-		if("1".equals(request.getSession().getAttribute("power").toString()) ||
-				"0".equals(request.getSession().getAttribute("power").toString())) {
+		
 			int uid = (int) request.getSession().getAttribute("uid");
 			user = userService.findByUid(uid);
 			return "to_update";
-		}else {
-			request.getSession().setAttribute("msg", "权限不够");
-			return "error";
-		}
 	}
 
 	// 修改用户信息:

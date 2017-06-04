@@ -9,11 +9,14 @@
 		</div>
 	</div>
 	<div class="span9">
+		<div class="headerAd" >
+			<marquee scrollAmount=6 scrollDelay=3 direction=right  style="color:#fff; height:50px; font-size: 32px;padding-top:12px">优优二手房</marquee>
+		</div>	
 	</div>
 	<div class="span10 last">
 			<div class="topNav clearfix">
 				<ul>
-							<s:if test='#session.existUser == null'>
+				<s:if test='#session.existUser == null'>
 							<li id="headerLogin" class="headerLogin" style="display: list-item;">
 								<a href="${pageContext.request.contextPath}/user_loginPage.action">登录</a>|</li>
 							<li id="headerRegister" class="headerRegister"
@@ -53,7 +56,7 @@
 		<div class="span24">
 			<ul class="mainNav">
 						<li>
-							<a href="${pageContext.request.contextPath}/index.action">首页</a>
+							<a href="${pageContext.request.contextPath}/uu_index.action">首页</a>
 							|
 						</li>
 						

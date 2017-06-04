@@ -139,10 +139,18 @@ div.container:after {
 }
 
 /*行内内联，向左浮动；右外边距为10px；溢出剪掉*/
-div.container .span1, div.container .span2, div.container .span3, div.container .span4, div.container .span5, div.container .span6, div.container .span7, div.container .span8, div.container .span9, div.container .span10, div.container .span11, div.container .span12, div.container .span13, div.container .span14, div.container .span15, div.container .span16, div.container .span17, div.container .span18, div.container .span19, div.container .span20, div.container .span21, div.container .span22, div.container .span23, div.container .span24 {
+div.container .span1, div.container .span2, div.container .span3, div.container .span4, div.container .span6, div.container .span7, div.container .span8, div.container .span10, div.container .span11, div.container .span12, div.container .span13, div.container .span14, div.container .span15, div.container .span16, div.container .span17, div.container .span18, div.container .span19, div.container .span20, div.container .span21, div.container .span22, div.container .span23, div.container .span24 {
 	_display: inline;
 	float: left;
 	margin-right: 10px;
+	overflow: hidden;
+}
+
+ div.container .span5,div.container .span9 {
+ 	margin-top:10px;
+ 	height:50px;
+	_display: inline;
+	float: left;
 	overflow: hidden;
 }
 
@@ -163,7 +171,7 @@ div.container .span4 {
 }
 
 div.container .span5 {
-	width: 240px;
+	width: 222px;
 }
 
 div.container .span6 {
@@ -179,11 +187,11 @@ div.container .span8 {
 }
 
 div.container .span9 {
-	width: 350px;
+	width: 400px;
 }
 
 div.container .span10 {
-	width: 390px;
+	width: 320px;
 }
 
 div.container .span11 {
@@ -762,12 +770,19 @@ div.path li.last {
 
 div.header .logo {
 	height: 50px;
-	padding-top: 10px;
+	background-color: #ff542e;
 	overflow: hidden;
 }
 
+div.header .logo img{
+	margin: 0 0 0 0;
+}
+
+
 div.header .headerAd {
-	height: 60px;
+	height: 50px;
+	background-color: #ff542e;
+	overflow: hidden;
 }
 
 div.header .topNav ul {
@@ -793,9 +808,8 @@ div.header .cart {
 	height: 28px;
 	line-height: 28px;
 	_display: inline;
-	float: left;
+	float: right;
 	padding-left: 30px;
-	margin-left: 80px;
 	margin-bottom: 4px;
 	background: url(../images/common.gif) -210px -180px no-repeat;
 }

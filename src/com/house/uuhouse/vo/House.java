@@ -19,9 +19,9 @@ public class House implements java.io.Serializable {
 	private String title;
 	private String areas;
 	private String floor;
-	private String untiprice;
-	private String area;
-	private String countprice;
+	private Integer untiprice;
+	private Integer area;
+	private Integer countprice;
 	private String province;
 	private String city;
 	private String village;
@@ -56,7 +56,7 @@ public class House implements java.io.Serializable {
 
 	/** full constructor */
 	public House(String kind, String htype, String identify, String layout, String title, String areas, String floor,
-			String untiprice, String area, String countprice, String province, String city, String village,
+			Integer untiprice, Integer area, Integer countprice, String province, String city, String village,
 			String stretch, String address, String cx, String htime, String propertyRight, String elevator,
 			String decorate, String himage, String description, String feature, String ownerMood, String areasInfo,
 			String amEnvironment, String monthPay, String map, String hstate, Integer uid, String uname, String phone,
@@ -164,27 +164,27 @@ public class House implements java.io.Serializable {
 		this.floor = floor;
 	}
 
-	public String getUntiprice() {
+	public Integer getUntiprice() {
 		return this.untiprice;
 	}
 
-	public void setUntiprice(String untiprice) {
+	public void setUntiprice(Integer untiprice) {
 		this.untiprice = untiprice;
 	}
 
-	public String getArea() {
+	public Integer getArea() {
 		return this.area;
 	}
 
-	public void setArea(String area) {
+	public void setArea(Integer area) {
 		this.area = area;
 	}
 
-	public String getCountprice() {
+	public Integer getCountprice() {
 		return this.countprice;
 	}
 
-	public void setCountprice(String countprice) {
+	public void setCountprice(Integer countprice) {
 		this.countprice = countprice;
 	}
 
@@ -387,5 +387,20 @@ public class House implements java.io.Serializable {
 	public void setCid(Integer cid) {
 		this.cid = cid;
 	}
+
+	@Override
+	public String toString() {
+		return "House [hid=" + hid + ", kind=" + kind + ", htype=" + htype + ", identify=" + identify + ", layout="
+				+ layout + ", title=" + title + ", areas=" + areas + ", floor=" + floor + ", untiprice=" + untiprice
+				+ ", area=" + area + ", countprice=" + countprice + ", province=" + province + ", city=" + city
+				+ ", village=" + village + ", stretch=" + stretch + ", address=" + address + ", cx=" + cx + ", htime="
+				+ htime + ", propertyRight=" + propertyRight + ", elevator=" + elevator + ", decorate=" + decorate
+				+ ", himage=" + himage + ", description=" + description + ", feature=" + feature + ", ownerMood="
+				+ ownerMood + ", areasInfo=" + areasInfo + ", amEnvironment=" + amEnvironment + ", monthPay=" + monthPay
+				+ ", map=" + map + ", hstate=" + hstate + ", uid=" + uid + ", uname=" + uname + ", phone=" + phone
+				+ ", isHot=" + isHot + ", hdate=" + hdate + ", cid=" + cid + "]";
+	}
+	
+	
 
 }

@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <div class="search clearfix">
       <div class="clearfix">
 		 <div class="s-search" id="listSearch" >
-		  <form action="${pageContext.request.contextPath}/house_findHouse.action" method="post" >
+		  <form action="" method="post" onsubmit="return false;">
 		    <input name="search_keyword" value="" type="text" autocomplete="off" id="search_keyword" data-role="input" class="search-broad " placeholder="想找什么？输入关键字试试" />
 		    <input data-role="btn" name="search" id="search_button" type="submit" class="sbtn-s" value="搜索" />
 		  </form>
@@ -81,13 +81,66 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <dl class="hot-city clearfix">
                 <dt>房屋类型：</dt>
                 <dd>
-                 <a href="">出售</a>
-                 <a href="${pageContext.request.contextPath}/uu_indexbuy.action">求购</a>
+                 <a href="${pageContext.request.contextPath}/index.action">出售</a>
+                 <a href="">求购</a>
                  </dd>
             </dl>  
              <form id="cityform" name="cityform" action = "house_findByProperty.action" >
             <dl class="all-city clearfix">
-            <%@ include file="select.jsp" %>
+     
+        <!-- 按总价 -->
+		<dl class="secitem" id="price_secitem1" style="">
+			<dt>总价：</dt>
+			<dd>
+				<input type="radio" name="countprice" id="countprice" value="-1" checked="checked">不限
+				<input type="radio" name="countprice" id="countprice" value="30">30万以下
+				<input type="radio" name="countprice" id="countprice" value="50">30-50万
+				<input type="radio" name="countprice" id="countprice" value="80">50-80万
+				<input type="radio" name="countprice" id="countprice" value="100">80万以上
+				<input type="radio" name="countprice" id="countprice" value="-2">其他
+				<span class="text text2"><input
+						type="text" name="price1" muti="1" min="0" max="999999"
+						name="b_q" autocomplete="off"></span><span class="dev"> -
+				</span><span class="text text2"><input type="text"
+						name="price2" muti="1" min="0" max="999999" name="b_q"
+						autocomplete="off"></span><span class="dev">万</span><span
+					class="btn btn2" style="display:none"><input type="button"
+						value="价格筛选"></span></span>
+			</dd>
+		</dl>
+        
+        <dl class="secitem" id="mianji">
+			<dt>面积：</dt>
+			<dd>
+
+				<input type="radio" name="area" id="area" value="-1" checked="checked">不限
+				<input type="radio" name="area" id="area" value="50">50以下
+				<input type="radio" name="area" id="area" value="70">50-70
+				<input type="radio" name="area" id="area" value="90">70-90
+				<input type="radio" name="area" id="area" value="100">90以上
+			</dd>
+		</dl>
+
+		<dl class="secitem" id="houseType">
+			<dt>厅室：</dt>
+			<dd>
+			<input type="radio" name="shitingwei" id="shitingwei" value="-1" checked="checked">不限
+			<input type="radio" name="shitingwei" id="shitingwei" value="-2">其他
+			<span
+					class="prifilter" id="tingshi_filter">
+					<span class="text text2">
+					<input type="text" name="shi" min="0" max="10" name="b_q" combine="tingshi" autocomplete="off"></span>
+					<span class="dev">室 </span>
+					<span class="text text2">
+					<input type="text" name="ting" min="0" max="10" name="b_q" combine="tingshi" autocomplete="off"></span>
+					<span class="dev">厅 </span>
+					<span class="text text2">
+					<input type="text" name="wei" min="0" max="10" name="b_q" combine="tingshi" autocomplete="off"></span>
+					<span class="dev">卫 </span>
+					<span class="btn btn2" style="display:none"><input type="button"
+						value="厅室筛选"></span></span>
+			</dd>
+		</dl>
                 <dt>条件提交：</dt>
                 <dd>
 				<div class="">
@@ -122,8 +175,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                      </div>
                       
                        <div class="list-word">
-                           <span class="sp-general"><s:property value="#h.areas" /></span>
-                           <span class="sp-coordinate"><i class="ico-coordinate"></i><s:property value="#h.village" /> - <s:property value="#h.stretch" />                                                                                                                                      </span>
+                           <span class="sp-general"><s:property value="#h.identify" /></span>
+                           <span class="sp-coordinate"><i class="ico-coordinate"></i><s:property value="#h.village" />                                                                                                                                     </span>
                        </div>
                        
                        <div class="lbl-box clearfix">
@@ -131,40 +184,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                        </div>
                                              
                        <p class="list-word fc-999"><span class="js-huxing"><s:property value="#h.layout" /></span>
-                       	<i class="cut-line"></i><s:property value="#h.floor" /> 
-                       	<i class="cut-line"></i><s:property value="#h.htime" /> 
-                       	<i class="cut-line"></i><s:property value="#h.identify" /> 
                        	<i class="cut-line"></i><s:date name="#h.hdate" format="yyyy-MM-dd" /> 
+                       	<i class="cut-line"></i><s:property value="#h.propertyRight"/>
                        </p>
                    </div>
                     
                     <div class="list-mod3">
                         <p class="list-part list-part-first">
-                       		 <em class="sale-price js-price"><s:property value="#h.countprice" />万元</em> 
+                       		 <em class="sale-price js-price"><s:property value="#h.feature" /></em> 
                       	</p>
-                        <p class="list-part"><s:property value="#h.area"/>m²（<s:property value="#h.untiprice"/>元/m²）
+                        <p class="list-part"><s:property value="#h.untiprice"/>
                         </p>              
                     </div>
                 </li> 
 				</s:iterator>	                                            
             </ul>
-            <!-- 
-            <div class="pagination">
-			<span>第 <s:property value="pageBean.page"/>/<s:property value="pageBean.totalPage"/> 页</span>
-		第<s:property value="pageBean.page"/>/<s:property value="pageBean.totalPage"/>页 
-							<s:if test="pageBean.page != 1">
-								<a href="${ pageContext.request.contextPath }/house_findByPage.action?page=1">首页</a>|
-								<a href="${ pageContext.request.contextPath }/house_findByPage.action?page=<s:property value="pageBean.page-1"/>">上一页</a>|
-							</s:if>
-							<s:if test="pageBean.page != pageBean.totalPage">
-								<a href="${ pageContext.request.contextPath }/house_findByPage.action?page=<s:property value="pageBean.page+1"/>">下一页</a>|
-								<a href="${ pageContext.request.contextPath }/house_findByPage.action?page=<s:property value="pageBean.totalPage"/>">尾页</a>|
-							</s:if>
-	</div>
-            
-           
-             -->
-	
 	
         </div>
         

@@ -24,11 +24,11 @@ body {
       <table>
       <tr>
         <td>管理员姓名：</td>
-        <td><input type="text" name="username" /></td>
+        <td><input type="text" name="ausername" /></td>
       </tr>
       <tr>
         <td>管理员密码：</td>
-        <td><input type="password" name="password" /></td>
+        <td><input type="password" name="apassword" /></td>
       </tr>
       <tr></tr>
       <tr></tr>
